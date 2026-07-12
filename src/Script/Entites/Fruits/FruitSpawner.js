@@ -18,7 +18,7 @@ export default class FruitSpawner
 
 	Fruit;
 	SpawnCooldown = 0;
-	MaxSpawnCooldown = 1; //In Seconds
+	MaxSpawnCooldown = 60; //In Seconds
 	FruitsSpawned = [];
 
 	MinSpawnPosition = new Vector2(200, 80)

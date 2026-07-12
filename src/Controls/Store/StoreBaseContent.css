@@ -1,0 +1,207 @@
+.BaseControl
+{
+	position: absolute;
+	width: 100%;
+	height: 622px;
+	background: rgba(32, 32, 32,0.5);
+}
+
+.TabControl
+{
+	background: rgb(32, 100, 32);
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.TabButton
+{
+	width: 200px;
+	height: 80%;
+	background: rgba(32, 32, 32,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	color: white;
+    transition: 0.3s;
+	user-select: none;
+}
+
+.TabButton:hover
+{
+    background-color: white;
+    color: black;
+}
+
+.StoreButtonsBase
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	overflow-y: auto;
+}
+
+.ControlContent
+{
+	display: grid;
+	grid-template-columns: 75% 25%;
+	height: 90%;
+}
+
+/*StoreFruitButtonContent*/
+
+.StoreFruitButton
+{
+	border: 5px solid rgba(0, 0, 0, 0);
+	background-color: yellowgreen;
+	width: 120px;
+	height: 120px;
+	margin: 10px auto;
+    transition: 0.3s;
+	border-radius: 15px;
+	padding: 10px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	user-select: false;
+}
+
+.StoreFruitButton:hover
+{
+	border: 5px solid white;
+	
+}
+
+/*StoreLateralContents*/
+
+.StoreLateralContents
+{
+	background: green;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 10% 5% 15% 25% 25% 15%;
+	flex-direction: column;
+}
+
+.StoreContentName
+{
+	color: white;
+	font-size: xx-large;
+	text-align: center;
+	padding-top: 15px;
+}
+
+.StoreContentLevel
+{
+	color: white;
+	font-size: large;
+	text-align: center;
+
+}
+
+.StoreContentDescritpion
+{
+	background: rgb(32, 100, 32);
+	width: 80%;
+	height: 90%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: medium;
+	border-radius: 20px;
+}
+
+.StoreContentStatus
+{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.StoreContentStatusTable
+{
+	margin: auto;
+  	width: 90%;
+	border-collapse: collapse;
+	border: 3px solid black;
+}
+
+.StoreContentStatusTableContent
+{
+	text-align: left;
+	border: 1px solid black;
+	color: white;
+	height: 30px;
+}
+
+th.StoreContentStatusTableContent
+{
+ 	text-align: center;
+	background-color: yellowgreen;
+}
+
+td.StoreContentStatusTableContent
+{
+  	text-align: left;
+	background: rgb(32, 100, 32);
+	padding-left: 5px;
+}
+
+.StoreContentUpgradeDescription
+{
+	background: rgb(32, 100, 32);
+	width: 80%;
+	height: 40%;
+	margin: auto;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-size: medium;
+	border-radius: 20px;
+
+}
+
+.StoreUpgradeButton
+{
+	width: 80%;
+	height: 70px;
+	background: rgba(32, 32, 32,0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+	color: white;
+    transition: 0.3s;
+	user-select: none;
+}
+
+.StoreUpgradeButton:hover
+{
+    background-color: white;
+    color: black;
+}
+
+.StoreContentUpgradeButtonContainer
+{
+	display: flex;
+	flex-direction: row;
+}
+
+.StoreContentBranchUpgrade
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.BranchUpgradeButton
+{
+	width: 30%;
+	height: 40px;
+
+}

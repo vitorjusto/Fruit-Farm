@@ -1,0 +1,28 @@
+.HudBase
+{
+	width: auto;
+	height: 30;
+	border: 8px solid black;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 2px 8px;
+}
+
+.HudContainer
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 120px;
+}
+
+.HudMoneyContainer
+{
+	flex-direction: row;
+}
+
+.HudButtonsContainer
+{
+	flex-direction: row-Reverse;
+}
