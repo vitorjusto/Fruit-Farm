@@ -1,4 +1,22 @@
+:root {
+  --text-black: black;
+  --text-white: white;
+
+  --base-control: rgba(32, 32, 32,0.5);
+
+  --button-background-color: rgba(32, 32, 32,0.5);
+  --button-background-color-hover: white;
+
+  --tab-color: rgb(32, 100, 32);
+
+  --container: green;
+  --sub-container: rgb(32, 100, 32);
+  --sub-container2: yellowgreen;
+
+  user-select: none;
+}
+
 body
 {
-	margin: 0px;
+	margin: 0;
 }

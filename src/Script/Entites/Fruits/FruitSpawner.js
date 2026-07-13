@@ -24,12 +24,25 @@ export default class FruitSpawner
 	MinSpawnPosition = new Vector2(200, 80)
 	TreeSize = new Vector2(800, 300)
 
-	constructor(context, canvas)
+	FruitName = ''
+	Level = 1
+	Description = ''
+	SellingPrice = 2
+	UpgradePrice = 10
+	AvailableBranchUpgrade = true
+
+	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice)
 	{
 		this.context = context
 		this.canvas = canvas
 		this.SpawnCooldown = this.MaxSpawnCooldown;
 		this.FruitsSpawned.push(new Fruit(this.context, this.MinSpawnPosition.X, this.MinSpawnPosition.Y))
+
+		this.FruitName = fruitName
+		this.Level = level
+		this.Description = description
+		this.SellingPrice = sellingPrice
+		this.UpgradePrice = upgradePrice
 	}
 
 	Update(deltaTime)

@@ -1,0 +1,52 @@
+.BaseControl
+{
+	position: absolute;
+	width: 100%;
+	height: 622px;
+	background: var(--base-control);
+}
+
+.TabControl
+{
+	background: var(--tab-color);
+	height: 60px;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.TabButton
+{
+	width: 200px;
+	height: 80%;
+	background: var(--button-background-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 10px;
+    color: var(--text-white);
+    transition: 0.3s;
+	user-select: none;
+}
+
+.TabButton:hover
+{
+    background: var(--button-background-color-hover);
+    color: var(--text-black);
+}
+
+.StoreButtonsBase
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto;
+	overflow-y: auto;
+}
+
+.ControlContent
+{
+	display: grid;
+	grid-template-columns: 75% 25%;
+	height: 90%;
+}
+
+/*StoreFruitButtonContent*/
