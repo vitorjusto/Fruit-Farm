@@ -9,7 +9,10 @@ export default class GameManager
 	skyManager;
 	fruitManager;
 
-	constructor(canvas)
+	money;
+	setMoney;
+
+	constructor(canvas, money, setMoney)
 	{
 		this.canvas = canvas
 		this.context = canvas.getContext("2d");
@@ -18,6 +21,9 @@ export default class GameManager
 
 		this.skyManager = new BackgroundManager(this.context, this.canvas)
 		this.fruitManager = new FruitManager(this.context, this.canvas)
+
+		this.money = money
+		this.setMoney = setMoney
 	}
 
 	start() 
@@ -50,4 +56,12 @@ export default class GameManager
 		this.skyManager.update()
 		this.fruitManager.Update(deltaTime)
   	}
+
+	HarvestFruits()
+	{
+		var total = this.fruitManager.HarvestFruits()
+		console.log(this.money)
+		this.money += total
+		this.setMoney(this.money)
+	}
 }

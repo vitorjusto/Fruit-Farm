@@ -18,7 +18,7 @@ export default class FruitSpawner
 
 	Fruit;
 	SpawnCooldown = 0;
-	MaxSpawnCooldown = 60; //In Seconds
+	MaxSpawnCooldown = 6; //In Seconds
 	FruitsSpawned = [];
 
 	MinSpawnPosition = new Vector2(200, 80)
@@ -29,7 +29,7 @@ export default class FruitSpawner
 	Description = ''
 	SellingPrice = 2
 	UpgradePrice = 10
-	AvailableBranchUpgrade = true
+	AvailableBranchUpgrade = false
 
 	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice)
 	{
@@ -62,6 +62,14 @@ export default class FruitSpawner
 		});
 	}
 
+	
+	HarvestFruits()
+	{
+		var total = this.FruitsSpawned.length * this.SellingPrice
+		this.FruitsSpawned = []
+
+		return total
+	}
 }
 
 export class Fruit

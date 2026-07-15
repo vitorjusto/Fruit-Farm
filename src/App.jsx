@@ -7,10 +7,11 @@ import Hud from './Controls/Hud/Hud'
 
 function App() {
 
+	var [money, setMoney] = useState(0)
   return (
 	<>
-		<Hud/>
-		<GameContent/>
+		<Hud money={money}/>
+		<GameContent money={money} setMoney={setMoney}/>
 	</>
   )
 }

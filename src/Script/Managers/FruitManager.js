@@ -7,7 +7,7 @@ export default class FruitManager
 
 	constructor(context, canvas)
 	{
-		this.FruitsSpawners.push(new FruitSpawner(context, canvas))
+		this.FruitsSpawners.push(new FruitSpawner(context, canvas, '', 1, 'aa', 3, 1))
 	}
 
 	Update(deltaTime)
@@ -15,5 +15,16 @@ export default class FruitManager
 		this.FruitsSpawners.forEach(element => {
 			element.Update(deltaTime)
 		});
+	}
+
+	HarvestFruits()
+	{
+		var total = 0
+
+		this.FruitsSpawners.forEach(element => {
+			total += element.HarvestFruits()
+		});
+
+		return total;
 	}
 }

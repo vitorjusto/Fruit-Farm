@@ -4,7 +4,7 @@ import moneyIcon from '../../assets/Money.png'
 import StoreBaseContent from '../Store/StoreBaseContent'
 import {useState} from 'react'
 
-export default function Hud() {
+export default function Hud({money}) {
 
 
 	var [isOpen, setIsOpenShop] = useState(true)
@@ -19,7 +19,7 @@ export default function Hud() {
 		<div className="HudBase">
 			<div className="HudContainer HudMoneyContainer">
   				<img src={moneyIcon} width={64} height={64} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-				<p>$aaa</p>
+				<p>{money}</p>
 			</div>
 			<div className="HudContainer HudButtonsContainer">
 				<button onClick={onStoreButtonClick}>
