@@ -7,7 +7,7 @@ import {useState} from 'react'
 export default function Hud({money}) {
 
 
-	var [isOpen, setIsOpenShop] = useState(true)
+	var [isOpen, setIsOpenShop] = useState(false)
 
 	function onStoreButtonClick()
 	{

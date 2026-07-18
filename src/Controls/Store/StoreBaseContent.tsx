@@ -3,6 +3,7 @@ import StoreItemButton from './StoreItemButton'
 import StoreFruitLateralContent from './StoreLateralContent'
 import {useState} from 'react'
 import FruitSpawner from '../../Script/Entites/Fruits/FruitSpawner'
+import { gameManager } from '../../App'
 
 export default function StoreBaseContent({visible}) {
 
@@ -27,6 +28,14 @@ export default function StoreBaseContent({visible}) {
 		setSelectedAvaliableBranchUpgrade(fruitSpawner.AvailableBranchUpgrade)
 	}
 
+	function fruitStoreButtons()
+	{
+		if(!gameManager)
+			return null
+
+		return gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x}/>))
+	}
+
   	return (
 	<div style={{display: (visible? 'inline' :'none')}}>
 		<div className={'BaseControl'}>
@@ -37,8 +46,7 @@ export default function StoreBaseContent({visible}) {
 			</div>
 			<div className={'ControlContent'}>
 				<div className={'StoreButtonsBase'}>
-					<StoreItemButton onSelectedChanged={onClick} fruitSpawner={new FruitSpawner(null, null, "Apple", 2, "Simple Fruit", 20, 2)}/>
-					<StoreItemButton onSelectedChanged={onClick} fruitSpawner={new FruitSpawner(null, null, "Apple 2", 3, "Simple Fruit2", 21, 3)}/>
+					{fruitStoreButtons()}
 				</div>
 				<StoreFruitLateralContent 
 						UpgradePrice={selectedUpgradePrice}
