@@ -1,3 +1,4 @@
+import { gameManager } from '../../../App'
 
 class Vector2
 {
@@ -69,6 +70,25 @@ export default class FruitSpawner
 		this.FruitsSpawned = []
 
 		return total
+	}
+
+	UpgradeFruit()
+	{
+		if(gameManager.money < this.UpgradePrice)
+			return;
+
+		gameManager.setMoney(gameManager.money - this.UpgradePrice)
+
+		this.UpgradePrice += 1
+		this.SellingPrice += 2
+		this.Level += 1
+		this.MaxSpawnCooldown -= 0.01
+
+		if(this.Level == 15)
+			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1))
+
+		if(this.Level == 25)
+			this.AvailableBranchUpgrade = true
 	}
 }
 

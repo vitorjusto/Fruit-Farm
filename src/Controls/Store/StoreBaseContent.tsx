@@ -15,6 +15,9 @@ export default function StoreBaseContent({visible}) {
 	var [selectedUpgradePrice, setSelectedUpgradePrice] = useState(0)
 	var [selectedAvaliableBranchUpgrade, setSelectedAvaliableBranchUpgrade] = useState(false)
 
+	
+	var [selectedfruitSpawner, setselectedfruitSpawner] = useState(null)
+
 	function onClick(fruitSpawner : FruitSpawner)
 	{
 		setSelectedText(fruitSpawner.FruitName)
@@ -26,6 +29,14 @@ export default function StoreBaseContent({visible}) {
 		setSelectedUpgradePrice(fruitSpawner.UpgradePrice)
 
 		setSelectedAvaliableBranchUpgrade(fruitSpawner.AvailableBranchUpgrade)
+
+		setselectedfruitSpawner(fruitSpawner)
+	}
+
+	function onUpgradeClick()
+	{
+		selectedfruitSpawner.UpgradeFruit()
+		onClick(selectedfruitSpawner)
 	}
 
 	function fruitStoreButtons()
@@ -49,6 +60,7 @@ export default function StoreBaseContent({visible}) {
 					{fruitStoreButtons()}
 				</div>
 				<StoreFruitLateralContent 
+						onUpgradeClick={onUpgradeClick}
 						UpgradePrice={selectedUpgradePrice}
 						Text={selectedText} 
 						Level={selectedLevel} 

@@ -7,7 +7,7 @@ export default class FruitManager
 
 	constructor(context, canvas)
 	{
-		this.FruitsSpawners.push(new FruitSpawner(context, canvas, 'Apple', 1, 'Simple fruit, simple price', 3, 1))
+		this.FruitsSpawners.push(new FruitSpawner(context, canvas, 'Apple', 1, 'Simple fruit, simple price', 3000, 1))
 	}
 
 	Update(deltaTime)

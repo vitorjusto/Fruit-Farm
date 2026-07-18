@@ -10,7 +10,7 @@ export default function StoreFruitLateralContent(props) {
 		<BranchUpgrade AvaliableBranchUpgrade={props.AvaliableBranchUpgrade}/>
 		<UpgradeTable SellingPrice={props.SellingPrice} SpawnTimer={props.SpawnTimer}/>
 		<div>
-			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>{props.UpgradePrice}</div>
+			<div onClick={props.onUpgradeClick} className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>{props.UpgradePrice}</div>
 		</div>
 	</div>
   )
