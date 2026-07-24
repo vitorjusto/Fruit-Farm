@@ -1,75 +1,26 @@
+import { useState } from 'react'
+import FruitsStoreContainer from './Fruits/FruitsStoreContainer'
+import UtilityStoreBaseContainer from './Utility/UtilityStoreBaseContainer'
+import StatisticsStoreBaseContainer from './Statistics/StatisticsStoreBaseContainer'
 import './Styles/StoreBaseContent.css'
-import StoreItemButton from './StoreItemButton'
-import StoreFruitLateralContent from './StoreLateralContent'
-import {useState} from 'react'
-import FruitSpawner from '../../Script/Entites/Fruits/FruitSpawner'
-import { gameManager } from '../../App'
+import FlowersStoreBaseContainer from './Flowers/FlowersStoreBaseContainer'
 
 export default function StoreBaseContent({visible}) {
 
-	var [selectedText, setSelectedText] = useState('')
-	var [selectedLevel, setSelectedLevel] = useState(0)
-	var [selectedDescription, setDescription] = useState('')
-	var [selectedSellingPrice, setSelectedSellingPrice] = useState(0)
-	var [selectedSpawnTimer, setSelectedSpawnTimer] = useState(0)
-	var [selectedUpgradePrice, setSelectedUpgradePrice] = useState(0)
-	var [selectedAvaliableBranchUpgrade, setSelectedAvaliableBranchUpgrade] = useState(false)
-
-	
-	var [selectedfruitSpawner, setselectedfruitSpawner] = useState(null)
-
-	function onClick(fruitSpawner : FruitSpawner)
-	{
-		setSelectedText(fruitSpawner.FruitName)
-		setSelectedLevel(fruitSpawner.Level)
-		setDescription(fruitSpawner.Description)
-
-		setSelectedSellingPrice(fruitSpawner.SellingPrice)
-		setSelectedSpawnTimer(fruitSpawner.MaxSpawnCooldown)
-		setSelectedUpgradePrice(fruitSpawner.UpgradePrice)
-
-		setSelectedAvaliableBranchUpgrade(fruitSpawner.AvailableBranchUpgrade)
-
-		setselectedfruitSpawner(fruitSpawner)
-	}
-
-	function onUpgradeClick()
-	{
-		selectedfruitSpawner.UpgradeFruit()
-		onClick(selectedfruitSpawner)
-	}
-
-	function fruitStoreButtons()
-	{
-		if(!gameManager)
-			return null
-
-		return gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x}/>))
-	}
+	var [storeContainer, setStoreContainer] = useState((<FruitsStoreContainer/>))
 
   	return (
 	<div style={{display: (visible? 'inline' :'none')}}>
 		<div className={'BaseControl'}>
 			<div className={'TabControl'} >
-				<div className={'TabButton'}>Fruits</div>
-				<div className={'TabButton'}>Flower</div>
-				<div className={'TabButton'}>Utility</div>
+				<div className={'TabButton'} onClick={() => setStoreContainer(<FruitsStoreContainer/>)}>Fruits</div>
+				<div className={'TabButton'} onClick={() => setStoreContainer(<FlowersStoreBaseContainer/>)}>Flowers</div>
+				<div className={'TabButton'} onClick={() => setStoreContainer(<UtilityStoreBaseContainer/>)}>Utility</div>
+				<div className={'TabButton'} onClick={() => setStoreContainer(<StatisticsStoreBaseContainer/>)}>Statistics</div>
 			</div>
-			<div className={'ControlContent'}>
-				<div className={'StoreButtonsBase'}>
-					{fruitStoreButtons()}
-				</div>
-				<StoreFruitLateralContent 
-						onUpgradeClick={onUpgradeClick}
-						UpgradePrice={selectedUpgradePrice}
-						Text={selectedText} 
-						Level={selectedLevel} 
-						Description={selectedDescription} 
-						SellingPrice={selectedSellingPrice} 
-						AvaliableBranchUpgrade={selectedAvaliableBranchUpgrade}
-						SpawnTimer={selectedSpawnTimer}/>
-			</div>
+			{storeContainer}
 		</div>
+		
 	</div>
   )
 }
