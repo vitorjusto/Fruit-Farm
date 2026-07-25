@@ -21,3 +21,28 @@ body
 {
 	margin: 0;
 }
+
+.PopupSubContainer
+{
+	background: var(--sub-container);
+	color: var(--text-white);
+	padding: 30px;
+	border-radius: 15px;
+}
+
+.PopupSubContainerSmall
+{
+	background: var(--sub-container);
+	color: var(--text-white);
+	padding: 10px;
+	border-radius: 15px;
+}
+
+.PopupSubContainerAchivment
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	color: var(--text-white);
+	margin-top: 20px;
+}
