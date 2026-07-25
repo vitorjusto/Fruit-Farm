@@ -12,6 +12,7 @@
   --container: green;
   --sub-container: rgb(32, 100, 32);
   --sub-container2: yellowgreen;
+  --sub-container3: rgb(32, 128, 32);
 
   user-select: none;
 }

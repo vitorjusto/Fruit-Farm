@@ -1,0 +1,54 @@
+.StatisticsTabContainer
+{
+	background-color: var(--container);
+	height: 60px;
+	display: grid;
+	grid-template-columns: auto auto auto;
+	grid-column-gap: 20px;
+	padding: 10px
+}
+
+.StatisticsTabButton
+{
+	background-color: var(--button-background-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--text-white);
+
+    transition: 0.3s;
+}
+
+.StatisticsTabButton:hover
+{
+
+	color: var(--text-black);
+	background-color: var(--button-background-color-hover);
+}
+
+.StatisticsContainer
+{
+	height: 70px;
+	color: var(--text-white);
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 50px;
+    transition: 0.5s;
+}
+
+.statisticsContainerOdd
+{
+	background-color: var(--sub-container);
+}
+
+.statisticsContainerEven
+{
+	background-color: var(--sub-container3);
+}
+
+.StatisticsContainer:hover
+{
+	background-color: var(--sub-container2);
+
+}

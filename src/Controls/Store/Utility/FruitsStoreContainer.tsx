@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { gameManager } from "../../../App"
 import StoreFruitLateralContent from "./StoreLateralContent"
 import FruitSpawner from "../../../Script/Entites/Fruits/FruitSpawner"
@@ -16,7 +16,6 @@ export default function FruitsStoreContainer()
 	var [selectedAvaliableBranchUpgrade, setSelectedAvaliableBranchUpgrade] = useState(false)
 	
 	var [selectedfruitSpawner, setselectedfruitSpawner] = useState(null)
-	var [fruitStoreButtons, setFruitStoreButton] = useState(null)
 
 	function onClick(fruitSpawner : FruitSpawner)
 	{
@@ -32,6 +31,14 @@ export default function FruitsStoreContainer()
 
 		setselectedfruitSpawner(fruitSpawner)
 	}
+
+	function fruitStoreButtons()
+	{
+		if(!gameManager)
+			return null
+
+		return gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x}/>))
+	}
 	
 	function onUpgradeClick()
 	{
@@ -39,18 +46,9 @@ export default function FruitsStoreContainer()
 		onClick(selectedfruitSpawner)
 	}
 
-	useEffect(() => {
-
-		if(!gameManager)
-			return;
-
-		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} key={x.FruitId}/>)))
-
-	}, []);
-
 	return(<div className={'ControlContent'}>
 				<div className={'StoreButtonsBase'}>
-					{fruitStoreButtons}
+					{fruitStoreButtons()}
 				</div>
 				<StoreFruitLateralContent 
 						onUpgradeClick={onUpgradeClick}

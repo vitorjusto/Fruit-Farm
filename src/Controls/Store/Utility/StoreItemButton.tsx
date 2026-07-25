@@ -1,0 +1,15 @@
+import moneyIcon from '../../../assets/Money.png'
+import './Styles/StoreItemButton.css'
+import FruitSpawner from '../../../Script/Entites/Fruits/FruitSpawner'
+
+export default function StoreItemButton() {
+
+  return (
+	<div className={'StoreFruitButton'}>
+		<img src={moneyIcon} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
+		<div style={{textAlign:'center', fontSize:'xx-large'}}>5</div>
+		<div>Price: </div>
+		<div>Spawn Timer: s</div>
+	</div>
+  )
+}

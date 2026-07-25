@@ -31,19 +31,20 @@ export default class FruitSpawner
 	SellingPrice = 2
 	UpgradePrice = 10
 	AvailableBranchUpgrade = false
+	FruitId = 0
 
-	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice)
+	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice, fruitId)
 	{
 		this.context = context
 		this.canvas = canvas
 		this.SpawnCooldown = this.MaxSpawnCooldown;
 		this.FruitsSpawned.push(new Fruit(this.context, this.MinSpawnPosition.X, this.MinSpawnPosition.Y))
-
 		this.FruitName = fruitName
 		this.Level = level
 		this.Description = description
 		this.SellingPrice = sellingPrice
 		this.UpgradePrice = upgradePrice
+		this.FruitId = fruitId
 	}
 
 	Update(deltaTime)
@@ -85,7 +86,7 @@ export default class FruitSpawner
 		this.MaxSpawnCooldown -= 0.01
 
 		if(this.Level == 15)
-			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1))
+			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1, 1))
 
 		if(this.Level == 25)
 			this.AvailableBranchUpgrade = true
