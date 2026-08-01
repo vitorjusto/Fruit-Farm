@@ -1,4 +1,4 @@
-import moneyIcon from '../../../assets/Money.png'
+import moneyIcon from '/assets/Money.png'
 import './Styles/StoreItemButton.css'
 import FruitSpawner from '../../../Script/Entites/Fruits/FruitSpawner'
 

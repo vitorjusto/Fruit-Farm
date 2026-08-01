@@ -1,6 +1,6 @@
 
 import './Hud.css'
-import moneyIcon from '../../assets/Money.png'
+import moneyIcon from '/assets/Money.png'
 import StoreBaseContent from '../Store/StoreBaseContent'
 import {useState} from 'react'
 

@@ -18,7 +18,8 @@ export default class GameManager
 		this.context = canvas.getContext("2d");
 		
     	if (!this.context) throw new Error("Canvas 2D not avaliable");
-
+		
+		this.context.imageSmoothingEnabled = false;
 		this.skyManager = new BackgroundManager(this.context, this.canvas)
 		this.fruitManager = new FruitManager(this.context, this.canvas)
 

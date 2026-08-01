@@ -1,7 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
 import Hud from './Controls/Hud/Hud'
 import GameManager from "./Script/Managers/GameManager"
 

@@ -1,6 +1,6 @@
 import './Styles/Flowers.css'
-import flower from '../../../assets/Flowers/Flower.png'
-import newFlower from '../../../assets/Flowers/New Flower Icon.png'
+import flower from '/assets/Flowers/Flower.png'
+import newFlower from '/assets/Flowers/New Flower Icon.png'
 import FlowerStoreLateralContent from './FlowerStoreLateralContent'
 
 export default function FlowersStoreBaseContainer() 
