@@ -1,4 +1,5 @@
 import { gameManager } from '../../../App'
+import { useState } from 'react'
 
 class Vector2
 {
@@ -30,7 +31,7 @@ export default class FruitSpawner
 	Description = ''
 	SellingPrice = 2
 	UpgradePrice = 10
-	AvailableBranchUpgrade;
+	AvailableBranchUpgrade = null;
 	FruitId = 0
 	BranchUpgradeId = 1
 
@@ -61,7 +62,7 @@ export default class FruitSpawner
 		}
 
 		this.FruitsSpawned.forEach(element => {
-			element.DrawFruit()
+			element.DrawFruit(this.BranchUpgradeId)
 		});
 	}
 
@@ -90,7 +91,17 @@ export default class FruitSpawner
 			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1, 1))
 
 		if(this.Level == 25)
-			this.AvailableBranchUpgrade = new BranchUpgradeCollection()
+			this.AvailableBranchUpgrade = new BranchUpgradeCollection(
+		new BranchUpgrade(2, "More BIG", "a fruta possui mais espaço e o preço de venda fica bem maior (comparado com More delicius), com o tempo de aparência bem maior também"),
+		new BranchUpgrade(3, "More Delicius", "as frutas dão mais valor de venda com o preço de upgrade aumenta um pouco"),
+		new BranchUpgrade(4, "More Genetic", "as frutas tem menos espaço e menos tempo de coowldown e menos preço de venda"),
+		)
+	}
+
+	UpdateBranchUpgrade(id)
+	{
+		this.BranchUpgradeId = id
+		this.AvailableBranchUpgrade = null;
 	}
 }
 
@@ -101,7 +112,6 @@ export class Fruit
 	Y;
 	image;
 	ImageLoaded;
-	CurrentUpgrade = 1;
 
 	constructor(context, x, y)
 	{
@@ -118,14 +128,14 @@ export class Fruit
     	};
 	}
 
-	DrawFruit()
+	DrawFruit(branchUpgradeId)
 	{
 		if(!this.ImageLoaded)
 			return;
 
 		this.context.fillStyle = "red"
-		var sx = Math.floor((this.CurrentUpgrade - 1)% 6) * 32
-		var sy = Math.floor((this.CurrentUpgrade - 1)/ 6) * 32
+		var sx = Math.floor((branchUpgradeId - 1)% 6) * 32
+		var sy = Math.floor((branchUpgradeId - 1)/ 6) * 32
     	this.context.drawImage(this.image, sx, sy, 32, 32, this.X, this.Y, 64, 64);
 	}
 }
@@ -149,13 +159,12 @@ export class BranchUpgrade
 {
 	BranchUpgradeId;
 	Name;
-	Id;
+	Description;
 
-	constructor(BranchUpgradeId, Name, Id)
+	constructor(BranchUpgradeId, Name, Description)
 	{
 		this.BranchUpgradeId = BranchUpgradeId;
 		this.Name = Name;
-		this.Upgrade3 = upgrade3;
-
+		this.Description = Description;
 	}
 }

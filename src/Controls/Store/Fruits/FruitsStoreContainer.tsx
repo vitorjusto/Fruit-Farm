@@ -13,9 +13,9 @@ export default function FruitsStoreContainer()
 	var [selectedSellingPrice, setSelectedSellingPrice] = useState(0)
 	var [selectedSpawnTimer, setSelectedSpawnTimer] = useState(0)
 	var [selectedUpgradePrice, setSelectedUpgradePrice] = useState(0)
-	var [selectedAvaliableBranchUpgrade, setSelectedAvaliableBranchUpgrade] = useState(false)
+	var [selectedAvaliableBranchUpgrade, setSelectedAvaliableBranchUpgrade] = useState(null)
+	var [selectedFruitId, setSelectedFruitId] = useState(0)
 	
-	var [selectedfruitSpawner, setselectedfruitSpawner] = useState(null)
 	var [fruitStoreButtons, setFruitStoreButton] = useState(null)
 
 	function onClick(fruitSpawner : FruitSpawner)
@@ -28,23 +28,17 @@ export default function FruitsStoreContainer()
 		setSelectedSpawnTimer(fruitSpawner.MaxSpawnCooldown)
 		setSelectedUpgradePrice(fruitSpawner.UpgradePrice)
 
+		setSelectedFruitId(fruitSpawner.FruitId)
 		setSelectedAvaliableBranchUpgrade(fruitSpawner.AvailableBranchUpgrade)
 
-		setselectedfruitSpawner(fruitSpawner)
 	}
 	
-	function onUpgradeClick()
-	{
-		selectedfruitSpawner.UpgradeFruit()
-		onClick(selectedfruitSpawner)
-	}
-
 	useEffect(() => {
 
 		if(!gameManager)
 			return;
 
-		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} key={x.FruitId}/>)))
+		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} fruitId={x.FruitId} key={x.FruitId}/>)))
 
 	}, []);
 
@@ -53,7 +47,8 @@ export default function FruitsStoreContainer()
 					{fruitStoreButtons}
 				</div>
 				<StoreFruitLateralContent 
-						onUpgradeClick={onUpgradeClick}
+						onUpdate={onClick}
+						fruitId={selectedFruitId}
 						UpgradePrice={selectedUpgradePrice}
 						Text={selectedText} 
 						Level={selectedLevel} 
