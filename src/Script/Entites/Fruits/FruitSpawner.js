@@ -88,7 +88,7 @@ export default class FruitSpawner
 		this.MaxSpawnCooldown -= 0.01
 
 		if(this.Level == 15)
-			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1, 1))
+			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1, this.FruitId + 1))
 
 		if(this.Level == 25)
 			this.AvailableBranchUpgrade = new BranchUpgradeCollection(

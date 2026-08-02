@@ -8,7 +8,11 @@ export default function StoreFruitLateralContent(props) {
 		let fruitSpawner = gameManager.fruitManager.FruitsSpawners.find((value, index) => value.FruitId == props.fruitId)
 
 		fruitSpawner.UpgradeFruit()
-		props.onUpdate(fruitSpawner)
+
+		props.SelectedFruitStatesDTO.setSellingPrice(fruitSpawner.SellingPrice)
+		props.SelectedFruitStatesDTO.setMaxSpawnCooldown(fruitSpawner.MaxSpawnCooldown)
+		
+		props.onUpdate(fruitSpawner, props.SelectedFruitStatesDTO)
 	}
 
   return (
