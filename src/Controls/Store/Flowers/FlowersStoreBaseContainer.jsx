@@ -7,7 +7,6 @@ export default function FlowersStoreBaseContainer()
 {
 	return(<div className="ControlContent">
 				<div className="StoreButtonsBase">
-					<FlowerUpgradeButton/>
 					<NewFlowerButton/>
 				</div>
 				<FlowerStoreLateralContent/>
