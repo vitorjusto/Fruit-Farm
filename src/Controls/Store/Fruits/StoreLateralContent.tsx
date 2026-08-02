@@ -20,7 +20,11 @@ export default function StoreFruitLateralContent(props) {
 		<div className={'StoreContentName'}>{props.Text}</div>
 		<div className={'StoreContentLevel'}>Level: {props.Level}</div>
 		<div className={'StoreContentDescritpion'}>{props.Description}</div>
-		<BranchUpgrade onUpgradeClick={props.onUpdate} AvaliableBranchUpgrade={props.AvaliableBranchUpgrade} fruitId={props.fruitId}/>
+		<BranchUpgrade onUpgradeClick={props.onUpdate} 
+					   AvaliableBranchUpgrade={props.AvaliableBranchUpgrade} 
+					   fruitId={props.fruitId}
+					   SelectedFruitStatesDTO={props.SelectedFruitStatesDTO}/>
+
 		<UpgradeTable SellingPrice={props.SellingPrice} SpawnTimer={props.SpawnTimer}/>
 		<div>
 			<div onClick={upgradeFruit} className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>{props.UpgradePrice}</div>
@@ -36,7 +40,11 @@ function BranchUpgrade(props) {
 		let fruitSpawner = gameManager.fruitManager.FruitsSpawners.find((value, index) => value.FruitId == props.fruitId)
 
 		fruitSpawner.UpdateBranchUpgrade(id)
-		props.onUpgradeClick(fruitSpawner)
+
+		props.SelectedFruitStatesDTO.setSellingPrice(fruitSpawner.SellingPrice)
+		props.SelectedFruitStatesDTO.setMaxSpawnCooldown(fruitSpawner.MaxSpawnCooldown)
+		
+		props.onUpgradeClick(fruitSpawner, props.SelectedFruitStatesDTO)
 
 	}
 

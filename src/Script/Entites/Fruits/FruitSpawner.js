@@ -34,6 +34,7 @@ export default class FruitSpawner
 	AvailableBranchUpgrade = null;
 	FruitId = 0
 	BranchUpgradeId = 1
+	MaxSize = 100
 
 	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice, fruitId)
 	{
@@ -53,7 +54,7 @@ export default class FruitSpawner
 	{
 		this.SpawnCooldown -= deltaTime
 
-		if(this.SpawnCooldown <= 0)
+		if(this.SpawnCooldown <= 0 && this.MaxSize > this.FruitsSpawned.length)
 		{
 			this.SpawnCooldown += this.MaxSpawnCooldown;
 			this.FruitsSpawned.push(new Fruit(this.context, 
@@ -100,8 +101,29 @@ export default class FruitSpawner
 
 	UpdateBranchUpgrade(id)
 	{
-		this.BranchUpgradeId = id
-		this.AvailableBranchUpgrade = null;
+		ChangeFruitBranchUpgrade(this, id)
+	}
+}
+
+function ChangeFruitBranchUpgrade(fruitSpawner, id)
+{
+	fruitSpawner.BranchUpgradeId = id
+	fruitSpawner.AvailableBranchUpgrade = null;
+
+	if(id == 2)//More BIG
+	{
+		fruitSpawner.MaxSpawnCooldown *= 3
+		fruitSpawner.MaxSize /= 2
+		fruitSpawner.SellingPrice *= 3
+	}else if(id == 3)//More Delicius
+	{
+		fruitSpawner.SellingPrice *= 1.5
+		fruitSpawner.UpgradePrice *= 1.5
+	}else if(id == 4)//More Genetic
+	{
+		fruitSpawner.MaxSpawnCooldown /= 1.5
+		fruitSpawner.MaxSize *= 2
+		fruitSpawner.SellingPrice /= 1.5
 	}
 }
 
