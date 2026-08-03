@@ -9,7 +9,36 @@
 	justify-content: space-around;
 }
 
-.baseContent
+.NewFlowerButton
 {
-	
+	width: 80%;
+	height: 70px;
+	background: var(--button-background-color);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: auto;
+	margin-top: 10px;
+	margin-bottom: 10px;
+    color: var(--text-white);
+    transition: 0.3s;
+	user-select: none;
+
+	justify-content: space-between;
+	padding: 0 20px
+
+}
+
+.NewFlowerButton:hover
+{
+    background: var(--button-background-color-hover);
+    color: var(--text-black);
+}
+
+.NewFlowerNameButton
+{
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 45%;
 }

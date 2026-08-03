@@ -9,16 +9,20 @@ export default class FlowerManager
 	{
 		this.Context = context
 		this.Canvas = canvas
-
-		// this.Flowers = [new Flower(AddMoney)]
+		this.AddMoney = AddMoney
+		this.Flowers = [new Flower(AddMoney)]
 	}
 
-	
 	Update(deltaTime)
 	{
 		this.Flowers.forEach(element => {
 			element.Update(deltaTime)
 		});
+	}
+
+	AddFlower(flowerId)
+	{
+		this.Flowers.push(new Flower(this.AddMoney))
 	}
 }
 
