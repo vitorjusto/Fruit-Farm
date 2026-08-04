@@ -9,12 +9,12 @@ export default function FlowerStoreLateralContent(props) {
 		<div className={'StoreContentDescritpion'}>{props.Description}</div>
 		<BranchUpgrade/>
 		<UpgradeTable MoneyPerSecond={props.MoneyPerSecond}/>
-		<div>
-			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>a</div>
+		<div onClick={props.onUpgrade}>
+			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>Upgrade: ${props.UpgradePrice}</div>
 		</div>
 		
 		<div>
-			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>a</div>
+			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>Sell Flower: ${props.SellingPrice}</div>
 		</div>
 	</div>
   )

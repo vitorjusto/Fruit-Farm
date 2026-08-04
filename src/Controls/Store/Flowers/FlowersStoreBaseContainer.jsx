@@ -12,6 +12,9 @@ export default function FlowersStoreBaseContainer()
 	var [selectedLevel, setSelectedLevel] = useState("")
 	var [selectedDescription, setSelectedDescription] = useState("")
 	var [selectedMoneyPerSecond, setSelectedMoneyPerSecond] = useState("")
+	var [selectedSellingPrice, setSelectedSellingPrice] = useState("")
+	var [selectedUpgradePrice, setSelectedUpgradePrice] = useState("")
+	var [selectedFlowerId, setSelectedFlowerId] = useState("")
 
 	var [newFlowerVisible, setNewFlowerVisible] = useState(false)
 	var [upgradeFlowerVisible, setupgradeFlowerVisible] = useState(false)
@@ -34,15 +37,25 @@ export default function FlowersStoreBaseContainer()
 	function onFlowerSelected(flowerId)
 	{
 		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id = flowerId);
-		console.log(flower.FlowerName)
 
+		setSelectedFlowerId(flowerId)
 		setSelectedFlowerName(flower.FlowerName)
 		setSelectedLevel(flower.Level)
 		setSelectedDescription(flower.Description)
 		setSelectedMoneyPerSecond(flower.MoneyPerSecond)
+		setSelectedSellingPrice(flower.SellingPrice)
+		setSelectedUpgradePrice(flower.UpgradePrice)
 
 		setNewFlowerVisible(false)
 		setupgradeFlowerVisible(true)
+	}
+
+	function onUpgrade()
+	{
+		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id = selectedFlowerId);
+		flower.UpgradeFlower()
+
+		onFlowerSelected(selectedFlowerId)
 	}
 
 	useEffect(() => {
@@ -59,11 +72,15 @@ export default function FlowersStoreBaseContainer()
 					<NewFlowerButton onClick={onNewFlowerClick}/>
 				</div>
 				<FlowerStoreLateralContent
+										onUpgrade={onUpgrade}
 										visible={upgradeFlowerVisible}
 										FlowerName={selectedFlowerName}
 										Level={selectedLevel}
 										Description={selectedDescription}
-										MoneyPerSecond={selectedMoneyPerSecond}/>
+										MoneyPerSecond={selectedMoneyPerSecond}
+										SellingPrice={selectedSellingPrice}
+										UpgradePrice={selectedUpgradePrice}
+										/>
 
 				<NewFlowerStoreLateralContent 
 										visible={newFlowerVisible}
