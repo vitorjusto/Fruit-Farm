@@ -42,3 +42,12 @@
 	justify-content: space-between;
 	width: 45%;
 }
+
+.FlowerStoreLateralContents
+{
+	background: var(--container);
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 10% 5% 10% 15% 25% 15%;
+	flex-direction: column;
+}

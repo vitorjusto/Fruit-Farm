@@ -155,7 +155,6 @@ export class Fruit
 		if(!this.ImageLoaded)
 			return;
 
-		this.context.fillStyle = "red"
 		var sx = Math.floor((branchUpgradeId - 1)% 6) * 32
 		var sy = Math.floor((branchUpgradeId - 1)/ 6) * 32
     	this.context.drawImage(this.image, sx, sy, 32, 32, this.X, this.Y, 64, 64);

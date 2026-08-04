@@ -5,7 +5,7 @@ export default function FlowerStoreLateralContent(props)
 {
 	
   return (
-	<div className={'StoreLateralContents'}>
+	<div className={'StoreLateralContents'} style={{display:(props.visible?'grid':'none')}}>
 		<NewFlowerButton AddFlower={props.AddFlower}/>
 	</div>
   )

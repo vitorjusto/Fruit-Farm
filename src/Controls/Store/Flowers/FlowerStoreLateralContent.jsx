@@ -3,12 +3,12 @@
 export default function FlowerStoreLateralContent(props) {
 
   return (
-	<div className={'StoreLateralContents'}>
-		<div className={'StoreContentName'}>a</div>
-		<div className={'StoreContentLevel'}>Level: </div>
-		<div className={'StoreContentDescritpion'}>desc</div>
+	<div className={'FlowerStoreLateralContents'} style={{display:(props.visible?'grid':'none')}}>
+		<div className={'StoreContentName'}>{props.FlowerName}</div>
+		<div className={'StoreContentLevel'}>Level: {props.Level}</div>
+		<div className={'StoreContentDescritpion'}>{props.Description}</div>
 		<BranchUpgrade/>
-		<UpgradeTable/>
+		<UpgradeTable MoneyPerSecond={props.MoneyPerSecond}/>
 		<div>
 			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>a</div>
 		</div>
@@ -44,14 +44,9 @@ function UpgradeTable(props)
 				<th className={'StoreContentStatusTableContent'}>Next Level</th>
 			</tr>
 			<tr>
-				<th className={'StoreContentStatusTableContent'}><b>Selling Price</b></th>
-				<td className={'StoreContentStatusTableContent'}>s</td>
+				<th className={'StoreContentStatusTableContent'}><b>Money Per Second</b></th>
+				<td className={'StoreContentStatusTableContent'}>{props.MoneyPerSecond}s</td>
 				<td className={'StoreContentStatusTableContent'}>0,00 (+0.02)</td>
-			</tr>
-			<tr>
-				<th className={'StoreContentStatusTableContent'}><b>Spawn Time</b></th>
-				<td className={'StoreContentStatusTableContent'}>d</td>
-				<td className={'StoreContentStatusTableContent'}>0 min (+0.02)</td>
 			</tr>
 		</table>
 	</div>

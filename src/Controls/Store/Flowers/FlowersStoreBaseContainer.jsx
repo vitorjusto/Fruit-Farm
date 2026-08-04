@@ -8,26 +8,41 @@ import {useState, useEffect} from 'react'
 
 export default function FlowersStoreBaseContainer()
 {
-	var flowerStoreLateralContent = (<FlowerStoreLateralContent/>)
-	var newFlowerStoreLateralContent = (<NewFlowerStoreLateralContent AddFlower={AddFlower}/>)
+	var [selectedFlowerName, setSelectedFlowerName] = useState("")
+	var [selectedLevel, setSelectedLevel] = useState("")
+	var [selectedDescription, setSelectedDescription] = useState("")
+	var [selectedMoneyPerSecond, setSelectedMoneyPerSecond] = useState("")
+
+	var [newFlowerVisible, setNewFlowerVisible] = useState(false)
+	var [upgradeFlowerVisible, setupgradeFlowerVisible] = useState(false)
 
 	var [flowerContents, setFlowerContents] = useState(null)
-	var [lateralContent, setlateralContent] = useState(flowerStoreLateralContent)
+
 
 	function AddFlower(flowerId)
 	{
 		gameManager.flowerManager.AddFlower(flowerId)
-		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton onClick={onFlowerSelected} key={i}/>)))
+		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
 	}
 
 	function onNewFlowerClick()
 	{
-		setlateralContent(newFlowerStoreLateralContent)
+		setNewFlowerVisible(true)
+		setupgradeFlowerVisible(false)
 	}
 
-	function onFlowerSelected()
+	function onFlowerSelected(flowerId)
 	{
-		setlateralContent(flowerStoreLateralContent)
+		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id = flowerId);
+		console.log(flower.FlowerName)
+
+		setSelectedFlowerName(flower.FlowerName)
+		setSelectedLevel(flower.Level)
+		setSelectedDescription(flower.Description)
+		setSelectedMoneyPerSecond(flower.MoneyPerSecond)
+
+		setNewFlowerVisible(false)
+		setupgradeFlowerVisible(true)
 	}
 
 	useEffect(() => {
@@ -35,7 +50,7 @@ export default function FlowersStoreBaseContainer()
 		if(!gameManager)
 			return;
 
-		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton onClick={onFlowerSelected} key={i}/>)))
+		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
 	}, []);
 
 	return(<div className="ControlContent">
@@ -43,14 +58,23 @@ export default function FlowersStoreBaseContainer()
 					{flowerContents}
 					<NewFlowerButton onClick={onNewFlowerClick}/>
 				</div>
-				{lateralContent}
+				<FlowerStoreLateralContent
+										visible={upgradeFlowerVisible}
+										FlowerName={selectedFlowerName}
+										Level={selectedLevel}
+										Description={selectedDescription}
+										MoneyPerSecond={selectedMoneyPerSecond}/>
+
+				<NewFlowerStoreLateralContent 
+										visible={newFlowerVisible}
+										AddFlower={AddFlower}/>
 			</div>
 	)
 }
 
 export function FlowerUpgradeButton(props)
 {
-	return(<div className="buttonContainer" onClick={props.onClick}>
+	return(<div className="buttonContainer" onClick={() => props.onClick(props.flower.Id)}>
 		<img src={flower} width={64} height={64} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
 		<div>Flower Name<br/> Money per second</div>
 	</div>)
