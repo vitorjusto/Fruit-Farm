@@ -4,7 +4,6 @@ import Fruit from './Fruit'
 import Vector2 from '../../Shareds/ValueObjects/Vector2'
 import {ChangeFruitBranchUpgrade, GetBranchUpgradeCollection} from '../../BranchUpgrade/Functions/FruitBranchUpgrade'
 
-
 export default class FruitSpawner
 {
 	context;
