@@ -55,6 +55,8 @@ class Flower
 	AddMoney;
 	X;
 	Y;
+	BranchUpgradeId = 1
+	AvailableBranchUpgrade = null;
 
 	constructor(AddMoney, context, id)
 	{
@@ -122,11 +124,9 @@ class Flower
 		if(!this.ImageLoaded)
 			return;
 
-		// var sx = Math.floor((branchUpgradeId - 1)% 6) * 32
-		// var sy = Math.floor((branchUpgradeId - 1)/ 6) * 32
+		var sx = Math.floor((this.BranchUpgradeId - 1)% 6) * 32
+		var sy = Math.floor((this.BranchUpgradeId - 1)/ 6) * 32
 
-		var sx = 0
-		var sy = 0
     	this.context.drawImage(this.image, sx, sy, 32, 32, this.X, this.Y, 64, 64);
 	}
 	
@@ -145,11 +145,69 @@ class Flower
 		if(this.Level % 10 == 0)
 			this.ChangeImage(this.Level)
 
-		// if(this.Level == 25)
-		// 	this.AvailableBranchUpgrade = new BranchUpgradeCollection(
-		// new BranchUpgrade(2, "More BIG", "a fruta possui mais espaço e o preço de venda fica bem maior (comparado com More delicius), com o tempo de aparência bem maior também"),
-		// new BranchUpgrade(3, "More Delicius", "as frutas dão mais valor de venda com o preço de upgrade aumenta um pouco"),
-		// new BranchUpgrade(4, "More Genetic", "as frutas tem menos espaço e menos tempo de coowldown e menos preço de venda"),
-		// )
+		if(this.Level == 25)
+			this.AvailableBranchUpgrade = new BranchUpgradeCollection(
+		new BranchUpgrade(2, "More BIG", "a fruta possui mais espaço e o preço de venda fica bem maior (comparado com More delicius), com o tempo de aparência bem maior também"),
+		new BranchUpgrade(3, "More Delicius", "as frutas dão mais valor de venda com o preço de upgrade aumenta um pouco"),
+		new BranchUpgrade(4, "More Genetic", "as frutas tem menos espaço e menos tempo de coowldown e menos preço de venda"),
+		)
+		console.log(this.AvailableBranchUpgrade)
+	}
+
+	UpdateBranchUpgrade(id)
+	{
+		ChangeFruitBranchUpgrade(this, id)
+	}
+}
+
+
+function ChangeFruitBranchUpgrade(flower, id)
+{
+	flower.BranchUpgradeId = id
+	flower.AvailableBranchUpgrade = null;
+
+	// if(id == 2)//More BIG
+	// {
+	// 	fruitSpawner.MaxSpawnCooldown *= 3
+	// 	fruitSpawner.MaxSize /= 2
+	// 	fruitSpawner.SellingPrice *= 3
+	// }else if(id == 3)//More Delicius
+	// {
+	// 	fruitSpawner.SellingPrice *= 1.5
+	// 	fruitSpawner.UpgradePrice *= 1.5
+	// }else if(id == 4)//More Genetic
+	// {
+	// 	fruitSpawner.MaxSpawnCooldown /= 1.5
+	// 	fruitSpawner.MaxSize *= 2
+	// 	fruitSpawner.SellingPrice /= 1.5
+	// }
+}
+
+export class BranchUpgradeCollection
+{
+	Upgrade1;
+	Upgrade2;
+	Upgrade3;
+
+	constructor(upgrade1, upgrade2, upgrade3)
+	{
+		this.Upgrade1 = upgrade1;
+		this.Upgrade2 = upgrade2;
+		this.Upgrade3 = upgrade3;
+
+	}
+}
+
+export class BranchUpgrade
+{
+	BranchUpgradeId;
+	Name;
+	Description;
+
+	constructor(BranchUpgradeId, Name, Description)
+	{
+		this.BranchUpgradeId = BranchUpgradeId;
+		this.Name = Name;
+		this.Description = Description;
 	}
 }

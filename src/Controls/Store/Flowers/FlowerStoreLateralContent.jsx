@@ -1,4 +1,4 @@
-
+import {gameManager} from '../../../App'
 
 export default function FlowerStoreLateralContent(props) {
 
@@ -7,7 +7,12 @@ export default function FlowerStoreLateralContent(props) {
 		<div className={'StoreContentName'}>{props.FlowerName}</div>
 		<div className={'StoreContentLevel'}>Level: {props.Level}</div>
 		<div className={'StoreContentDescritpion'}>{props.Description}</div>
-		<BranchUpgrade/>
+		
+		<BranchUpgrade 
+					   AvaliableBranchUpgrade={props.AvaliableBranchUpgrade} 
+					   FlowerId={props.FlowerId}
+					   onBranchUpgrade={props.onBranchUpgrade}/>
+
 		<UpgradeTable MoneyPerSecond={props.MoneyPerSecond}/>
 		<div onClick={props.onUpgrade}>
 			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>Upgrade: ${props.UpgradePrice}</div>
@@ -21,13 +26,22 @@ export default function FlowerStoreLateralContent(props) {
 }
 
 function BranchUpgrade(props) {
+
+	function upgrade(id)
+	{
+		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id == props.FlowerId);
+
+		flower.UpdateBranchUpgrade(id)
+		props.onBranchUpgrade(flower.Id)
+	}
+
 	return <div>
 		<div className={'StoreContentBranchUpgrade'} style={{ height: '100%', display: props.AvaliableBranchUpgrade?'inline':'none'}}>
 			<div className={'StoreContentUpgradeDescription'}>Description</div>
 			<div className={'StoreContentUpgradeButtonContainer'}>
-				<div className={'StoreUpgradeButton BranchUpgradeButton'}>aa</div>
-				<div className={'StoreUpgradeButton BranchUpgradeButton'}>aa</div>
-				<div className={'StoreUpgradeButton BranchUpgradeButton'}>aa</div>
+				<div onClick={() => upgrade(props.AvaliableBranchUpgrade.Upgrade1.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.AvaliableBranchUpgrade? props.AvaliableBranchUpgrade.Upgrade1.Name : ""}</div>
+				<div onClick={() => upgrade(props.AvaliableBranchUpgrade.Upgrade2.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.AvaliableBranchUpgrade? props.AvaliableBranchUpgrade.Upgrade2.Name : ""}</div>
+				<div onClick={() => upgrade(props.AvaliableBranchUpgrade.Upgrade3.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.AvaliableBranchUpgrade? props.AvaliableBranchUpgrade.Upgrade3.Name : ""}</div>
 			</div>
 		</div>
 

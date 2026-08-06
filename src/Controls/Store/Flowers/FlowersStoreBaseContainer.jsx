@@ -15,6 +15,7 @@ export default function FlowersStoreBaseContainer()
 	var [selectedSellingPrice, setSelectedSellingPrice] = useState("")
 	var [selectedUpgradePrice, setSelectedUpgradePrice] = useState("")
 	var [selectedFlowerId, setSelectedFlowerId] = useState("")
+	var [avaliableBranchUpgrade, setAvaliableBranchUpgrade] = useState(null)
 
 	var [newFlowerVisible, setNewFlowerVisible] = useState(false)
 	var [upgradeFlowerVisible, setupgradeFlowerVisible] = useState(false)
@@ -45,7 +46,8 @@ export default function FlowersStoreBaseContainer()
 		setSelectedMoneyPerSecond(flower.MoneyPerSecond)
 		setSelectedSellingPrice(flower.SellingPrice)
 		setSelectedUpgradePrice(flower.UpgradePrice)
-
+		setAvaliableBranchUpgrade(flower.AvailableBranchUpgrade)
+		
 		setNewFlowerVisible(false)
 		setupgradeFlowerVisible(true)
 	}
@@ -74,10 +76,11 @@ export default function FlowersStoreBaseContainer()
 		setSelectedMoneyPerSecond("")
 		setSelectedSellingPrice("")
 		setSelectedUpgradePrice("")
+		setAvaliableBranchUpgrade(null)
 
 		setNewFlowerVisible(false)
 		setupgradeFlowerVisible(false)
-		
+
 		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
 	}
 
@@ -104,6 +107,9 @@ export default function FlowersStoreBaseContainer()
 										SellingPrice={selectedSellingPrice}
 										UpgradePrice={selectedUpgradePrice}
 										OnSell={OnSell}
+										AvaliableBranchUpgrade={avaliableBranchUpgrade}
+										FlowerId={selectedFlowerId}
+										onBranchUpgrade={onFlowerSelected}
 										/>
 
 				<NewFlowerStoreLateralContent 

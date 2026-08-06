@@ -41,7 +41,6 @@ export default class FruitSpawner
 		this.context = context
 		this.canvas = canvas
 		this.SpawnCooldown = this.MaxSpawnCooldown;
-		this.FruitsSpawned.push(new Fruit(this.context, this.MinSpawnPosition.X, this.MinSpawnPosition.Y))
 		this.FruitName = fruitName
 		this.Level = level
 		this.Description = description
