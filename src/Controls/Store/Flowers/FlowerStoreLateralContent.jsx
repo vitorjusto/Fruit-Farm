@@ -13,7 +13,7 @@ export default function FlowerStoreLateralContent(props) {
 			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>Upgrade: ${props.UpgradePrice}</div>
 		</div>
 		
-		<div>
+		<div onClick={props.OnSell}>
 			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>Sell Flower: ${props.SellingPrice}</div>
 		</div>
 	</div>

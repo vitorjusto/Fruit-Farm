@@ -23,7 +23,29 @@ export default class FlowerManager
 
 	AddFlower(flowerId)
 	{
-		this.Flowers.push(new Flower(this.AddMoney, this.Context, 2))
+		this.Flowers.push(new Flower(this.AddMoney, this.Context, this.Flowers.length + 1))
+	}
+
+	SellFlower(flowerId)
+	{
+		console.log(flowerId)
+		var sellingFlower = this.Flowers.find((x) => x.Id == flowerId);
+		gameManager.setMoney(gameManager.money + sellingFlower.SellingPrice)
+		
+		var newId = 1
+		var newFlowerList = []
+
+		for (const flower of this.Flowers) 
+		{
+			if(flower.Id == flowerId)
+				continue;
+
+			flower.Id = newId
+			newFlowerList.push(flower)
+			newId++;
+		}
+
+		this.Flowers = newFlowerList
 	}
 }
 

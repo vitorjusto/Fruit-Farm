@@ -36,8 +36,8 @@ export default function FlowersStoreBaseContainer()
 
 	function onFlowerSelected(flowerId)
 	{
-		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id = flowerId);
-
+		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id == flowerId);
+		
 		setSelectedFlowerId(flowerId)
 		setSelectedFlowerName(flower.FlowerName)
 		setSelectedLevel(flower.Level)
@@ -52,10 +52,33 @@ export default function FlowersStoreBaseContainer()
 
 	function onUpgrade()
 	{
-		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id = selectedFlowerId);
+		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id == selectedFlowerId);
 		flower.UpgradeFlower()
 
 		onFlowerSelected(selectedFlowerId)
+	}
+
+	function OnSell()
+	{
+		gameManager.flowerManager.SellFlower(selectedFlowerId)
+		ClearSelectedFlower()
+
+	}
+
+	function ClearSelectedFlower()
+	{
+		setSelectedFlowerId("")
+		setSelectedFlowerName("")
+		setSelectedLevel("")
+		setSelectedDescription("")
+		setSelectedMoneyPerSecond("")
+		setSelectedSellingPrice("")
+		setSelectedUpgradePrice("")
+
+		setNewFlowerVisible(false)
+		setupgradeFlowerVisible(false)
+		
+		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
 	}
 
 	useEffect(() => {
@@ -80,6 +103,7 @@ export default function FlowersStoreBaseContainer()
 										MoneyPerSecond={selectedMoneyPerSecond}
 										SellingPrice={selectedSellingPrice}
 										UpgradePrice={selectedUpgradePrice}
+										OnSell={OnSell}
 										/>
 
 				<NewFlowerStoreLateralContent 
