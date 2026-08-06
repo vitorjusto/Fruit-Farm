@@ -1,0 +1,93 @@
+import { gameManager } from '../../../App'
+import { useState } from 'react'
+import Fruit from './Fruit'
+import Vector2 from '../../Shareds/ValueObjects/Vector2'
+import {ChangeFruitBranchUpgrade, GetBranchUpgradeCollection} from '../../BranchUpgrade/Functions/FruitBranchUpgrade'
+
+export default class FruitSpawner
+{
+	context;
+	canvas;
+
+	Fruit;
+	SpawnCooldown = 0;
+	MaxSpawnCooldown = 6; //In Seconds
+	FruitsSpawned = [];
+
+	MinSpawnPosition = new Vector2(200, 80)
+	TreeSize = new Vector2(800, 300)
+
+	FruitName = ''
+	Level = 1
+	Description = ''
+	SellingPrice = 2
+	UpgradePrice = 10
+	AvailableBranchUpgrade = null;
+	FruitId = 0
+	BranchUpgradeId = 1
+	MaxSize = 100
+
+	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice, fruitId)
+	{
+		this.context = context
+		this.canvas = canvas
+		this.SpawnCooldown = this.MaxSpawnCooldown;
+		this.FruitName = fruitName
+		this.Level = level
+		this.Description = description
+		this.SellingPrice = sellingPrice
+		this.UpgradePrice = upgradePrice
+		this.FruitId = fruitId
+	}
+
+	Update(deltaTime)
+	{
+		this.SpawnCooldown -= deltaTime
+
+		if(this.SpawnCooldown <= 0 && this.MaxSize > this.FruitsSpawned.length)
+		{
+			this.SpawnCooldown += this.MaxSpawnCooldown;
+			this.FruitsSpawned.push(new Fruit(this.context, 
+											  this.MinSpawnPosition.X + (Math.random() * this.TreeSize.X), 
+											  this.MinSpawnPosition.Y + (Math.random() * this.TreeSize.Y)))
+		}
+
+		this.FruitsSpawned.forEach(element => {
+			element.DrawFruit(this.BranchUpgradeId)
+		});
+	}
+
+	
+	HarvestFruits()
+	{
+		var total = this.FruitsSpawned.length * this.SellingPrice
+		this.FruitsSpawned = []
+
+		return total
+	}
+
+	UpgradeFruit()
+	{
+		if(gameManager.money < this.UpgradePrice)
+			return;
+
+		gameManager.setMoney(gameManager.money - this.UpgradePrice)
+
+		this.UpgradePrice += 1
+		this.SellingPrice += 2
+		this.Level += 1
+		this.MaxSpawnCooldown -= 0.01
+
+		//TODO: create factory to get new fruit
+		if(this.Level == 15)
+			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1, this.FruitId + 1))
+
+		if(this.Level == 25)
+			this.AvailableBranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
+	}
+
+	UpdateBranchUpgrade(id)
+	{
+		ChangeFruitBranchUpgrade(this, id)
+	}
+}

@@ -1,6 +1,6 @@
 import moneyIcon from '/assets/Money.png'
 import './Styles/StoreItemButton.css'
-import FruitSpawner from '../../../Script/Entites/Fruits/FruitSpawner'
+import FruitSpawner from '../../../Script/Fruits/Entites/FruitSpawner'
 
 export default function StoreItemButton() {
 

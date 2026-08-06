@@ -1,4 +1,4 @@
-import FruitSpawner from '../Entites/Fruits/FruitSpawner'
+import FruitSpawner from '../Fruits/Entites/FruitSpawner'
 
 
 export default class FruitManager

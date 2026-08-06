@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { gameManager } from "../../../App"
 import StoreFruitLateralContent from "./StoreLateralContent"
-import FruitSpawner from "../../../Script/Entites/Fruits/FruitSpawner"
+import FruitSpawner from "../../../Script/Fruits/Entites/FruitSpawner"
 import '../Styles/StoreBaseContent.css'
 import StoreItemButton from './StoreItemButton';
 
