@@ -1,18 +1,12 @@
 
-export default function FruitBranchUpgrade(props) 
-{
+export default function FlowerBranchUpgrade(props) {
 
 	function upgrade(id)
 	{
-		let fruitSpawner = gameManager.fruitManager.FruitsSpawners.find((value, index) => value.FruitId == props.fruitId)
+		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id == props.FlowerId);
 
-		fruitSpawner.UpdateBranchUpgrade(id)
-
-		props.SelectedFruitStatesDTO.setSellingPrice(fruitSpawner.SellingPrice)
-		props.SelectedFruitStatesDTO.setMaxSpawnCooldown(fruitSpawner.MaxSpawnCooldown)
-		
-		props.onUpgradeClick(fruitSpawner, props.SelectedFruitStatesDTO)
-
+		flower.UpdateBranchUpgrade(id)
+		props.onBranchUpgrade(flower.Id)
 	}
 
 	return <div>

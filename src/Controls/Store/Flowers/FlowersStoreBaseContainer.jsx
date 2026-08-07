@@ -1,8 +1,8 @@
 import './Styles/Flowers.css'
-import flower from '/assets/Flowers/Flower.png'
-import newFlower from '/assets/Flowers/New Flower Icon.png'
 import FlowerStoreLateralContent from './FlowerStoreLateralContent'
 import NewFlowerStoreLateralContent from './NewFlowerStoreLateralContent'
+import FlowerUpgradeButton from './FlowerUpgradeButton'
+import NewFlowerButton from './NewFlowerButton'
 import {gameManager} from '../../../App'
 import {useState, useEffect} from 'react'
 
@@ -21,7 +21,6 @@ export default function FlowersStoreBaseContainer()
 	var [upgradeFlowerVisible, setupgradeFlowerVisible] = useState(false)
 
 	var [flowerContents, setFlowerContents] = useState(null)
-
 
 	function AddFlower(flowerId)
 	{
@@ -117,20 +116,4 @@ export default function FlowersStoreBaseContainer()
 										AddFlower={AddFlower}/>
 			</div>
 	)
-}
-
-export function FlowerUpgradeButton(props)
-{
-	return(<div className="buttonContainer" onClick={() => props.onClick(props.flower.Id)}>
-		<img src={flower} width={64} height={64} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-		<div>Flower Name<br/> Money per second</div>
-	</div>)
-}
-
-export function NewFlowerButton(props)
-{
-	return(<div className="buttonContainer" onClick={props.onClick}>
-		<img src={newFlower} width={64} height={64} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-		<p>New Flower</p>
-	</div>)
 }
