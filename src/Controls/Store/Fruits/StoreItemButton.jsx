@@ -3,6 +3,7 @@ import './Styles/StoreItemButton.css'
 import FruitSpawner from '../../../Script/Fruits/Entites/FruitSpawner'
 import { gameManager } from "../../../App"
 import { useState } from 'react';
+import FruitStatesDTO from '../../../Script/Fruits/DTOs/FruitStatesDTO'
 
 export default function StoreItemButton(props) {
 
@@ -23,13 +24,4 @@ export default function StoreItemButton(props) {
 		<div>Spawn Timer: {maxSpawnCooldown}s</div>
 	</div>
   )
-}
-
-export class FruitStatesDTO
-{
-	constructor(setSellingPrice, setMaxSpawnCooldown)
-	{
-		this.setSellingPrice = setSellingPrice;
-		this.setMaxSpawnCooldown = setMaxSpawnCooldown;
-	}
 }
