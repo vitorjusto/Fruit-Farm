@@ -17,7 +17,7 @@ export default function FruitsStoreContainer()
 	
 	var [selectedfruitSpawner, setselectedfruitSpawner] = useState(null)
 
-	function onClick(fruitSpawner : FruitSpawner)
+	function onClick(fruitSpawner)
 	{
 		setSelectedText(fruitSpawner.FruitName)
 		setSelectedLevel(fruitSpawner.Level)
