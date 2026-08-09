@@ -9,7 +9,7 @@ export function ChangeFruitBranchUpgrade(fruitSpawner, id)
 	if(id == 2)//More BIG
 	{
 		fruitSpawner.MaxSpawnCooldown *= 3
-		fruitSpawner.MaxSize /= 2
+		fruitSpawner.Size *= 2
 		fruitSpawner.SellingPrice *= 3
 	}else if(id == 3)//More Delicius
 	{
@@ -18,7 +18,7 @@ export function ChangeFruitBranchUpgrade(fruitSpawner, id)
 	}else if(id == 4)//More Genetic
 	{
 		fruitSpawner.MaxSpawnCooldown /= 1.5
-		fruitSpawner.MaxSize *= 2
+		fruitSpawner.Size /= 2
 		fruitSpawner.SellingPrice /= 1.5
 	}
 }

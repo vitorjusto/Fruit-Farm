@@ -54,6 +54,9 @@ export default function UtilityStoreBaseContainer()
 		setSelectedUpgradeValue1(gameManager.treeManager.Size)
 		setSelectedLevel(gameManager.treeManager.Level)
 		
+		setSelectedBranchUpgrade(gameManager.treeManager.BranchUpgrade)
+		setSelectedBranchUpgradeAction(() => (id) => ChangeTreeBranchUpgrade(gameManager.treeManager, id))
+		
 	}
 
 	return(<div className={'ControlContent'}>

@@ -23,8 +23,8 @@ export default class GameManager
 		
 		this.context.imageSmoothingEnabled = false;
 		this.skyManager = new BackgroundManager(this.context, this.canvas)
-		this.fruitManager = new FruitManager(this.context, this.canvas)
 		this.treeManager = new TreeManager(this.context, this.canvas)
+		this.fruitManager = new FruitManager(this.context, this.canvas)
 		this.flowerManager = new FlowerManager(this.context, this.canvas, 
 			(amount) => {this.money += amount
 			this.setMoney(this.money)})

@@ -11,7 +11,7 @@ export default class FruitSpawner
 
 	Fruit;
 	SpawnCooldown = 0;
-	MaxSpawnCooldown = 6; //In Seconds
+	MaxSpawnCooldown = 1; //In Seconds
 	FruitsSpawned = [];
 
 	MinSpawnPosition = new Vector2(200, 80)
@@ -25,7 +25,7 @@ export default class FruitSpawner
 	AvailableBranchUpgrade = null;
 	FruitId = 0
 	BranchUpgradeId = 1
-	MaxSize = 100
+	Size = 1
 
 	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice, fruitId)
 	{
@@ -44,10 +44,12 @@ export default class FruitSpawner
 	{
 		this.SpawnCooldown -= deltaTime
 
-		if(this.SpawnCooldown <= 0 && this.MaxSize > this.FruitsSpawned.length)
+		if(this.SpawnCooldown <= 0)
 		{
 			this.SpawnCooldown += this.MaxSpawnCooldown;
-			this.FruitsSpawned.push(new Fruit(this.context, 
+
+			if((gameManager.treeManager.Size / this.Size) > this.FruitsSpawned.length)
+				this.FruitsSpawned.push(new Fruit(this.context, 
 											  this.MinSpawnPosition.X + (Math.random() * this.TreeSize.X), 
 											  this.MinSpawnPosition.Y + (Math.random() * this.TreeSize.Y)))
 		}

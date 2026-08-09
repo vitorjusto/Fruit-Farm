@@ -4,7 +4,7 @@ import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions
 export default class TreeManager
 {
 	BranchUpgrade = null
-
+	Size = 100
 	constructor(context, canvas)
 	{
 		this.context = context
@@ -12,7 +12,7 @@ export default class TreeManager
 
 		this.Level = 1
 		this.UpgradePrice = 1
-		this.Size = 1
+		this.Size = 10
 
 		this.BranchUpgradeId = 1
 	}

@@ -1,3 +1,4 @@
+import {gameManager} from '../../../App'
 
 export default function FruitBranchUpgrade(props) 
 {
