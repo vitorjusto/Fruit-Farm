@@ -5,6 +5,8 @@ export default class TreeManager
 {
 	BranchUpgrade = null
 	Size = 100
+	FruitSpawnModifier = 1
+
 	constructor(context, canvas)
 	{
 		this.context = context
@@ -43,6 +45,8 @@ export default class TreeManager
 		this.UpgradePrice += 1
 		this.Size += 1
 		this.Level += 1
+
+		this.FruitSpawnModifier += 0.01
 
 		if(this.Level == 25)
 			this.BranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)

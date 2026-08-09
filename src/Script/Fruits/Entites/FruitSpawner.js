@@ -40,13 +40,18 @@ export default class FruitSpawner
 		this.FruitId = fruitId
 	}
 
+	GetSpawnTimer()
+	{
+		return this.MaxSpawnCooldown / gameManager.treeManager.FruitSpawnModifier
+	}
+
 	Update(deltaTime)
 	{
 		this.SpawnCooldown -= deltaTime
 
 		if(this.SpawnCooldown <= 0)
 		{
-			this.SpawnCooldown += this.MaxSpawnCooldown;
+			this.SpawnCooldown += this.GetSpawnTimer();
 
 			if((gameManager.treeManager.Size / this.Size) > this.FruitsSpawned.length)
 				this.FruitsSpawned.push(new Fruit(this.context, 

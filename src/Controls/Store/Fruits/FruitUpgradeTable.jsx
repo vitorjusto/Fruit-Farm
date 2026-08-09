@@ -18,7 +18,7 @@ export default function UpgradeTable(props)
 			</tbody>
 			<tbody>
 				<tr>
-					<th className={'StoreContentStatusTableContent'}><b>Spawn Time</b></th>
+					<th className={'StoreContentStatusTableContent'}><b>Base Spawn Time</b></th>
 					<td className={'StoreContentStatusTableContent'}>{props.SpawnTimer}</td>
 					<td className={'StoreContentStatusTableContent'}>0 min (+0.02)</td>
 				</tr>
