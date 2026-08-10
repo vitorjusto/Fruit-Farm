@@ -57,8 +57,10 @@ export default function UtilityStoreBaseContainer()
 		setSelectedUpgradeValue2(gameManager.treeManager.FruitSpawnModifier)
 		
 		setSelectedBranchUpgrade(gameManager.treeManager.BranchUpgrade)
-		setSelectedBranchUpgradeAction(() => (id) => ChangeTreeBranchUpgrade(gameManager.treeManager, id))
-		
+		setSelectedBranchUpgradeAction(() => (id) => {
+			ChangeTreeBranchUpgrade(gameManager.treeManager, id)
+			onTreeSelected()
+		})
 	}
 
 
@@ -92,7 +94,10 @@ export default function UtilityStoreBaseContainer()
 		setSelectedUpgradeValue2(gameManager.DogManager.MaxCooldown)
 		
 		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
-		setSelectedBranchUpgradeAction(() => (id) => ChangeTreeBranchUpgrade(gameManager.DogManager, id))
+		setSelectedBranchUpgradeAction(() => (id) => {
+			ChangeTreeBranchUpgrade(gameManager.DogManager, id)
+			onDogSelected()
+		})
 		
 	}
 
