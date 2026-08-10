@@ -50,6 +50,9 @@ export default class FruitSpawner
 
 	Update(deltaTime)
 	{
+		if(this.Level == 0)
+			return;
+
 		this.SpawnCooldown -= deltaTime
 
 		if(this.SpawnCooldown <= 0)
@@ -89,7 +92,6 @@ export default class FruitSpawner
 		this.Level += 1
 		this.MaxSpawnCooldown -= 0.01
 
-		//TODO: create factory to get new fruit
 		if(this.Level == 15)
 			gameManager.fruitManager.FruitsSpawners.push(GetNextFruit(this.FruitId, this.context, this.canvas))
 
