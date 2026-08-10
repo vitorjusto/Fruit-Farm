@@ -14,7 +14,7 @@ export default class TreeManager
 
 		this.Level = 1
 		this.UpgradePrice = 1
-		this.Size = 10
+		this.Size = 100
 
 		this.BranchUpgradeId = 1
 	}

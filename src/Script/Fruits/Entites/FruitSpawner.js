@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Fruit from './Fruit'
 import Vector2 from '../../Shareds/ValueObjects/Vector2'
 import {ChangeFruitBranchUpgrade, GetBranchUpgradeCollection} from '../../BranchUpgrade/Functions/FruitBranchUpgrade'
+import {GetNextFruit} from '../Factories/FruitFactory'
 
 export default class FruitSpawner
 {
@@ -56,7 +57,8 @@ export default class FruitSpawner
 			if((gameManager.treeManager.Size / this.Size) > this.FruitsSpawned.length)
 				this.FruitsSpawned.push(new Fruit(this.context, 
 											  this.MinSpawnPosition.X + (Math.random() * this.TreeSize.X), 
-											  this.MinSpawnPosition.Y + (Math.random() * this.TreeSize.Y)))
+											  this.MinSpawnPosition.Y + (Math.random() * this.TreeSize.Y),
+												this.FruitName))
 		}
 
 		this.FruitsSpawned.forEach(element => {
@@ -87,7 +89,7 @@ export default class FruitSpawner
 
 		//TODO: create factory to get new fruit
 		if(this.Level == 15)
-			gameManager.fruitManager.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple23', 1, 'Simple fruit, simple price', 3, 1, this.FruitId + 1))
+			gameManager.fruitManager.FruitsSpawners.push(GetNextFruit(this.FruitId, this.context, this.canvas))
 
 		if(this.Level == 25)
 			this.AvailableBranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)

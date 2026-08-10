@@ -7,13 +7,13 @@ export default class Fruit
 	image;
 	ImageLoaded;
 
-	constructor(context, x, y)
+	constructor(context, x, y, fruitName)
 	{
 		this.context = context;
 		this.X = x;
 		this.Y = y;
     	this.image = new Image();
-   		this.image.src = "/assets/Fruits/Apple.png"; // ou uma URL
+   		this.image.src = `/assets/Fruits/${fruitName}.png`; // ou uma URL
     	this.image.onload = () => {
     	  this.ImageLoaded = true
     	};
