@@ -12,7 +12,7 @@ export default class FlowerManager
 		this.Context = context
 		this.Canvas = canvas
 		this.AddMoney = AddMoney
-		this.Flowers = [new Flower(AddMoney, this.Context, 1)]
+		this.Flowers = []
 	}
 
 	Update(deltaTime)

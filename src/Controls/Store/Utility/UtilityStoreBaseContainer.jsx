@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { gameManager } from "../../../App"
 import { ChangeTreeBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/TreeBranchUpgrade"
+import { ChangeDogBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/DogBranchUpgrade"
 
 import UtilityStoreLateralContent from "./UtilityStoreLateralContent"
 import '../Styles/StoreBaseContent.css'
@@ -60,11 +61,46 @@ export default function UtilityStoreBaseContainer()
 		
 	}
 
+
+	function onDogSelected()
+	{
+		setSelectedName("Dog")
+		setSelectedLevel(gameManager.DogManager.Level)
+		setSelectedDescription("Is so friendly that gives you money when you pet (click).")
+		
+		setSelectedUpgradeText1("Money per click")
+		setSelectedUpgradeValue1(gameManager.DogManager.ClickValue)
+		setSelectedUpgradeNextValue1(1)
+
+		setSelectedUpgradeText2("Cooldown")
+		setSelectedUpgradeValue2(gameManager.DogManager.MaxCooldown)
+		setSelectedUpgradeNextValue2(0.01)
+
+		setSelectedUpgradePrice(gameManager.DogManager.UpgradePrice)
+		setSelectUpgradeAction(() => onDogUpgrade)
+
+		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
+		setSelectedBranchUpgradeAction(() => (id) => ChangeDogBranchUpgrade(gameManager.DogManager, id))
+	}
+
+	function onDogUpgrade()
+	{
+		gameManager.DogManager.Upgrade()
+		setSelectedUpgradePrice(gameManager.DogManager.UpgradePrice)
+		setSelectedUpgradeValue1(gameManager.DogManager.ClickValue)
+		setSelectedLevel(gameManager.DogManager.Level)
+		setSelectedUpgradeValue2(gameManager.DogManager.MaxCooldown)
+		
+		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
+		setSelectedBranchUpgradeAction(() => (id) => ChangeTreeBranchUpgrade(gameManager.DogManager, id))
+		
+	}
+
 	return(<div className={'ControlContent'}>
 				<div className={'StoreButtonsBase'}>
 					<StoreItemButton ItemName={"Tree"} onClick={onTreeSelected}/>
 					<StoreItemButton ItemName={"Bees"}/>
-					<StoreItemButton ItemName={"Dog"}/>
+					<StoreItemButton ItemName={"Dog"} onClick={onDogSelected}/>
 					<StoreItemButton ItemName={"Bird"}/>
 				</div>
 				<UtilityStoreLateralContent 

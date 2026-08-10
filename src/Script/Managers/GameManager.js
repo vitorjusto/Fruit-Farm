@@ -2,6 +2,7 @@ import BackgroundManager from './BackgroundManager'
 import FruitManager from './FruitManager'
 import TreeManager from './TreeManager'
 import FlowerManager from './FlowerManager'
+import DogManager from './DogManager'
 
 export default class GameManager
 {
@@ -24,6 +25,7 @@ export default class GameManager
 		this.context.imageSmoothingEnabled = false;
 		this.skyManager = new BackgroundManager(this.context, this.canvas)
 		this.treeManager = new TreeManager(this.context, this.canvas)
+		this.DogManager = new DogManager(this.context, this.canvas)
 		this.fruitManager = new FruitManager(this.context, this.canvas)
 		this.flowerManager = new FlowerManager(this.context, this.canvas, 
 			(amount) => {this.money += amount
@@ -62,6 +64,7 @@ export default class GameManager
 	{
 		this.skyManager.update()
 		this.treeManager.Update()
+		this.DogManager.Update(deltaTime)
 		this.fruitManager.Update(deltaTime)
 		this.flowerManager.Update(deltaTime)
   	}
@@ -69,6 +72,7 @@ export default class GameManager
 	HarvestFruits()
 	{
 		var total = this.fruitManager.HarvestFruits()
+		total += this.DogManager.PetDog()
 		
 		this.money += total
 		this.setMoney(this.money)
