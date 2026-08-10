@@ -28,6 +28,8 @@ export default class FruitSpawner
 	BranchUpgradeId = 1
 	Size = 1
 
+	onBranchUpdatedEvent = () => {}
+
 	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice, fruitId)
 	{
 		this.context = context
@@ -98,5 +100,6 @@ export default class FruitSpawner
 	UpdateBranchUpgrade(id)
 	{
 		ChangeFruitBranchUpgrade(this, id)
+		this.onBranchUpdatedEvent()
 	}
 }

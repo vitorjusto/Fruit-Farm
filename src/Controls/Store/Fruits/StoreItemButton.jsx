@@ -1,8 +1,8 @@
-import moneyIcon from '/assets/Money.png'
+import Apple from '/assets/Fruits/Apple.png'
 import './Styles/StoreItemButton.css'
 import FruitSpawner from '../../../Script/Fruits/Entites/FruitSpawner'
 import { gameManager } from "../../../App"
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import FruitStatesDTO from '../../../Script/Fruits/DTOs/FruitStatesDTO'
 
 export default function StoreItemButton(props) {
@@ -10,6 +10,23 @@ export default function StoreItemButton(props) {
 	var [sellingPrice, setSellingPrice] = useState(props.fruitSpawner.SellingPrice);
 	var [maxSpawnCooldown, setMaxSpawnCooldown] = useState(props.fruitSpawner.GetSpawnTimer());
 
+	var [sx, setSX] = useState(0);
+	var [sy, setSY] = useState(0);
+
+	function onUpdate()
+	{
+		let fruitSpawner = gameManager.fruitManager.FruitsSpawners.find((value, index) => value.FruitId == props.fruitId)
+
+		setSX(Math.floor((fruitSpawner.BranchUpgradeId - 1)% 6) * -32)
+		setSY(Math.floor((fruitSpawner.BranchUpgradeId - 1)/ 6) * -32)
+	}
+
+	useEffect(() => {
+		let fruitSpawner = gameManager.fruitManager.FruitsSpawners.find((value, index) => value.FruitId == props.fruitId)
+		fruitSpawner.onBranchUpdatedEvent = () => onUpdate()
+		
+	}, []);
+	
 	function onClick()
 	{
 		let fruitSpawner = gameManager.fruitManager.FruitsSpawners.find((value, index) => value.FruitId == props.fruitId)
@@ -18,7 +35,9 @@ export default function StoreItemButton(props) {
 
   return (
 	<div onClick={onClick} className={'StoreFruitButton'}>
-		<img src={moneyIcon} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
+		<div className="crop-box">
+  			<img src={`/assets/Fruits/${props.fruitSpawner.FruitName}.png`} style={{ imageRendering: 'pixelated', position: 'absolute', top: sy, left: sx}} />
+	</div>
 		<div style={{textAlign:'center', fontSize:'xx-large'}}>{props.fruitSpawner.FruitName}</div>
 		<div>Price: ${sellingPrice}</div>
 		<div>Spawn Timer: {maxSpawnCooldown}s</div>

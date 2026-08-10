@@ -20,3 +20,12 @@
 	border: 5px solid white;
 	
 }
+
+.crop-box
+{
+    width:32px;
+    height: 32px;
+    overflow: hidden;
+    position: relative;
+	scale: 2;
+}
