@@ -3,6 +3,7 @@ import FruitManager from './FruitManager'
 import TreeManager from './TreeManager'
 import FlowerManager from './FlowerManager'
 import DogManager from './DogManager'
+import BeeManager from './BeeManager'
 
 export default class GameManager
 {
@@ -26,6 +27,8 @@ export default class GameManager
 		this.skyManager = new BackgroundManager(this.context, this.canvas)
 		this.treeManager = new TreeManager(this.context, this.canvas)
 		this.DogManager = new DogManager(this.context, this.canvas)
+		this.BeeManager = new BeeManager(this.context, this.canvas)
+
 		this.fruitManager = new FruitManager(this.context, this.canvas)
 		this.flowerManager = new FlowerManager(this.context, this.canvas, 
 			(amount) => {this.money += amount
@@ -65,6 +68,7 @@ export default class GameManager
 		this.skyManager.update()
 		this.treeManager.Update()
 		this.DogManager.Update(deltaTime)
+		this.BeeManager.Update(deltaTime)
 		this.fruitManager.Update(deltaTime)
 		this.flowerManager.Update(deltaTime)
   	}
@@ -73,8 +77,14 @@ export default class GameManager
 	{
 		var total = this.fruitManager.HarvestFruits()
 		total += this.DogManager.PetDog()
-		
-		this.money += total
+
+		this.AddMoney(total)
+	}
+
+	AddMoney(amount)
+	{
+		this.money += amount
 		this.setMoney(this.money)
+
 	}
 }

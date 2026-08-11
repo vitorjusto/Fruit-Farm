@@ -80,12 +80,21 @@ export default class FruitSpawner
 		return total
 	}
 
+	CollectFruit()
+	{
+		if(this.FruitsSpawned.length == 0)
+			return;
+
+		this.FruitsSpawned.shift()
+		gameManager.AddMoney(this.SellingPrice)
+	}
+
 	UpgradeFruit()
 	{
 		if(gameManager.money < this.UpgradePrice)
 			return;
 
-		gameManager.setMoney(gameManager.money - this.UpgradePrice)
+		gameManager.AddMoney(-this.UpgradePrice)
 
 		this.UpgradePrice += 1
 		this.SellingPrice += 2

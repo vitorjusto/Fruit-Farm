@@ -1,14 +1,12 @@
 import { gameManager } from '../../App'
 import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/DogBranchUpgrade'
 
-export default class DogManager
+export default class BeeManager
 {
 	BranchUpgrade = null
 	ClickValue = 10
-	ClickAmount = 10
-	MaxClickAmount = 10
 	Cooldown = 0
-	MaxCooldown = 10
+	MaxCooldown = 2
 
 	constructor(context, canvas)
 	{
@@ -23,17 +21,20 @@ export default class DogManager
 
 	Update(deltaTime)
 	{
-		this.context.fillStyle = "Blue"
-		this.context.fillRect(20, (this.canvas.height) - 100, 50, 50);
+		this.context.fillStyle = "Yellow"
+		this.context.fillRect(20, 40, 50, 50);
 
-		if(this.Cooldown > 0)
-		{
-			this.Cooldown -= deltaTime
-			this.context.fillStyle = "Red"
-			this.context.fillRect(20, (this.canvas.height) - 100, 50, 50);
+		this.Cooldown -= deltaTime
 
-		}
+		if(this.Cooldown <= 0)
+			this.CollectFruit()
+	}
 
+	CollectFruit()
+	{
+		this.Cooldown += this.MaxCooldown
+
+		gameManager.fruitManager.FruitsSpawners.toSorted(function(x, y) {return x.FruitsSpawned.length - y.FruitsSpawned.length }).toReversed()[0].CollectFruit()
 	}
 
 	Upgrade()
@@ -50,21 +51,5 @@ export default class DogManager
 
 		if(this.Level == 25)
 			this.BranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
-	}
-
-	PetDog()
-	{
-		if(this.Cooldown > 0)
-			return 0;
-
-		this.ClickAmount -= 1
-
-		if(this.ClickAmount == 0)
-		{
-			this.Cooldown = this.MaxCooldown
-			this.ClickAmount = this.MaxClickAmount
-		}
-
-		return this.ClickValue;
 	}
 }
