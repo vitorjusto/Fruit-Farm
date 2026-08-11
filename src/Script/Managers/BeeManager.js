@@ -1,10 +1,9 @@
 import { gameManager } from '../../App'
-import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/DogBranchUpgrade'
+import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/BeeBranchUpgrade'
 
 export default class BeeManager
 {
 	BranchUpgrade = null
-	ClickValue = 10
 	Cooldown = 0
 	MaxCooldown = 2
 
@@ -22,7 +21,7 @@ export default class BeeManager
 	Update(deltaTime)
 	{
 		this.context.fillStyle = "Yellow"
-		this.context.fillRect(20, 40, 50, 50);
+		this.context.fillRect(520, 380, 50, 50);
 
 		this.Cooldown -= deltaTime
 
@@ -45,8 +44,7 @@ export default class BeeManager
 		gameManager.setMoney(gameManager.money - this.UpgradePrice)
 
 		this.UpgradePrice += 1
-		this.ClickValue += 1
-		this.MaxClickAmount += 1
+		this.MaxCooldown -= 0.01
 		this.Level += 1
 
 		if(this.Level == 25)

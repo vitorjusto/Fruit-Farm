@@ -2,6 +2,7 @@ import { useState } from "react"
 import { gameManager } from "../../../App"
 import { ChangeTreeBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/TreeBranchUpgrade"
 import { ChangeDogBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/DogBranchUpgrade"
+import { ChangeBeeBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/BeeBranchUpgrade"
 
 import UtilityStoreLateralContent from "./UtilityStoreLateralContent"
 import '../Styles/StoreBaseContent.css'
@@ -95,16 +96,54 @@ export default function UtilityStoreBaseContainer()
 		
 		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => {
-			ChangeTreeBranchUpgrade(gameManager.DogManager, id)
+			ChangeDogBranchUpgrade(gameManager.DogManager, id)
 			onDogSelected()
 		})
 		
 	}
 
+	function onBeesSelected()
+	{
+		setSelectedName("Bees")
+		setSelectedLevel(gameManager.BeeManager.Level)
+		setSelectedDescription("Helps you collect fruits and flowers when you go away.")
+		
+		setSelectedUpgradeText1("Fruits Collect Coowldown")
+		setSelectedUpgradeValue1(gameManager.BeeManager.MaxCooldown)
+		setSelectedUpgradeNextValue1(1)
+
+		setSelectedUpgradeText2("Cooldown")
+		setSelectedUpgradeValue2(gameManager.BeeManager.MaxCooldown)
+		setSelectedUpgradeNextValue2(0.01)
+
+		setSelectedUpgradePrice(gameManager.BeeManager.UpgradePrice)
+		setSelectUpgradeAction(() => onBeeUpgrade)
+
+		setSelectedBranchUpgrade(gameManager.BeeManager.BranchUpgrade)
+		setSelectedBranchUpgradeAction(() => (id) => ChangeBeeBranchUpgrade(gameManager.BeeManager, id))
+	}
+
+	function onBeeUpgrade()
+	{
+		gameManager.BeeManager.Upgrade()
+		setSelectedUpgradePrice(gameManager.BeeManager.UpgradePrice)
+		setSelectedUpgradeValue1(gameManager.BeeManager.MaxCooldown)
+		setSelectedLevel(gameManager.BeeManager.Level)
+		setSelectedUpgradeValue2(gameManager.BeeManager.MaxCooldown)
+		
+		setSelectedBranchUpgrade(gameManager.BeeManager.BranchUpgrade)
+		setSelectedBranchUpgradeAction(() => (id) => {
+			ChangeBeeBranchUpgrade(gameManager.BeeManager, id)
+			onBeesSelected()
+		})
+		
+	}
+
+
 	return(<div className={'ControlContent'}>
 				<div className={'StoreButtonsBase'}>
 					<StoreItemButton ItemName={"Tree"} onClick={onTreeSelected}/>
-					<StoreItemButton ItemName={"Bees"}/>
+					<StoreItemButton ItemName={"Bees"} onClick={onBeesSelected}/>
 					<StoreItemButton ItemName={"Dog"} onClick={onDogSelected}/>
 					<StoreItemButton ItemName={"Bird"}/>
 				</div>
