@@ -16,13 +16,10 @@ export default function FruitsStatsContainer()
 		if(!gameManager)
 			return;
 
-		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton fruitSpawner={x} key={x.FruitId}/>)))
-
 	}, []);
 
 	return(<div className={'ControlContent'}>
 				<div className={'StoreButtonsBase'}>
-					{fruitStoreButtons}
 				</div>
 				<FruitsStatisticsLateralContainer/>
 			</div>

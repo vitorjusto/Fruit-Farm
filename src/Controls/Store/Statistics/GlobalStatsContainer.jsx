@@ -1,6 +1,6 @@
 import './Styles/Statistics.css'
 
-function GlobalStatsContainer()
+export default function GlobalStatsContainer()
 {
 	return(
 		<div>

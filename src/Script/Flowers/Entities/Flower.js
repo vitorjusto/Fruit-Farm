@@ -1,4 +1,5 @@
 import {ChangeFlowerBranchUpgrade, GetBranchUpgradeCollection} from '../../BranchUpgrade/Functions/FlowerBranchUpgrade'
+import { gameManager } from '../../../App'
 
 export default class Flower
 {
