@@ -12,7 +12,7 @@ export default class BeeManager
 		this.context = context
 		this.canvas = canvas
 
-		this.Level = 1
+		this.Level = 0
 		this.UpgradePrice = 1
 
 		this.BranchUpgradeId = 1
@@ -20,6 +20,9 @@ export default class BeeManager
 
 	Update(deltaTime)
 	{
+		if(this.Level == 0)
+			return;
+		
 		this.context.fillStyle = "Yellow"
 		this.context.fillRect(520, 380, 50, 50);
 

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import FruitsStoreContainer from './Fruits/FruitsStoreContainer'
 import UtilityStoreBaseContainer from './Utility/UtilityStoreBaseContainer'
 import StatisticsStoreBaseContainer from './Statistics/StatisticsStoreBaseContainer'
+import PrestigeBaseContent from './Prestiges/PrestigeBaseContent'
 import './Styles/StoreBaseContent.css'
 import FlowersStoreBaseContainer from './Flowers/FlowersStoreBaseContainer'
 
@@ -17,6 +18,7 @@ export default function StoreBaseContent({visible}) {
 				<div className={'TabButton'} onClick={() => setStoreContainer(<FlowersStoreBaseContainer/>)}>Flowers</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<UtilityStoreBaseContainer/>)}>Utility</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<StatisticsStoreBaseContainer/>)}>Statistics</div>
+				<div className={'TabButton'} onClick={() => setStoreContainer(<PrestigeBaseContent/>)}>Prestigie</div>
 			</div>
 			{storeContainer}
 		</div>

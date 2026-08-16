@@ -4,6 +4,7 @@ import TreeManager from './TreeManager'
 import FlowerManager from './FlowerManager'
 import DogManager from './DogManager'
 import BeeManager from './BeeManager'
+import PrestigeManager from './PrestigeManager'
 
 export default class GameManager
 {
@@ -28,6 +29,7 @@ export default class GameManager
 		this.treeManager = new TreeManager(this.context, this.canvas)
 		this.DogManager = new DogManager(this.context, this.canvas)
 		this.BeeManager = new BeeManager(this.context, this.canvas)
+		this.PrestigeManager = new PrestigeManager()
 
 		this.fruitManager = new FruitManager(this.context, this.canvas)
 		this.flowerManager = new FlowerManager(this.context, this.canvas, 

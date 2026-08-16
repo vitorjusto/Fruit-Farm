@@ -1,5 +1,5 @@
 import FruitSpawner from '../Fruits/Entites/FruitSpawner'
-
+import { gameManager } from '../../App';
 
 export default class FruitManager
 {

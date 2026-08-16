@@ -75,6 +75,8 @@ export default class FruitSpawner
 	HarvestFruits()
 	{
 		var total = this.FruitsSpawned.length * this.SellingPrice
+		gameManager.PrestigeManager.AddFruitSellCount(this.FruitsSpawned.length)
+
 		this.FruitsSpawned = []
 
 		return total
@@ -87,6 +89,7 @@ export default class FruitSpawner
 
 		this.FruitsSpawned.shift()
 		gameManager.AddMoney(this.SellingPrice)
+		gameManager.PrestigeManager.AddFruitSellCount(1)
 	}
 
 	UpgradeFruit()
