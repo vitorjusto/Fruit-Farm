@@ -1,4 +1,5 @@
 import Swal from 'sweetalert2';
+import { gameManager } from '../../../App';
 
 export default function PrestigeBaseContent({visible}) {
 
@@ -16,8 +17,8 @@ export default function PrestigeBaseContent({visible}) {
 					cancelButtonText: 'No',
   					showCancelButton: true,
 				  }).then((result) => {
-  					// if (result.isConfirmed) 
-						//Reset Game
+  					if (result.isConfirmed) 
+						gameManager.PrestigeManager.ResetGame()
 					});
 	}
 	

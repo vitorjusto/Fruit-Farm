@@ -1,4 +1,7 @@
 
+import { EPeriod } from './PrestigeManager'
+import { gameManager } from '../../App'
+
 export default class BackgroundManager
 {
 	context;
@@ -12,7 +15,13 @@ export default class BackgroundManager
 
 	update()
 	{
-		this.context.fillStyle = "#1199ff"
+		if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Morning)
+			this.context.fillStyle = "#1199ff"
+		else if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Afternoon)
+			this.context.fillStyle = "#ff9811"
+		else if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Night)
+			this.context.fillStyle = "#060038"
+
     	this.context.fillRect(0, 0, 100000, 1000000);
   	}
 }

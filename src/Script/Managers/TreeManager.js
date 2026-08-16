@@ -1,4 +1,5 @@
 import { gameManager } from '../../App'
+import { ESeason } from './PrestigeManager'
 import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/TreeBranchUpgrade'
 
 export default class TreeManager
@@ -28,11 +29,24 @@ export default class TreeManager
 
 		//Draw tree cope
 		var copeWidth = 800
-		this.context.fillStyle = "rgb(0, 255, 0)"
+
+		this.SetCurrentSeasonColor()
     	this.context.fillRect(((this.canvas.width) / 2) - (copeWidth / 2), 80, copeWidth, 300);
 
 		//Draw ground
     	this.context.fillRect(0, (this.canvas.height) - 60, this.canvas.width, 280);
+	}
+
+	SetCurrentSeasonColor()
+	{
+		if(gameManager.PrestigeManager.CurrentSeason == ESeason.Summer)
+			this.context.fillStyle = "rgb(0, 255, 0)"
+		else if(gameManager.PrestigeManager.CurrentSeason == ESeason.Fall)
+			this.context.fillStyle = "rgb(255, 123, 0)"
+		else if(gameManager.PrestigeManager.CurrentSeason == ESeason.Winter)
+			this.context.fillStyle = "rgb(199, 236, 255)"
+		else if(gameManager.PrestigeManager.CurrentSeason == ESeason.Spring)
+			this.context.fillStyle = "rgb(240, 53, 215)"
 	}
 
 	Upgrade()
