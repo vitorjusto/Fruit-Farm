@@ -7,6 +7,8 @@ export default class FruitManager
 
 	constructor(context, canvas)
 	{
+		this.context = context;
+		this.canvas = canvas;
 		this.FruitsSpawners.push(new FruitSpawner(context, canvas, 'Apple', 1, 'Simple fruit, simple price', 3000, 1, 1))
 	}
 
@@ -26,5 +28,11 @@ export default class FruitManager
 		});
 
 		return total;
+	}
+
+	Reset()
+	{
+		this.FruitsSpawners = []
+		this.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple', 1, 'Simple fruit, simple price', 3000, 1, 1))
 	}
 }

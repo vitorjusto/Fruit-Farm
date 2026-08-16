@@ -12,10 +12,7 @@ export default class BeeManager
 		this.context = context
 		this.canvas = canvas
 
-		this.Level = 0
-		this.UpgradePrice = 1
-
-		this.BranchUpgradeId = 1
+		this.Reset()
 	}
 
 	Update(deltaTime)
@@ -52,5 +49,17 @@ export default class BeeManager
 
 		if(this.Level == 25)
 			this.BranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
+	}
+
+	Reset()
+	{
+		this.Level = 0
+		this.UpgradePrice = 1
+
+		this.BranchUpgradeId = 1
+		this.BranchUpgrade = null
+
+		this.Cooldown = 0
+		this.MaxCooldown = 2
 	}
 }

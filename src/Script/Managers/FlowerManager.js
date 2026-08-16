@@ -48,4 +48,9 @@ export default class FlowerManager
 
 		this.Flowers = newFlowerList
 	}
+
+	Reset()
+	{
+		this.Flowers = [];
+	}
 }

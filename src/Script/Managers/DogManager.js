@@ -15,14 +15,14 @@ export default class DogManager
 		this.context = context
 		this.canvas = canvas
 
-		this.Level = 1
-		this.UpgradePrice = 1
-
-		this.BranchUpgradeId = 1
+		this.Reset()
 	}
 
 	Update(deltaTime)
 	{
+		if(this.Level == 0)
+			return;
+
 		this.context.fillStyle = "Blue"
 		this.context.fillRect(20, (this.canvas.height) - 100, 50, 50);
 
@@ -66,5 +66,20 @@ export default class DogManager
 		}
 
 		return this.ClickValue;
+	}
+
+	Reset()
+	{
+		this.Level = 0
+		this.UpgradePrice = 1
+
+		this.BranchUpgradeId = 1
+		this.BranchUpgrade = null
+		
+		this.ClickValue = 10
+		this.ClickAmount = 10
+		this.MaxClickAmount = 10
+		this.Cooldown = 0
+		this.MaxCooldown = 10
 	}
 }

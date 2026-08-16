@@ -1,3 +1,5 @@
+import { gameManager } from "../../App";
+
 export default class PrestigeManager
 {
 	CurrentSeason;
@@ -37,6 +39,12 @@ export default class PrestigeManager
 
 		if(this.CurrentPeriod > 2)
 			this.CurrentPeriod = 0;
+
+		gameManager.fruitManager.Reset()
+		gameManager.flowerManager.Reset()
+		gameManager.DogManager.Reset()
+		gameManager.BeeManager.Reset()
+		gameManager.treeManager.Reset()
 	}
 }
 
