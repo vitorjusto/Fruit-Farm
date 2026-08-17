@@ -71,6 +71,6 @@ export default class TreeManager
 
 		this.BranchUpgradeId = 1
 		this.BranchUpgrade = null
-		this.FruitSpawnModifier = 0
+		this.FruitSpawnModifier = 1
 	}
 }

@@ -50,11 +50,8 @@ export default class FruitSpawner
 
 	Update(deltaTime)
 	{
-		if(this.Level == 0)
-			return;
 
 		this.SpawnCooldown -= deltaTime
-
 		if(this.SpawnCooldown <= 0)
 		{
 			this.SpawnCooldown += this.GetSpawnTimer();
