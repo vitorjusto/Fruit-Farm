@@ -7,7 +7,7 @@ import FruitStatesDTO from '../../../Script/Fruits/DTOs/FruitStatesDTO'
 
 export default function StoreItemButton(props) {
 
-	var [sellingPrice, setSellingPrice] = useState(props.fruitSpawner.SellingPrice);
+	var [sellingPrice, setSellingPrice] = useState(props.fruitSpawner.GetSellingPrice());
 	var [maxSpawnCooldown, setMaxSpawnCooldown] = useState(props.fruitSpawner.GetSpawnTimer());
 
 	var [sx, setSX] = useState(0);

@@ -39,7 +39,7 @@ export default function UtilityStoreBaseContainer()
 		setSelectedUpgradeNextValue1(1)
 
 		setSelectedUpgradeText2("Fruit Spawn Timer Modifier")
-		setSelectedUpgradeValue2(gameManager.treeManager.FruitSpawnModifier)
+		setSelectedUpgradeValue2(gameManager.treeManager.GetFruitSpawnModifier())
 		setSelectedUpgradeNextValue2(0.01)
 
 		setSelectedUpgradePrice(gameManager.treeManager.UpgradePrice)
@@ -55,7 +55,7 @@ export default function UtilityStoreBaseContainer()
 		setSelectedUpgradePrice(gameManager.treeManager.UpgradePrice)
 		setSelectedUpgradeValue1(gameManager.treeManager.Size)
 		setSelectedLevel(gameManager.treeManager.Level)
-		setSelectedUpgradeValue2(gameManager.treeManager.FruitSpawnModifier)
+		setSelectedUpgradeValue2(gameManager.treeManager.GetFruitSpawnModifier())
 		
 		setSelectedBranchUpgrade(gameManager.treeManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => {

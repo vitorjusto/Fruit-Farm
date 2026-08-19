@@ -5,10 +5,37 @@ export default class PrestigeManager
 	CurrentSeason;
 	CurrentPeriod;
 
-	Diamonts = 0;
+	Diamonts = 100;
 	FruitsSellCount = 0;
 	MaxFruitSellCount = 100;
+	SetUpdateAction = () => {}
+
 	
+	fruitValueDiamonts = 0
+	flowerValueDiamonts = 0
+	beesDiamonts = 0
+	treeSpawnTimerDiamonts = 0
+
+	GetFruitValuePrestigeModifier()
+	{
+		return 1 + this.fruitValueDiamonts
+	}
+
+	GetflowerValuePrestigeModifier()
+	{
+		return 1 + this.flowerValueDiamonts
+	}
+
+	GetBeesPrestigeModifier()
+	{
+		return 1 + this.beesDiamonts
+	}
+
+	GetTreeSpawnTimerPrestigeModifier()
+	{
+		return 1 + this.treeSpawnTimerDiamonts
+	}
+
 	constructor()
 	{
 		this.CurrentSeason = ESeason.Summer
@@ -26,9 +53,10 @@ export default class PrestigeManager
 		}
 
 		console.log("FruitsSellCount: " + this.FruitsSellCount + " Diamonts: " + this.Diamonts)
+		this.SetUpdateAction()
 	}
 
-	ResetGame()
+	ResetGame(FruitValue, FlowerValue, Bees, TreeSpawnTimer)
 	{
 		this.CurrentSeason += 1
 		
@@ -40,11 +68,20 @@ export default class PrestigeManager
 		if(this.CurrentPeriod > 2)
 			this.CurrentPeriod = 0;
 
+		this.fruitValueDiamonts = FruitValue
+		this.flowerValueDiamonts = FlowerValue
+		this.beesDiamonts = Bees
+		this.treeSpawnTimerDiamonts = TreeSpawnTimer
+
+		console.log(this.fruitValueDiamonts)
+
 		gameManager.fruitManager.Reset()
 		gameManager.flowerManager.Reset()
 		gameManager.DogManager.Reset()
 		gameManager.BeeManager.Reset()
 		gameManager.treeManager.Reset()
+
+		gameManager.Reset()
 	}
 }
 

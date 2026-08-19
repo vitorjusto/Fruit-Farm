@@ -89,4 +89,10 @@ export default class GameManager
 		this.setMoney(this.money)
 
 	}
+
+	Reset()
+	{
+		this.money = 0
+		this.setMoney(this.money)
+	}
 }

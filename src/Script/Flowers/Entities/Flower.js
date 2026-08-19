@@ -69,9 +69,14 @@ export default class Flower
     	};
 	}
 
+	GetMoneyPerSecond()
+	{
+		return this.MoneyPerSecond * gameManager.PrestigeManager.GetflowerValuePrestigeModifier()
+	}
+
 	Update(deltaTime)
 	{
-		this.AddMoney(this.MoneyPerSecond * deltaTime)
+		this.AddMoney(this.GetMoneyPerSecond() * deltaTime)
 		
 		if(!this.ImageLoaded)
 			return;

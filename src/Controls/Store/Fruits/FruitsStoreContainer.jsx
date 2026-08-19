@@ -25,7 +25,7 @@ export default function FruitsStoreContainer()
 		setSelectedLevel(fruitSpawner.Level)
 		setDescription(fruitSpawner.Description)
 
-		setSelectedSellingPrice(fruitSpawner.SellingPrice)
+		setSelectedSellingPrice(fruitSpawner.GetSellingPrice())
 		setSelectedSpawnTimer(fruitSpawner.MaxSpawnCooldown)
 		setSelectedUpgradePrice(fruitSpawner.UpgradePrice)
 

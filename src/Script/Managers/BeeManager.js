@@ -33,7 +33,10 @@ export default class BeeManager
 	{
 		this.Cooldown += this.MaxCooldown
 
-		gameManager.fruitManager.FruitsSpawners.toSorted(function(x, y) {return x.FruitsSpawned.length - y.FruitsSpawned.length }).toReversed()[0].CollectFruit()
+		for (let i = 0; i < gameManager.PrestigeManager.GetBeesPrestigeModifier(); i++) 
+		{
+			gameManager.fruitManager.FruitsSpawners.toSorted(function(x, y) {return x.FruitsSpawned.length - y.FruitsSpawned.length }).toReversed()[0].CollectFruit()
+		}
 	}
 
 	Upgrade()

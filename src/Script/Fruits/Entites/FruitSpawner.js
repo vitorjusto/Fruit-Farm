@@ -45,7 +45,7 @@ export default class FruitSpawner
 
 	GetSpawnTimer()
 	{
-		return this.MaxSpawnCooldown / gameManager.treeManager.FruitSpawnModifier
+		return this.MaxSpawnCooldown / gameManager.treeManager.GetFruitSpawnModifier()
 	}
 
 	Update(deltaTime)
@@ -68,10 +68,14 @@ export default class FruitSpawner
 		});
 	}
 
-	
+	GetSellingPrice()
+	{
+		return this.SellingPrice * gameManager.PrestigeManager.GetFruitValuePrestigeModifier()
+	}
+
 	HarvestFruits()
 	{
-		var total = this.FruitsSpawned.length * this.SellingPrice
+		var total = this.FruitsSpawned.length * this.GetSellingPrice()
 		gameManager.PrestigeManager.AddFruitSellCount(this.FruitsSpawned.length)
 
 		this.FruitsSpawned = []
@@ -85,7 +89,7 @@ export default class FruitSpawner
 			return;
 
 		this.FruitsSpawned.shift()
-		gameManager.AddMoney(this.SellingPrice)
+		gameManager.AddMoney(this.GetSellingPrice())
 		gameManager.PrestigeManager.AddFruitSellCount(1)
 	}
 

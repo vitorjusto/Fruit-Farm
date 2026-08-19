@@ -62,6 +62,11 @@ export default class TreeManager
 			this.BranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
 	}
 
+	GetFruitSpawnModifier()
+	{
+		return this.FruitSpawnModifier * gameManager.PrestigeManager.GetTreeSpawnTimerPrestigeModifier()
+	}
+
 	Reset()
 	{
 		
