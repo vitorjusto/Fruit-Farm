@@ -4,6 +4,7 @@ import FruitSpawner from '../../../Script/Fruits/Entites/FruitSpawner'
 import { gameManager } from "../../../App"
 import { useState, useEffect } from 'react';
 import FruitStatesDTO from '../../../Script/Fruits/DTOs/FruitStatesDTO'
+import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
 
 export default function StoreItemButton(props) {
 
@@ -39,7 +40,7 @@ export default function StoreItemButton(props) {
   			<img src={`/assets/Fruits/${props.fruitSpawner.FruitName}.png`} style={{ imageRendering: 'pixelated', position: 'absolute', top: sy, left: sx}} />
 	</div>
 		<div style={{textAlign:'center', fontSize:'xx-large'}}>{props.fruitSpawner.FruitName}</div>
-		<div>Price: ${sellingPrice}</div>
+		<div>Price: ${ConvertMoneyNumber(sellingPrice)}</div>
 		<div>Spawn Timer: {maxSpawnCooldown}s</div>
 	</div>
   )

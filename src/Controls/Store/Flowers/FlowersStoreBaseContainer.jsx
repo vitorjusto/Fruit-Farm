@@ -5,6 +5,7 @@ import FlowerUpgradeButton from './FlowerUpgradeButton'
 import NewFlowerButton from './NewFlowerButton'
 import {gameManager} from '../../../App'
 import {useState, useEffect} from 'react'
+import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
 
 export default function FlowersStoreBaseContainer()
 {
@@ -42,9 +43,9 @@ export default function FlowersStoreBaseContainer()
 		setSelectedFlowerName(flower.FlowerName)
 		setSelectedLevel(flower.Level)
 		setSelectedDescription(flower.Description)
-		setSelectedMoneyPerSecond(flower.GetMoneyPerSecond())
-		setSelectedSellingPrice(flower.SellingPrice)
-		setSelectedUpgradePrice(flower.UpgradePrice)
+		setSelectedMoneyPerSecond(ConvertMoneyNumber(flower.GetMoneyPerSecond()))
+		setSelectedSellingPrice(ConvertMoneyNumber(flower.SellingPrice))
+		setSelectedUpgradePrice(ConvertMoneyNumber(flower.UpgradePrice))
 		setAvaliableBranchUpgrade(flower.AvailableBranchUpgrade)
 		
 		setNewFlowerVisible(false)

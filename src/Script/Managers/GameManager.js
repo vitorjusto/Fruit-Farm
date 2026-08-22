@@ -5,6 +5,8 @@ import FlowerManager from './FlowerManager'
 import DogManager from './DogManager'
 import BeeManager from './BeeManager'
 import PrestigeManager from './PrestigeManager'
+import {ConvertMoneyNumber} from '../Shareds/Functions/NumberConverter'
+
 
 export default class GameManager
 {
@@ -86,13 +88,13 @@ export default class GameManager
 	AddMoney(amount)
 	{
 		this.money += amount
-		this.setMoney(this.money)
+		this.setMoney(ConvertMoneyNumber(this.money))
 
 	}
 
 	Reset()
 	{
 		this.money = 0
-		this.setMoney(this.money)
+		this.setMoney(ConvertMoneyNumber(this.money))
 	}
 }

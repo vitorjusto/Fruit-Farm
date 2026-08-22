@@ -3,6 +3,7 @@ import { gameManager } from "../../../App"
 import { ChangeTreeBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/TreeBranchUpgrade"
 import { ChangeDogBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/DogBranchUpgrade"
 import { ChangeBeeBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/BeeBranchUpgrade"
+import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
 
 import UtilityStoreLateralContent from "./UtilityStoreLateralContent"
 import '../Styles/StoreBaseContent.css'
@@ -39,10 +40,10 @@ export default function UtilityStoreBaseContainer()
 		setSelectedUpgradeNextValue1(1)
 
 		setSelectedUpgradeText2("Fruit Spawn Timer Modifier")
-		setSelectedUpgradeValue2(gameManager.treeManager.GetFruitSpawnModifier())
+		setSelectedUpgradeValue2(ConvertMoneyNumber(gameManager.treeManager.GetFruitSpawnModifier()))
 		setSelectedUpgradeNextValue2(0.01)
 
-		setSelectedUpgradePrice(gameManager.treeManager.UpgradePrice)
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.treeManager.UpgradePrice))
 		setSelectUpgradeAction(() => onTreeUpgrade)
 
 		setSelectedBranchUpgrade(gameManager.treeManager.BranchUpgrade)
@@ -52,7 +53,7 @@ export default function UtilityStoreBaseContainer()
 	function onTreeUpgrade()
 	{
 		gameManager.treeManager.Upgrade()
-		setSelectedUpgradePrice(gameManager.treeManager.UpgradePrice)
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.treeManager.UpgradePrice))
 		setSelectedUpgradeValue1(gameManager.treeManager.Size)
 		setSelectedLevel(gameManager.treeManager.Level)
 		setSelectedUpgradeValue2(gameManager.treeManager.GetFruitSpawnModifier())
@@ -72,14 +73,14 @@ export default function UtilityStoreBaseContainer()
 		setSelectedDescription("Is so friendly that gives you money when you pet (click).")
 		
 		setSelectedUpgradeText1("Money per click")
-		setSelectedUpgradeValue1(gameManager.DogManager.ClickValue)
+		setSelectedUpgradeValue1(ConvertMoneyNumber(gameManager.DogManager.ClickValue))
 		setSelectedUpgradeNextValue1(1)
 
 		setSelectedUpgradeText2("Cooldown")
 		setSelectedUpgradeValue2(gameManager.DogManager.MaxCooldown)
 		setSelectedUpgradeNextValue2(0.01)
 
-		setSelectedUpgradePrice(gameManager.DogManager.UpgradePrice)
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.DogManager.UpgradePrice))
 		setSelectUpgradeAction(() => onDogUpgrade)
 
 		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
@@ -89,8 +90,8 @@ export default function UtilityStoreBaseContainer()
 	function onDogUpgrade()
 	{
 		gameManager.DogManager.Upgrade()
-		setSelectedUpgradePrice(gameManager.DogManager.UpgradePrice)
-		setSelectedUpgradeValue1(gameManager.DogManager.ClickValue)
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.DogManager.UpgradePrice))
+		setSelectedUpgradeValue1(ConvertMoneyNumber(gameManager.DogManager.ClickValue))
 		setSelectedLevel(gameManager.DogManager.Level)
 		setSelectedUpgradeValue2(gameManager.DogManager.MaxCooldown)
 		
@@ -116,7 +117,7 @@ export default function UtilityStoreBaseContainer()
 		setSelectedUpgradeValue2(gameManager.BeeManager.MaxCooldown)
 		setSelectedUpgradeNextValue2(0.01)
 
-		setSelectedUpgradePrice(gameManager.BeeManager.UpgradePrice)
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BeeManager.UpgradePrice))
 		setSelectUpgradeAction(() => onBeeUpgrade)
 
 		setSelectedBranchUpgrade(gameManager.BeeManager.BranchUpgrade)
@@ -126,7 +127,7 @@ export default function UtilityStoreBaseContainer()
 	function onBeeUpgrade()
 	{
 		gameManager.BeeManager.Upgrade()
-		setSelectedUpgradePrice(gameManager.BeeManager.UpgradePrice)
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BeeManager.UpgradePrice))
 		setSelectedUpgradeValue1(gameManager.BeeManager.MaxCooldown)
 		setSelectedLevel(gameManager.BeeManager.Level)
 		setSelectedUpgradeValue2(gameManager.BeeManager.MaxCooldown)

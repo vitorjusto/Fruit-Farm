@@ -4,6 +4,7 @@ import StoreFruitLateralContent from "./StoreLateralContent"
 import FruitSpawner from "../../../Script/Fruits/Entites/FruitSpawner"
 import '../Styles/StoreBaseContent.css'
 import StoreItemButton from './StoreItemButton';
+import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
 
 export default function FruitsStoreContainer() 
 {
@@ -25,9 +26,9 @@ export default function FruitsStoreContainer()
 		setSelectedLevel(fruitSpawner.Level)
 		setDescription(fruitSpawner.Description)
 
-		setSelectedSellingPrice(fruitSpawner.GetSellingPrice())
+		setSelectedSellingPrice(ConvertMoneyNumber(fruitSpawner.GetSellingPrice()))
 		setSelectedSpawnTimer(fruitSpawner.MaxSpawnCooldown)
-		setSelectedUpgradePrice(fruitSpawner.UpgradePrice)
+		setSelectedUpgradePrice(ConvertMoneyNumber(fruitSpawner.UpgradePrice))
 
 		setSelectedFruitId(fruitSpawner.FruitId)
 		setSelectedAvaliableBranchUpgrade(fruitSpawner.AvailableBranchUpgrade)

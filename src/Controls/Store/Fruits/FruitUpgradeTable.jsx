@@ -1,3 +1,5 @@
+import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
+
 export default function UpgradeTable(props) 
 {
 	return <div className={'StoreContentStatus'}>
@@ -12,7 +14,7 @@ export default function UpgradeTable(props)
 			<tbody>
 				<tr>
 					<th className={'StoreContentStatusTableContent'}><b>Selling Price</b></th>
-					<td className={'StoreContentStatusTableContent'}>{props.SellingPrice}</td>
+					<td className={'StoreContentStatusTableContent'}>{ConvertMoneyNumber(props.SellingPrice)}</td>
 					<td className={'StoreContentStatusTableContent'}>0,00 (+0.02)</td>
 				</tr>
 			</tbody>

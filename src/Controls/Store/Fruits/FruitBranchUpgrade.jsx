@@ -1,4 +1,5 @@
 import {gameManager} from '../../../App'
+import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
 
 export default function FruitBranchUpgrade(props) 
 {
@@ -9,7 +10,7 @@ export default function FruitBranchUpgrade(props)
 
 		fruitSpawner.UpdateBranchUpgrade(id)
 
-		props.SelectedFruitStatesDTO.setSellingPrice(fruitSpawner.SellingPrice)
+		props.SelectedFruitStatesDTO.setSellingPrice(ConvertMoneyNumber(fruitSpawner.SellingPrice))
 		props.SelectedFruitStatesDTO.setMaxSpawnCooldown(fruitSpawner.MaxSpawnCooldown)
 		
 		props.onUpgradeClick(fruitSpawner, props.SelectedFruitStatesDTO)
