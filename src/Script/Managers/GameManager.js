@@ -5,6 +5,7 @@ import FlowerManager from './FlowerManager'
 import DogManager from './DogManager'
 import BeeManager from './BeeManager'
 import PrestigeManager from './PrestigeManager'
+import BirdManager from './BirdManager'
 import {ConvertMoneyNumber} from '../Shareds/Functions/NumberConverter'
 
 
@@ -32,6 +33,7 @@ export default class GameManager
 		this.treeManager = new TreeManager(this.context, this.canvas)
 		this.DogManager = new DogManager(this.context, this.canvas)
 		this.BeeManager = new BeeManager(this.context, this.canvas)
+		this.BirdManager = new BirdManager(this.context, this.canvas)
 		this.PrestigeManager = new PrestigeManager()
 
 		this.fruitManager = new FruitManager(this.context, this.canvas)
@@ -76,14 +78,17 @@ export default class GameManager
 		this.BeeManager.Update(deltaTime)
 		this.fruitManager.Update(deltaTime)
 		this.flowerManager.Update(deltaTime)
+		this.BirdManager.Update(deltaTime)
   	}
 
-	HarvestFruits()
+	HarvestFruits(event)
 	{
 		var total = this.fruitManager.HarvestFruits()
 		total += this.DogManager.PetDog()
 
 		this.AddMoney(total)
+
+		this.BirdManager.VerifyClick(event)
 	}
 
 	AddMoney(amount)

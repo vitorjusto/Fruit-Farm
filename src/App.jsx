@@ -36,9 +36,9 @@ function App() {
 		return () => gameManager.stop();
   	}, []);
 
-  	function onUserClick()
+  	function onUserClick(event)
   	{
-		gameManager.HarvestFruits()
+		gameManager.HarvestFruits(event)
   	}
 
   return (

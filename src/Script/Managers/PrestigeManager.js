@@ -52,7 +52,7 @@ export default class PrestigeManager
 			this.Diamonts++;
 		}
 
-		console.log("FruitsSellCount: " + this.FruitsSellCount + " Diamonts: " + this.Diamonts)
+		// console.log("FruitsSellCount: " + this.FruitsSellCount + " Diamonts: " + this.Diamonts)
 		this.SetUpdateAction()
 	}
 
