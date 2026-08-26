@@ -14,7 +14,7 @@ import RareSeed from '/assets/Seeds/RareSeed.png'
 import StoreBaseContent from '../Store/StoreBaseContent'
 import {useState} from 'react'
 
-export default function Hud({money}) {
+export default function Hud({money, greenSeed, orangeSeed, blueSeed, pinkSeed, goldSeed, rareSeed}) {
 
 
 	var [isOpen, setIsOpenShop] = useState(false)
@@ -42,27 +42,27 @@ export default function Hud({money}) {
 				<div className='SeedContainer'>
 					<div className='SmallCurrencyPanel CurrencyContainerValue'>
 						<img src={GreenSeed} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-						<p className='MoneySecondsPanel'>{money}</p>
+						<p className='MoneySecondsPanel'>{greenSeed}</p>
 					</div>
 					<div className='SmallCurrencyPanel CurrencyContainerValue'>
 						<img src={OrangeSeed} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-						<p className='MoneySecondsPanel'>{money}</p>
+						<p className='MoneySecondsPanel'>{orangeSeed}</p>
 					</div>
 					<div className='SmallCurrencyPanel CurrencyContainerValue'>
 						<img src={GoldSeed} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-						<p className='MoneySecondsPanel'>{money}</p>
+						<p className='MoneySecondsPanel'>{goldSeed}</p>
 					</div>
 					<div className='SmallCurrencyPanel CurrencyContainerValue'>
 						<img src={BlueSeed} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-						<p className='MoneySecondsPanel'>{money}</p>
+						<p className='MoneySecondsPanel'>{blueSeed}</p>
 					</div>
 					<div className='SmallCurrencyPanel CurrencyContainerValue'>
 						<img src={PinkSeed} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-						<p className='MoneySecondsPanel'>{money}</p>
+						<p className='MoneySecondsPanel'>{pinkSeed}</p>
 					</div>
 					<div className='SmallCurrencyPanel CurrencyContainerValue'>
 						<img src={RareSeed} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-						<p className='MoneySecondsPanel'>{money}</p>
+						<p className='MoneySecondsPanel'>{rareSeed}</p>
 					</div>
 				</div>
 			</div>
