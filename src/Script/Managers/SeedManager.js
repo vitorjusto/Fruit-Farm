@@ -24,12 +24,12 @@ export default class SeedManager
 		this.setUIGoldSeed = setGoldSeed;
 		this.setUIRareSeed = setRareSeed;
 		
-		this.setUIGreenSeed(1);
-		this.setUIOrangeSeed(3);
-		this.setUIBlueSeed(3);
-		this.setUIPinkSeed(4);
-		this.setUIGoldSeed(5);
-		this.setUIRareSeed(6);
+		this.setUIGreenSeed(0);
+		this.setUIOrangeSeed(0);
+		this.setUIBlueSeed(0);
+		this.setUIPinkSeed(0);
+		this.setUIGoldSeed(0);
+		this.setUIRareSeed(0);
 	}
 
 	SetGreenSeed(value)
@@ -65,6 +65,43 @@ export default class SeedManager
 	SetRareSeed(value)
 	{
 		this.rareSeed = value
+		this.setUIRareSeed(this.rareSeed);
+	}
+
+	
+	AddGreenSeed(value)
+	{
+		this.greenSeed += value
+		this.setUIGreenSeed(this.greenSeed);
+	}
+
+	AddOrangeSeed(value)
+	{
+		this.orangeSeed += value
+		this.setUIOrangeSeed(this.orangeSeed);
+	}
+
+	AddBlueSeed(value)
+	{
+		this.blueSeed += value
+		this.setUIBlueSeed(this.blueSeed);
+	}
+
+	AddPinkSeed(value)
+	{
+		this.pinkSeed += value
+		this.setUIPinkSeed(this.pinkSeed);
+	}
+
+	AddGoldSeed(value)
+	{
+		this.goldSeed += value
+		this.setUIGoldSeed(this.goldSeed);
+	}
+
+	AddRareSeed(value)
+	{
+		this.rareSeed += value
 		this.setUIRareSeed(this.rareSeed);
 	}
 }

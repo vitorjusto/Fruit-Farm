@@ -3,6 +3,7 @@ import { gameManager } from "../../../App"
 import { ChangeTreeBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/TreeBranchUpgrade"
 import { ChangeDogBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/DogBranchUpgrade"
 import { ChangeBeeBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/BeeBranchUpgrade"
+import { ChangeBirdBranchUpgrade } from "../../../Script/BranchUpgrade/Functions/BirdBranchUpgrade"
 import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
 
 import UtilityStoreLateralContent from "./UtilityStoreLateralContent"
@@ -140,13 +141,49 @@ export default function UtilityStoreBaseContainer()
 		
 	}
 
+	function onBirdSelected()
+	{
+		setSelectedName("Bird")
+		setSelectedLevel(gameManager.BirdManager.Level)
+		setSelectedDescription("Gives seed when you kill them.")
+		
+		setSelectedUpgradeText1("Seeds amount")
+		setSelectedUpgradeValue1(gameManager.BirdManager.SeedsAmount)
+		setSelectedUpgradeNextValue1(1)
 
+		setSelectedUpgradeText2("Cooldown")
+		setSelectedUpgradeValue2(gameManager.BirdManager.maxCooldown)
+		setSelectedUpgradeNextValue2(0.01)
+
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BirdManager.UpgradePrice))
+		setSelectUpgradeAction(() => onBirdUpgrade)
+
+		setSelectedBranchUpgrade(gameManager.BirdManager.BranchUpgrade)
+		setSelectedBranchUpgradeAction(() => (id) => ChangeBirdBranchUpgrade(gameManager.BirdManager, id))
+
+	}
+
+	function onBirdUpgrade()
+	{
+		gameManager.BirdManager.Upgrade()
+		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BirdManager.UpgradePrice))
+		setSelectedUpgradeValue1(gameManager.BirdManager.SeedsAmount)
+		setSelectedLevel(gameManager.BirdManager.Level)
+		setSelectedUpgradeValue2(gameManager.BirdManager.maxCooldown)
+		
+		setSelectedBranchUpgrade(gameManager.BirdManager.BranchUpgrade)
+		setSelectedBranchUpgradeAction(() => (id) => {
+			ChangeBirdBranchUpgrade(gameManager.BirdManager, id)
+			onBirdSelected()
+		})
+		
+	}
 	return(<div className={'ControlContent'}>
 				<div className={'StoreButtonsBase'}>
 					<StoreItemButton ItemName={"Tree"} onClick={onTreeSelected}/>
 					<StoreItemButton ItemName={"Bees"} onClick={onBeesSelected}/>
 					<StoreItemButton ItemName={"Dog"} onClick={onDogSelected}/>
-					<StoreItemButton ItemName={"Bird"}/>
+					<StoreItemButton ItemName={"Bird"} onClick={onBirdSelected}/>
 				</div>
 				<UtilityStoreLateralContent 
 					Name={selectedName}

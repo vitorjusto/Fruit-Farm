@@ -1,3 +1,5 @@
+import { gameManager } from "../../App";
+
 export default class Bird
 {
 	context;
@@ -31,7 +33,7 @@ export default class Bird
 
 		this.context.fillRect(this.X, this.Y, this.Size, this.Size);
 
-		if(this.X < -100 || this.X > this.canvas.width + 100)
+		if(this.X < -200 || this.X > this.canvas.width + 200)
 			this.queueDespawn = true;
 	}
 
@@ -42,18 +44,38 @@ export default class Bird
 
 		console.log(`click: (${x}, ${y}), bird: (${this.X}, ${this.Y})`)
 
-		if(this.X > x)
+		if(this.X - this.Size > x)
 			return;
 
-		if(this.X + this.Size < x)
+		if(this.X + (this.Size * 2)  < x)
 			return;
 
-		if(this.Y > y)
+		if(this.Y - this.Size > y)
 			return;
 
-		if(this.Y + this.Size < y)
+		if(this.Y + (this.Size * 2) < y)
 			return;
 
 		this.queueDespawn = true
+
+		this.GiveReward()
+	}
+
+	GiveReward()
+	{
+		var rng = Math.random() * 100;
+
+		if(rng < 20)
+			gameManager.seedManager.AddGreenSeed(2)
+		else if(rng < 40)
+			gameManager.seedManager.AddOrangeSeed(2)
+		else if(rng < 60)
+			gameManager.seedManager.AddBlueSeed(2)
+		else if(rng < 80)
+			gameManager.seedManager.AddPinkSeed(2)
+		else if(rng < 93)
+			gameManager.seedManager.AddGoldSeed(2)
+		else 
+			gameManager.seedManager.AddRareSeed(2)
 	}
 }
