@@ -6,6 +6,7 @@ import DogManager from './DogManager'
 import BeeManager from './BeeManager'
 import PrestigeManager from './PrestigeManager'
 import BirdManager from './BirdManager'
+import MissionManager from './MissionManager'
 import {ConvertMoneyNumber} from '../Shareds/Functions/NumberConverter'
 
 
@@ -35,6 +36,7 @@ export default class GameManager
 		this.BeeManager = new BeeManager(this.context, this.canvas)
 		this.BirdManager = new BirdManager(this.context, this.canvas)
 		this.PrestigeManager = new PrestigeManager()
+		this.MissionManager = new MissionManager()
 
 		this.fruitManager = new FruitManager(this.context, this.canvas)
 		this.flowerManager = new FlowerManager(this.context, this.canvas, 
