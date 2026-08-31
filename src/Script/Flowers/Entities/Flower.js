@@ -1,5 +1,6 @@
 import {ChangeFlowerBranchUpgrade, GetBranchUpgradeCollection} from '../../BranchUpgrade/Functions/FlowerBranchUpgrade'
 import { gameManager } from '../../../App'
+import { MissionAction, EMissionType } from '../../Managers/MissionManager';
 
 export default class Flower
 {
@@ -77,6 +78,9 @@ export default class Flower
 	Update(deltaTime)
 	{
 		this.AddMoney(this.GetMoneyPerSecond() * deltaTime)
+		
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.MoneyCollectedByFlower, 0, this.GetMoneyPerSecond() * deltaTime))
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.MoneyCollectedByEspecificFlower, this.Id, this.GetMoneyPerSecond() * deltaTime))
 		
 		if(!this.ImageLoaded)
 			return;

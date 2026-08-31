@@ -1,5 +1,6 @@
 import { gameManager } from '../../App'
 import Flower from '../Flowers/Entities/Flower'
+import { MissionAction, EMissionType } from './MissionManager';
 
 export default class FlowerManager
 {
@@ -13,13 +14,19 @@ export default class FlowerManager
 		this.Canvas = canvas
 		this.AddMoney = AddMoney
 		this.Flowers = []
+		this.TotalMoneyPerSecond = 0
 	}
 
 	Update(deltaTime)
 	{
+		this.TotalMoneyPerSecond = 0
 		this.Flowers.forEach(element => {
 			element.Update(deltaTime)
+			this.TotalMoneyPerSecond += element.GetMoneyPerSecond()
 		});
+
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.MoneyPerSecond, 0, this.TotalMoneyPerSecond))
+		
 	}
 
 	AddFlower(flowerId)

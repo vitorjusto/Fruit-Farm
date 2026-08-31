@@ -1,5 +1,6 @@
 import { gameManager } from '../../App'
 import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/DogBranchUpgrade'
+import { MissionAction, EMissionType } from './MissionManager'
 
 export default class DogManager
 {
@@ -57,6 +58,8 @@ export default class DogManager
 		if(this.Cooldown > 0)
 			return 0;
 
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.PetDog, 0, 1))
+		
 		this.ClickAmount -= 1
 
 		if(this.ClickAmount == 0)

@@ -4,6 +4,7 @@ import Fruit from './Fruit'
 import Vector2 from '../../Shareds/ValueObjects/Vector2'
 import {ChangeFruitBranchUpgrade, GetBranchUpgradeCollection} from '../../BranchUpgrade/Functions/FruitBranchUpgrade'
 import {GetNextFruit} from '../Factories/FruitFactory'
+import { MissionAction,EMissionType } from '../../Managers/MissionManager'
 
 export default class FruitSpawner
 {
@@ -78,6 +79,8 @@ export default class FruitSpawner
 		var total = this.FruitsSpawned.length * this.GetSellingPrice()
 		gameManager.PrestigeManager.AddFruitSellCount(this.FruitsSpawned.length)
 
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectFruit, 0, this.FruitsSpawned.length))
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectEspecificFruit, this.FruitId, this.FruitsSpawned.length))
 		this.FruitsSpawned = []
 
 		return total
@@ -87,6 +90,10 @@ export default class FruitSpawner
 	{
 		if(this.FruitsSpawned.length == 0)
 			return;
+
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectFruit, 0, 1))
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectEspecificFruit, this.FruitId, 1))
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.FruitCollectedByBees, 0, 1))
 
 		this.FruitsSpawned.shift()
 		gameManager.AddMoney(this.GetSellingPrice())
@@ -99,6 +106,9 @@ export default class FruitSpawner
 			return;
 
 		gameManager.AddMoney(-this.UpgradePrice)
+
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeAllFruit, 0, 1))
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeFruit, this.FruitId, 1))
 
 		this.UpgradePrice += 1
 		this.SellingPrice += 2

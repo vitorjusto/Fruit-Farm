@@ -1,4 +1,5 @@
 import { gameManager } from "../../App";
+import { MissionAction, EMissionType } from "../Managers/MissionManager";
 
 export default class Bird
 {
@@ -58,6 +59,8 @@ export default class Bird
 
 		this.queueDespawn = true
 
+		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.BirdsTakendown, 0, 1))
+		
 		this.GiveReward()
 	}
 
