@@ -1,7 +1,7 @@
 import { gameManager } from '../../App'
 import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/DogBranchUpgrade'
-import { MissionAction, EMissionType } from './MissionManager'
-
+import { EMissionType } from '../Missions/Enums/EMissionType'
+import MissionAction from '../Missions/Entities/MissionAction'
 export default class DogManager
 {
 	BranchUpgrade = null

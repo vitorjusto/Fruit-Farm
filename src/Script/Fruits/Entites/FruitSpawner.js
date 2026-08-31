@@ -4,8 +4,8 @@ import Fruit from './Fruit'
 import Vector2 from '../../Shareds/ValueObjects/Vector2'
 import {ChangeFruitBranchUpgrade, GetBranchUpgradeCollection} from '../../BranchUpgrade/Functions/FruitBranchUpgrade'
 import {GetNextFruit} from '../Factories/FruitFactory'
-import { MissionAction,EMissionType } from '../../Managers/MissionManager'
-
+import MissionAction from '../../Missions/Entities/MissionAction'
+import { EMissionType } from '../../Missions/Enums/EMissionType'
 export default class FruitSpawner
 {
 	context;

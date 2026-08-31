@@ -1,3 +1,6 @@
+import { EMissionType } from "../Missions/Enums/EMissionType";
+import MissionAction from "../Missions/Entities/MissionAction";
+import Mission from "../Missions/Entities/Mission";
 
 export default class MissionManager
 {
@@ -43,63 +46,5 @@ export default class MissionManager
 			this.Mission2.Update(missionAction)
 		if(missionAction.Type == this.Mission3.Type)
 			this.Mission3.Update(missionAction)
-	}
-}
-
-export class Mission
-{
-	constructor(type, especificTypeId, description, clearAmount)
-	{
-		this.Type = type
-		this.EspecificTypeId = especificTypeId
-		this.Description = description
-		this.ClearAmount = 0
-
-		this.ClearConditionAmount = clearAmount
-		this.MissionCleared = false
-	}
-
-	Update(missionAction)
-	{
-		if(this.Type == EMissionType.CollectEspecificFruit || 
-			this.Type == EMissionType.UpgradeFruit ||
-			this.Type == EMissionType.MoneyCollectedByEspecificFlower)
-		{
-			if(this.EspecificTypeId == missionAction.EspecificTypeId)
-				this.ClearAmount += missionAction.ClearAmount
-		}else if(this.Type == EMissionType.MoneyPerSecond)
-		{
-			this.ClearAmount = missionAction.ClearAmount
-		}else
-		{
-			this.ClearAmount += missionAction.ClearAmount
-		}
-
-		if(!this.MissionCleared)
-			this.MissionCleared = this.ClearAmount >= this.ClearConditionAmount
-	}
-}
-
-export var EMissionType =
-{
-	CollectFruit: 1,
-	CollectEspecificFruit: 2,
-	UpgradeFruit: 3,
-	UpgradeAllFruit: 4,
-	MoneyCollectedByFlower: 5,
-	MoneyCollectedByEspecificFlower: 6,
-	MoneyPerSecond: 7,
-	FruitCollectedByBees: 8,
-	PetDog: 9,
-	BirdsTakendown: 10,
-}
-
-export class MissionAction
-{
-	constructor(type, especificTypeId, clearAmount)
-	{
-		this.Type = type;
-		this.EspecificTypeId = especificTypeId;
-		this.ClearAmount = clearAmount;
 	}
 }

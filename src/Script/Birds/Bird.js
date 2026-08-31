@@ -1,5 +1,6 @@
 import { gameManager } from "../../App";
-import { MissionAction, EMissionType } from "../Managers/MissionManager";
+import { EMissionType } from "../Missions/Enums/EMissionType";
+import MissionAction from "../Missions/Entities/MissionAction";
 
 export default class Bird
 {

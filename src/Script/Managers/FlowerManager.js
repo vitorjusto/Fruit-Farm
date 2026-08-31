@@ -1,7 +1,7 @@
 import { gameManager } from '../../App'
 import Flower from '../Flowers/Entities/Flower'
-import { MissionAction, EMissionType } from './MissionManager';
-
+import { EMissionType } from '../Missions/Enums/EMissionType';
+import MissionAction from '../Missions/Entities/MissionAction';
 export default class FlowerManager
 {
 	Context;
