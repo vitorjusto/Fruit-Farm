@@ -1,0 +1,195 @@
+.FruitValueContent
+{
+	background-color: green;
+	width: 200px;
+	height: 250px;
+
+	border-top-left-radius: 100px;
+	margin: 0px 2px 2px 0px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	padding-right: 50px 
+}
+
+.FlowerValueContent
+{
+	background-color: darkgoldenrod;
+	width: 200px;
+	height: 250px;
+
+	border-top-right-radius: 100px;
+	margin: 0px 0px 2px 2px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	padding-left: 50px 
+}
+
+.BeesContent
+{
+	background-color: darkblue;
+	width: 200px;
+	height: 250px;
+
+	border-bottom-left-radius: 100px;
+	margin: 2px 0px 0px 0px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	padding-right: 50px 
+}
+
+.TreeSpawnTimeContent
+{
+	background-color: darkred;
+	width: 200px;
+	height: 250px;
+
+	border-bottom-right-radius: 100px;
+	margin: 2px 0px 0px 2px;
+
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	padding-left: 50px 
+}
+
+.PrestigeTitle
+{
+	font-size: xx-large;
+	color: var(--text-white)
+}
+
+.SelectedDiamont
+{
+	height: 40px;
+	width: 150px;
+	background-color: rgb(30, 30, 50);
+	color: rgb(128, 255, 255);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border: 3px solid rgb(128, 255, 255);
+}
+
+.SmallSelectedDiamont
+{
+	height: 20px;
+	width: 100px;
+	background-color: rgb(30, 30, 50);
+	color: rgb(128, 255, 255);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	border: 3px solid rgb(128, 255, 255);
+	margin: 20px;
+}
+
+.PrestigePanelBase
+{
+	display: grid;
+	grid-template-columns: auto auto;
+	width:fit-content;
+
+	background-color: lightblue;
+	border-radius: 100px;
+}
+
+.PrestigeContainerBase
+{
+	display:flex;
+	width: 100%;
+	justify-content: space-between;
+}
+
+.PrestigeLateralContent
+{
+	background-color: var(--container);
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+}
+
+.DiamontTitle
+{
+	color: var(--text-white);
+	font-size: x-large;
+}
+
+.SubConatiner
+{
+	color: var(--text-white);
+	background-color: var(--sub-container);
+	padding: 20px;
+	border-radius: 20px;
+	font-size: medium;
+	
+}
+
+.SmallerDiamont
+{
+	height: 15px;
+	width: 120px;
+	background-color: rgb(30, 30, 50);
+	color: rgb(128, 255, 255);
+	display: flex;
+	align-items: start;
+	justify-content: start;
+
+	border: 3px solid rgb(128, 255, 255);
+	margin: 20px;
+
+}
+
+.SellingFruitsProgressFill
+{
+	height: 15px;
+	background-color: rgb(128, 255, 255);
+
+}
+
+.TotalDiamontsDisplayContainer
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+input[type="range"] {
+  -webkit-appearance: none; /* remove estilo padrão no Chrome/Safari */
+  appearance: none;
+  background: rgb(30, 30, 50);
+  border-radius: 20px;
+ height: 10px;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+  background: white;
+  cursor:grab;
+  transition: 0.5s;
+
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  background: BLUE;
+  cursor:grab;
+}

@@ -1,3 +1,5 @@
+import { EMissionType } from '../Enums/EMissionType'
+
 export default class Mission
 {
 	constructor(type, especificTypeId, description, clearAmount)
