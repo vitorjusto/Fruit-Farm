@@ -2,19 +2,22 @@ import { gameManager } from '../../App'
 import Flower from '../Flowers/Entities/Flower'
 import { EMissionType } from '../Missions/Enums/EMissionType';
 import MissionAction from '../Missions/Entities/MissionAction';
+import NewFlowerAvailable from '../Flowers/Entities/NewFlowerAvailable';
 export default class FlowerManager
 {
 	Context;
 	Canvas;
 	Flowers = [];
 
-	constructor(context, canvas, AddMoney)
+	constructor(context, canvas)
 	{
 		this.Context = context
 		this.Canvas = canvas
-		this.AddMoney = AddMoney
 		this.Flowers = []
 		this.TotalMoneyPerSecond = 0
+
+		this.AvailableFlowers = []
+		this.AvailableFlowers.push(new NewFlowerAvailable("Daisy", 20))
 	}
 
 	Update(deltaTime)
@@ -29,9 +32,17 @@ export default class FlowerManager
 		
 	}
 
-	AddFlower(flowerId)
+	AddFlower(newFlowerInfo)
 	{
-		this.Flowers.push(new Flower(this.AddMoney, this.Context, this.Flowers.length + 1))
+		if(gameManager.money < newFlowerInfo.Value)
+			return -1;
+
+		gameManager.AddMoney(-newFlowerInfo.Value)
+
+		var newFlower = new Flower(this.Context, this.Flowers.length + 1)
+		this.Flowers.push(newFlower)
+
+		return newFlower.Id
 	}
 
 	SellFlower(flowerId)
@@ -56,6 +67,13 @@ export default class FlowerManager
 		this.Flowers = newFlowerList
 	}
 
+	GetTotalMoneyPerSecond()
+	{
+		var total = 0
+		this.Flowers.forEach((x) => total += x.GetMoneyPerSecond())
+
+		return total
+	}
 	Reset()
 	{
 		this.Flowers = [];

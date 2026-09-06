@@ -5,24 +5,22 @@ import MissionAction from '../../Missions/Entities/MissionAction';
 export default class Flower
 {
 	MoneyPerSecond=0.5;
-	AddMoney;
 	X;
 	Y;
 	BranchUpgradeId = 1
 	AvailableBranchUpgrade = null;
 
-	constructor(AddMoney, context, id)
+	constructor(context, id)
 	{
 		this.context = context;
 		this.Id = id
 		this.FlowerName = "Daisy"
-		this.Description = "Descrição"
+		this.Description = "Daisy, Daisy, give me your answer, dooo"
 		this.Level = 1
 		this.SellingPrice = 10
 		this.UpgradePrice = 3
 
 		this.ChangeImage(this.Level)
-		this.AddMoney = AddMoney
 
 		if(this.Id == 1)
 		{
@@ -77,7 +75,7 @@ export default class Flower
 
 	Update(deltaTime)
 	{
-		this.AddMoney(this.GetMoneyPerSecond() * deltaTime)
+		gameManager.AddMoney(this.GetMoneyPerSecond() * deltaTime)
 		
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.MoneyCollectedByFlower, 0, this.GetMoneyPerSecond() * deltaTime))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.MoneyCollectedByEspecificFlower, this.Id, this.GetMoneyPerSecond() * deltaTime))

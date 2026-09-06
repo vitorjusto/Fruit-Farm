@@ -3,6 +3,7 @@ import FlowerStoreLateralContent from './FlowerStoreLateralContent'
 import NewFlowerStoreLateralContent from './NewFlowerStoreLateralContent'
 import FlowerUpgradeButton from './FlowerUpgradeButton'
 import NewFlowerButton from './NewFlowerButton'
+import '../Styles/StoreBaseContent.css'
 import {gameManager} from '../../../App'
 import {useState, useEffect} from 'react'
 import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
@@ -23,10 +24,15 @@ export default function FlowersStoreBaseContainer()
 
 	var [flowerContents, setFlowerContents] = useState(null)
 
-	function AddFlower(flowerId)
+	function AddFlower(newFlowerContent)
 	{
-		gameManager.flowerManager.AddFlower(flowerId)
+		var newId = gameManager.flowerManager.AddFlower(newFlowerContent)
+
+		if(newId == -1)
+			return;
 		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
+
+		onFlowerSelected(newId)
 	}
 
 	function onNewFlowerClick()
@@ -58,6 +64,7 @@ export default function FlowersStoreBaseContainer()
 		flower.UpgradeFlower()
 
 		onFlowerSelected(selectedFlowerId)
+		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
 	}
 
 	function OnSell()

@@ -1,12 +1,19 @@
 .buttonContainer
 {
+	border: 5px solid rgba(0, 0, 0, 0);
 	background-color: var(--sub-container2);
-	width: 240px;
-	height: 120px;
+	width: 235px;
+	height: 115px;
 	border-radius: 15px;
 	display: flex;
 	align-items: center;
 	justify-content: space-around;
+	margin: 10px auto;
+}
+
+.buttonContainer:hover
+{
+	border: 5px solid white
 }
 
 .NewFlowerButton
@@ -50,4 +57,16 @@
 	grid-template-columns: auto;
 	grid-template-rows: 10% 5% 10% 15% 25% 15%;
 	flex-direction: column;
+}
+
+.FlowerButtonName
+{
+	font-size: x-large;
+    font-weight: bold;
+}
+
+.NewFlowerStoreLateralContents
+{
+	background: var(--container);
+	overflow-y: auto;
 }

@@ -12,15 +12,26 @@ import PinkSeed from '/assets/Seeds/PinkSeed.png'
 import RareSeed from '/assets/Seeds/RareSeed.png'
 
 import StoreBaseContent from '../Store/StoreBaseContent'
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Swal from 'sweetalert2';
 
 import { gameManager } from '../../App'
+import { ConvertMoneyNumber } from '../../Script/Shareds/Functions/NumberConverter'
 
-export default function Hud({money, greenSeed, orangeSeed, blueSeed, pinkSeed, goldSeed, rareSeed}) {
+export default function Hud({money, greenSeed, orangeSeed, blueSeed, pinkSeed, goldSeed, rareSeed}) 
+{
 
+	useEffect(() => {
+
+		animation = setInterval(() => {
+			
+			setMoneyPerSecond(ConvertMoneyNumber(gameManager.flowerManager.GetTotalMoneyPerSecond()) + "/s")}, 10)
+
+	}, []);
 
 	var [isOpen, setIsOpenShop] = useState(false)
+	var [moneyPerSecond, setMoneyPerSecond] = useState(0)
+	var animation;
 
 	function onStoreButtonClick()
 	{
@@ -29,18 +40,6 @@ export default function Hud({money, greenSeed, orangeSeed, blueSeed, pinkSeed, g
 
 	function onMissionClick()
 	{
-		// Swal.fire({
-		//   title: 'Meu Alerta',
-		//   html: `
-		//     <p>Escolha uma opção:</p>
-		//     <button id="meuBotao" class="swal2-confirm swal2-styled">
-		//       Clique aqui
-		//     </button>
-		//   `,
-		//   showConfirmButton: false, // esconde o botão padrão, se quiser
-		//   
-		// });
-
 		Swal.fire({
 					title: 'Current Missions',
 					icon: "info",
@@ -79,7 +78,7 @@ export default function Hud({money, greenSeed, orangeSeed, blueSeed, pinkSeed, g
 							<div></div><p className='MoneyPanel'>{money}</p>
 						</div>
 						<div className='SmallCurrencyPanel CurrencyContainerValue'>
-							<div></div><p className='MoneySecondsPanel'>{money}</p>
+							<div></div><p className='MoneySecondsPanel'>{moneyPerSecond}</p>
 						</div>
 					</div>
 				</div>

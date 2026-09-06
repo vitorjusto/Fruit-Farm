@@ -5,8 +5,9 @@ export default function FlowerStoreLateralContent(props)
 {
 	
   return (
-	<div className={'StoreLateralContents'} style={{display:(props.visible?'grid':'none')}}>
-		<NewFlowerButton AddFlower={props.AddFlower}/>
+	<div className={'NewFlowerStoreLateralContents'} style={{display:(props.visible?'grid':'none')}}>
+		{gameManager.flowerManager.AvailableFlowers.map((x, i) => (<NewFlowerButton key={i} newFlowerContent={x} AddFlower={props.AddFlower}/>))}
+		
 	</div>
   )
 }
@@ -14,12 +15,12 @@ export default function FlowerStoreLateralContent(props)
 function NewFlowerButton(props) 
 {
 	return(	
-		<div className="NewFlowerButton" onClick={props.AddFlower}>
+		<div className="NewFlowerButton" onClick={() => props.AddFlower(props.newFlowerContent)}>
 			<div className="NewFlowerNameButton">
 				<img src={flower} width={32} height={32} alt="Descrição da imagem" style={{ imageRendering: 'pixelated' }}  />
-				Flower Name
+				{props.newFlowerContent.FlowerName}
 			</div>
-			<div>$20</div>
+			<div>${props.newFlowerContent.Value}</div>
 		</div>
 	)
 }

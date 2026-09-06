@@ -39,9 +39,7 @@ export default class GameManager
 		this.MissionManager = new MissionManager()
 
 		this.fruitManager = new FruitManager(this.context, this.canvas)
-		this.flowerManager = new FlowerManager(this.context, this.canvas, 
-			(amount) => {this.money += amount
-			this.setMoney(this.money)})
+		this.flowerManager = new FlowerManager(this.context, this.canvas)
 
 		this.money = money
 		this.setMoney = setMoney
