@@ -17,21 +17,34 @@ export default class DogManager
 		this.canvas = canvas
 
 		this.Reset()
+    	this.image = new Image();
+   		this.image.src = `/assets/Dog/Dog.png`;
+    	this.image.onload = () => {
+    	  this.ImageLoaded = true
+    	};
+    	this.image.onerror = (e) => {
+    	  console.log(e)
+    	};
+
+		this.X = 20
+		this.Y = 490
 	}
 
 	Update(deltaTime)
 	{
 		if(this.Level == 0)
 			return;
-
-		this.context.fillStyle = "Blue"
-		this.context.fillRect(20, (this.canvas.height) - 100, 50, 50);
+		if(!this.ImageLoaded)
+			return;
 
 		if(this.Cooldown > 0)
 		{
 			this.Cooldown -= deltaTime
-			this.context.fillStyle = "Red"
-			this.context.fillRect(20, (this.canvas.height) - 100, 50, 50);
+    		this.context.drawImage(this.image, 0, 32, 32, 32, this.X, this.Y, 64, 64);
+
+		}else
+		{
+    		this.context.drawImage(this.image, 0, 0, 32, 32, this.X, this.Y, 64, 64);
 
 		}
 

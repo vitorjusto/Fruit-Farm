@@ -1,6 +1,7 @@
 import Bird from "../Birds/Bird"
 import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/BirdBranchUpgrade'
 import { gameManager } from "../../App";
+
 export default class BirdManager
 {
 

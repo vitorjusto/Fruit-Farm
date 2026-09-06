@@ -13,6 +13,15 @@ export default class BeeManager
 		this.canvas = canvas
 
 		this.Reset()
+		
+    	this.image = new Image();
+   		this.image.src = `/assets/Bees/honeycomb.png`;
+    	this.image.onload = () => {
+    	  this.ImageLoaded = true
+    	};
+    	this.image.onerror = (e) => {
+    	  console.log(e)
+    	};
 	}
 
 	Update(deltaTime)
@@ -20,8 +29,10 @@ export default class BeeManager
 		if(this.Level == 0)
 			return;
 		
-		this.context.fillStyle = "Yellow"
-		this.context.fillRect(520, 380, 50, 50);
+		if(!this.ImageLoaded)
+			return;
+
+    	this.context.drawImage(this.image, 480, 340, 128, 128);
 
 		this.Cooldown -= deltaTime
 

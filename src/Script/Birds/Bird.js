@@ -21,6 +21,18 @@ export default class Bird
 		this.ySpeed = ySpeed
 
 		this.queueDespawn = false
+
+    	this.image = new Image();
+   		this.image.src = `/assets/Birds/Bird.png`;
+    	this.image.onload = () => {
+    	  this.ImageLoaded = true
+    	};
+    	this.image.onerror = (e) => {
+    	  console.log(e)
+    	};
+
+		this.AnimationCooldown = 0.2;
+		this.sy = 0
 	}
 
 	Update(deltaTime)
@@ -28,15 +40,35 @@ export default class Bird
 		if(this.queueDespawn)
 			return;
 
-		this.context.fillStyle = "Blue"
+		if(!this.ImageLoaded)
+			return;
+
+		this.AnimationCooldown -= deltaTime
+
+		if(this.AnimationCooldown <= 0)
+		{
+			this.sy = this.sy == 0? 32: 0;
+			this.AnimationCooldown+= 0.2
+		}
 
 		this.X += this.xSpeed * deltaTime
 		this.Y += this.ySpeed * deltaTime
 
-		this.context.fillRect(this.X, this.Y, this.Size, this.Size);
-
+		this.DrawImage()
 		if(this.X < -200 || this.X > this.canvas.width + 200)
 			this.queueDespawn = true;
+	}
+
+	DrawImage()
+	{
+
+		this.context.save();
+		this.context.translate(this.xSpeed > 0? 0: this.canvas.width, 0);
+		this.context.scale(this.xSpeed > 0? 1: -1, 1);
+
+    	this.context.drawImage(this.image, 0, this.sy, 32, 32, this.xSpeed > 0?this.X: this.canvas.width - this.X, this.Y, 64, 64);
+		this.context.restore();
+
 	}
 
 	VerifyClick(x, y)

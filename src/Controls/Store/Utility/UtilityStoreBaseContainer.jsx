@@ -10,6 +10,11 @@ import UtilityStoreLateralContent from "./UtilityStoreLateralContent"
 import '../Styles/StoreBaseContent.css'
 import StoreItemButton from './StoreItemButton';
 
+import dogIcon from '/assets/Dog/DogIcon.png'
+import beeIcon from '/assets/Bees/honeycomb.png'
+import birdIcon from '/assets/Birds/BirdIcon.png'
+import treeIcon from '/assets/Tree/treeIcon.png'
+
 export default function UtilityStoreBaseContainer() 
 {
 	var [selectedName, setSelectedName] = useState('')
@@ -180,10 +185,10 @@ export default function UtilityStoreBaseContainer()
 	}
 	return(<div className={'ControlContent'}>
 				<div className={'StoreButtonsBase'}>
-					<StoreItemButton ItemName={"Tree"} onClick={onTreeSelected}/>
-					<StoreItemButton ItemName={"Bees"} onClick={onBeesSelected}/>
-					<StoreItemButton ItemName={"Dog"} onClick={onDogSelected}/>
-					<StoreItemButton ItemName={"Bird"} onClick={onBirdSelected}/>
+					<StoreItemButton Icon={treeIcon} ItemName={"Tree"} onClick={onTreeSelected}/>
+					<StoreItemButton Icon={beeIcon} ItemName={"Bees"} onClick={onBeesSelected}/>
+					<StoreItemButton Icon={dogIcon} ItemName={"Dog"} onClick={onDogSelected}/>
+					<StoreItemButton Icon={birdIcon} ItemName={"Bird"} onClick={onBirdSelected}/>
 				</div>
 				<UtilityStoreLateralContent 
 					Name={selectedName}
