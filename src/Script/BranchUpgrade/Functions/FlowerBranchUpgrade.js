@@ -1,3 +1,5 @@
+import BranchUpgradeCollection from '../Entities/BranchUpgradeCollection'
+import BranchUpgrade from '../Entities/BranchUpgrade'
 
 export function ChangeFlowerBranchUpgrade(flower, id)
 {

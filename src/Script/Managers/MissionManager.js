@@ -7,9 +7,9 @@ export default class MissionManager
 
 	constructor()
 	{
-		this.Mission1 = new Mission(1, 1, "Description 1", 100);
-		this.Mission2 = new Mission(EMissionType.MoneyCollectedByFlower, 1, "Description 2", 200);
-		this.Mission3 = new Mission(EMissionType.BirdsTakendown, 1, "Description 3", 300);
+		this.Mission1 = new Mission(EMissionType.CollectFruit, 1, "Collect any fruit", 10);
+		this.Mission2 = new Mission(EMissionType.MoneyCollectedByFlower, 1, "Money collected by flower", 200);
+		this.Mission3 = new Mission(EMissionType.BirdsTakendown, 1, "Birds taken down", 10);
 	}
 
 	GetMissionHtml()
@@ -26,7 +26,7 @@ export default class MissionManager
 		var button = ""
 
 		if(mission.MissionCleared)
-			button = `<button id='button${missionId}'>Claim</button>`
+			button = `<div class='missionButton' id='button${missionId}'>Claim</div>`
 		else
 			button = `<p>${mission.ClearAmount}/${mission.ClearConditionAmount}</p>`
 
@@ -35,7 +35,7 @@ export default class MissionManager
 
 	ClaimReward(missionId)
 	{
-		this.Mission1 = new Mission(1, 1, "Description 1", 130);
+		this.Mission1 = new Mission(EMissionType.CollectEspecificFruit, 1, "Collect apple", 100);
 	}
 
 	MissionAction(missionAction)
