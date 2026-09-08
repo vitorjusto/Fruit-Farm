@@ -73,6 +73,8 @@ export default class PrestigeManager
 		this.beesDiamonts = Bees
 		this.treeSpawnTimerDiamonts = TreeSpawnTimer
 
+		gameManager.StatisticsManager.GlobalStats.PrestigeMade += 1
+
 		console.log(this.fruitValueDiamonts)
 
 		gameManager.fruitManager.Reset()

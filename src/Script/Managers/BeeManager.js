@@ -46,6 +46,7 @@ export default class BeeManager
 
 		for (let i = 0; i < gameManager.PrestigeManager.GetBeesPrestigeModifier(); i++) 
 		{
+			gameManager.StatisticsManager.GlobalStats.FruitsCollectedByBees += 1
 			gameManager.fruitManager.FruitsSpawners.toSorted(function(x, y) {return x.FruitsSpawned.length - y.FruitsSpawned.length }).toReversed()[0].CollectFruit()
 		}
 	}
@@ -55,6 +56,7 @@ export default class BeeManager
 		if(gameManager.money < this.UpgradePrice)
 			return;
 
+		gameManager.StatisticsManager.GlobalStats.TotalBeesUpgrades += 1
 		gameManager.setMoney(gameManager.money - this.UpgradePrice)
 
 		this.UpgradePrice += 1

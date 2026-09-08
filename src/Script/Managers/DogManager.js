@@ -55,6 +55,7 @@ export default class DogManager
 		if(gameManager.money < this.UpgradePrice)
 			return;
 
+		gameManager.StatisticsManager.GlobalStats.TotalDogUpgrades += 1
 		gameManager.setMoney(gameManager.money - this.UpgradePrice)
 
 		this.UpgradePrice += 1
@@ -68,10 +69,15 @@ export default class DogManager
 
 	PetDog()
 	{
+		if(this.Level == 0)
+			return 0;
+
 		if(this.Cooldown > 0)
 			return 0;
 
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.PetDog, 0, 1))
+		gameManager.StatisticsManager.GlobalStats.AmountofTimeDogWasPet += 1
+		gameManager.StatisticsManager.GlobalStats.MoneyGetByDog += this.ClickValue
 		
 		this.ClickAmount -= 1
 

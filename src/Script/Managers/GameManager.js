@@ -8,6 +8,7 @@ import PrestigeManager from './PrestigeManager'
 import BirdManager from './BirdManager'
 import MissionManager from './MissionManager'
 import {ConvertMoneyNumber} from '../Shareds/Functions/NumberConverter'
+import StatisticsManager from './StatisticsManager'
 
 
 export default class GameManager
@@ -43,6 +44,8 @@ export default class GameManager
 
 		this.money = money
 		this.setMoney = setMoney
+		
+		this.StatisticsManager = new StatisticsManager()
 	}
 
 	start() 

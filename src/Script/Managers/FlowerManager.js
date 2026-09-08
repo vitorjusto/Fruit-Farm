@@ -42,15 +42,16 @@ export default class FlowerManager
 		var newFlower = new Flower(this.Context, this.Flowers.length + 1)
 		this.Flowers.push(newFlower)
 
+		gameManager.StatisticsManager.GlobalStats.FlowersPurshased += 1
 		return newFlower.Id
 	}
 
 	SellFlower(flowerId)
 	{
-		console.log(flowerId)
 		var sellingFlower = this.Flowers.find((x) => x.Id == flowerId);
 		gameManager.setMoney(gameManager.money + sellingFlower.SellingPrice)
 		
+		gameManager.StatisticsManager.GlobalStats.FlowersSold += 1
 		var newId = 1
 		var newFlowerList = []
 
@@ -71,6 +72,8 @@ export default class FlowerManager
 	{
 		var total = 0
 		this.Flowers.forEach((x) => total += x.GetMoneyPerSecond())
+
+		gameManager.StatisticsManager.GlobalStats.VerifyMaxMoneyPerSeconds(total)
 
 		return total
 	}

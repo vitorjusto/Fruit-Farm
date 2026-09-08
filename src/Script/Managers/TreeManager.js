@@ -50,6 +50,7 @@ export default class TreeManager
 		if(gameManager.money < this.UpgradePrice)
 			return;
 
+		gameManager.StatisticsManager.GlobalStats.TotalTreeUpgrades += 1
 		gameManager.setMoney(gameManager.money - this.UpgradePrice)
 
 		this.UpgradePrice += 1

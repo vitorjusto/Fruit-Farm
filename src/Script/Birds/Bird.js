@@ -91,7 +91,8 @@ export default class Bird
 			return;
 
 		this.queueDespawn = true
-
+		
+		gameManager.StatisticsManager.GlobalStats.TotalBirdsTakenDown += 1
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.BirdsTakendown, 0, 1))
 		
 		this.GiveReward()

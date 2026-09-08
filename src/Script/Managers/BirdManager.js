@@ -65,6 +65,7 @@ export default class BirdManager
 		if(gameManager.money < this.UpgradePrice)
 			return;
 
+		gameManager.StatisticsManager.GlobalStats.TotalBirdsUpgrades += 1
 		gameManager.setMoney(gameManager.money - this.UpgradePrice)
 
 		this.UpgradePrice += 1

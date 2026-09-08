@@ -82,6 +82,9 @@ export default class FruitSpawner
 
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectFruit, 0, this.FruitsSpawned.length))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectEspecificFruit, this.FruitId, this.FruitsSpawned.length))
+
+		gameManager.StatisticsManager.GlobalStats.FruitSold(total, this.FruitsSpawned.length)
+
 		this.FruitsSpawned = []
 
 		return total
@@ -95,6 +98,8 @@ export default class FruitSpawner
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectFruit, 0, 1))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectEspecificFruit, this.FruitId, 1))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.FruitCollectedByBees, 0, 1))
+
+		gameManager.StatisticsManager.GlobalStats.FruitSold(this.GetSellingPrice(), 1)
 
 		this.FruitsSpawned.shift()
 		gameManager.AddMoney(this.GetSellingPrice())
@@ -111,6 +116,8 @@ export default class FruitSpawner
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeAllFruit, 0, 1))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeFruit, this.FruitId, 1))
 
+		gameManager.StatisticsManager.GlobalStats.TotalFruitsUpgrades += 1
+
 		this.UpgradePrice += 1
 		this.SellingPrice += 2
 		this.Level += 1
@@ -125,6 +132,7 @@ export default class FruitSpawner
 
 	UpdateBranchUpgrade(id)
 	{
+		gameManager.StatisticsManager.GlobalStats.TotalFruitsBranchUpgrades += 1
 		ChangeFruitBranchUpgrade(this, id)
 		this.onBranchUpdatedEvent()
 	}

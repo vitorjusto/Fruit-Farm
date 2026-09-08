@@ -66,6 +66,8 @@ export default function UtilityStoreBaseContainer()
 		
 		setSelectedBranchUpgrade(gameManager.treeManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => {
+
+			gameManager.StatisticsManager.GlobalStats.TotalTreeBranchUpgrades += 1
 			ChangeTreeBranchUpgrade(gameManager.treeManager, id)
 			onTreeSelected()
 		})
@@ -103,6 +105,8 @@ export default function UtilityStoreBaseContainer()
 		
 		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => {
+
+			gameManager.StatisticsManager.GlobalStats.TotalDogBranchUpgrades += 1
 			ChangeDogBranchUpgrade(gameManager.DogManager, id)
 			onDogSelected()
 		})
@@ -140,6 +144,8 @@ export default function UtilityStoreBaseContainer()
 		
 		setSelectedBranchUpgrade(gameManager.BeeManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => {
+
+			gameManager.StatisticsManager.GlobalStats.TotalBeesBranchUpgrades += 1
 			ChangeBeeBranchUpgrade(gameManager.BeeManager, id)
 			onBeesSelected()
 		})
@@ -178,6 +184,8 @@ export default function UtilityStoreBaseContainer()
 		
 		setSelectedBranchUpgrade(gameManager.BirdManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => {
+			
+			gameManager.StatisticsManager.GlobalStats.TotalBirdsBranchUpgrades += 1
 			ChangeBirdBranchUpgrade(gameManager.BirdManager, id)
 			onBirdSelected()
 		})

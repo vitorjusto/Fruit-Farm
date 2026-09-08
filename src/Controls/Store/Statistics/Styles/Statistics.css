@@ -52,3 +52,9 @@
 	background-color: var(--sub-container2);
 
 }
+
+.StatisticsBaseContainer
+{
+	overflow-y: auto;
+	height: 482px;
+}

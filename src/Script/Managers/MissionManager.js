@@ -1,6 +1,7 @@
 import { EMissionType } from "../Missions/Enums/EMissionType";
 import MissionAction from "../Missions/Entities/MissionAction";
 import Mission from "../Missions/Entities/Mission";
+import { gameManager } from "../../App";
 
 export default class MissionManager
 {
@@ -35,6 +36,7 @@ export default class MissionManager
 
 	ClaimReward(missionId)
 	{
+		gameManager.StatisticsManager.GlobalStats.MissionsAccomplished += 1
 		this.Mission1 = new Mission(EMissionType.CollectEspecificFruit, 1, "Collect apple", 100);
 	}
 

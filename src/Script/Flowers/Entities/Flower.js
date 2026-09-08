@@ -80,6 +80,8 @@ export default class Flower
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.MoneyCollectedByFlower, 0, this.GetMoneyPerSecond() * deltaTime))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.MoneyCollectedByEspecificFlower, this.Id, this.GetMoneyPerSecond() * deltaTime))
 		
+		gameManager.StatisticsManager.GlobalStats.TotalMoneyGetByFlowers += this.GetMoneyPerSecond() * deltaTime;
+
 		if(!this.ImageLoaded)
 			return;
 
@@ -95,6 +97,7 @@ export default class Flower
 			return;
 
 		gameManager.setMoney(gameManager.money - this.UpgradePrice)
+		gameManager.StatisticsManager.GlobalStats.TotalFlowersUpgrades += 1
 
 		this.UpgradePrice += 1
 		this.SellingPrice += 2
@@ -110,6 +113,7 @@ export default class Flower
 
 	UpdateBranchUpgrade(id)
 	{
+		gameManager.StatisticsManager.GlobalStats.TotalFlowersBranchUpgrades += 1
 		ChangeFlowerBranchUpgrade(this, id)
 	}
 }
