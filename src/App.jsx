@@ -56,7 +56,7 @@ function App() {
 			 setPinkSeed={setPinkSeed}
 			 setGoldSeed={setGoldSeed}
 			 setRareSeed={setRareSeed}/>
-		<canvas ref={canvasRef} id="game" width={1200} height={600} onClick={onUserClick} />
+		<canvas ref={canvasRef} id="game" width={1200} height={600} style={{width:'100%', height:'100vh', display: 'block'}} onClick={onUserClick} />
 	</>
   )
 }

@@ -68,7 +68,7 @@ export default function Hud({money, greenSeed, orangeSeed, blueSeed, pinkSeed, g
 	}
 
   return (
-	<>
+	<div style={{position: 'fixed', width: '100%', background: 'white'}}>
 		<div className="HudBase">
 			<div className="HudContainer HudMoneyContainer">
 				<div className="CurrencyContainer">
@@ -122,6 +122,6 @@ export default function Hud({money, greenSeed, orangeSeed, blueSeed, pinkSeed, g
 			
 		</div>
 		<StoreBaseContent visible = {isOpen}/>
-	</>
+	</div>
   )
 }

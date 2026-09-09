@@ -99,6 +99,7 @@
 
 	background-color: lightblue;
 	border-radius: 100px;
+	height: 500px;
 }
 
 .PrestigeContainerBase
@@ -106,6 +107,7 @@
 	display:flex;
 	width: 100%;
 	justify-content: space-between;
+	align-items: center;
 }
 
 .PrestigeLateralContent
@@ -117,6 +119,7 @@
 	align-items: center;
 	justify-content: space-between;
 	padding: 20px;
+	height: 80vh;
 }
 
 .DiamontTitle
