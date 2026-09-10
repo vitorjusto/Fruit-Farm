@@ -17,6 +17,9 @@ export default function FruitsStoreContainer()
 	var [selectedAvaliableBranchUpgrade, setSelectedAvaliableBranchUpgrade] = useState(null)
 	var [selectedFruitId, setSelectedFruitId] = useState(0)
 	
+	var [nextSelectedSpawnTimer, setNextSelectedSpawnTimer] = useState(0)
+	var [nextSelectedUpgradePrice, setNextSelectedUpgradePrice] = useState(0)
+
 	var [fruitStoreButtons, setFruitStoreButton] = useState(null)
 	var [selectedFruitStatesDTO, setSelectedFruitStatesDTO] = useState(null)
 
@@ -32,6 +35,9 @@ export default function FruitsStoreContainer()
 
 		setSelectedFruitId(fruitSpawner.FruitId)
 		setSelectedAvaliableBranchUpgrade(fruitSpawner.AvailableBranchUpgrade)
+
+		setNextSelectedSpawnTimer(fruitSpawner.GetNextSpawnCooldown())
+		setNextSelectedUpgradePrice(fruitSpawner.GetNextSellingPrice())
 
 		setSelectedFruitStatesDTO(fruitStatesDTO)
 
@@ -62,6 +68,8 @@ export default function FruitsStoreContainer()
 						AvaliableBranchUpgrade={selectedAvaliableBranchUpgrade}
 						SpawnTimer={selectedSpawnTimer}
 						SelectedFruitStatesDTO={selectedFruitStatesDTO}
+						NextSelectedSpawnTimer={nextSelectedSpawnTimer}
+						NextSelectedUpgradePrice={nextSelectedUpgradePrice}
 						/>
 			</div>
 	)

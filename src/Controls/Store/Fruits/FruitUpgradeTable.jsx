@@ -14,15 +14,15 @@ export default function UpgradeTable(props)
 			<tbody>
 				<tr>
 					<th className={'StoreContentStatusTableContent'}><b>Selling Price</b></th>
-					<td className={'StoreContentStatusTableContent'}>{0}</td>
-					<td className={'StoreContentStatusTableContent'}>0,00 (+0.02)</td>
+					<td className={'StoreContentStatusTableContent'}>{props.SellingPrice}</td>
+					<td className={'StoreContentStatusTableContent'}>{ConvertMoneyNumber(props.NextSelectedUpgradePrice)}</td>
 				</tr>
 			</tbody>
 			<tbody>
 				<tr>
-					<th className={'StoreContentStatusTableContent'}><b>Base Spawn Time</b></th>
-					<td className={'StoreContentStatusTableContent'}>{props.SpawnTimer}</td>
-					<td className={'StoreContentStatusTableContent'}>0 min (+0.02)</td>
+					<th className={'StoreContentStatusTableContent'}><b>Spawn Timer</b></th>
+					<td className={'StoreContentStatusTableContent'}>{ConvertMoneyNumber(props.SpawnTimer)}s</td>
+					<td className={'StoreContentStatusTableContent'}>{ConvertMoneyNumber(props.NextSelectedSpawnTimer)}s</td>
 				</tr>
 			</tbody>
 		</table>

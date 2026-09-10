@@ -41,7 +41,7 @@ export default function StoreItemButton(props) {
 	</div>
 		<div style={{textAlign:'center', fontSize:'xx-large'}}>{props.fruitSpawner.FruitName}</div>
 		<div>Price: ${ConvertMoneyNumber(sellingPrice)}</div>
-		<div>Spawn Timer: {maxSpawnCooldown}s</div>
+		<div>Spawn: {maxSpawnCooldown.toFixed(2)}s</div>
 	</div>
   )
 }

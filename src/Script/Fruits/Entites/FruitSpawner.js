@@ -32,17 +32,24 @@ export default class FruitSpawner
 
 	onBranchUpdatedEvent = () => {}
 
-	constructor(context, canvas, fruitName, level, description, sellingPrice, upgradePrice, fruitId)
+	constructor(context, canvas, fruitName, level, description, sellingPriceBase, upgradePriceBase, cooldownBase, fruitId)
 	{
 		this.context = context
 		this.canvas = canvas
-		this.SpawnCooldown = this.MaxSpawnCooldown;
+
 		this.FruitName = fruitName
 		this.Level = level
+
+		this.CooldownBase = cooldownBase
+		this.MaxSpawnCooldown = this.CooldownBase * (0.98 ** this.Level)
+		this.SpawnCooldown = this.MaxSpawnCooldown;
 		this.Description = description
-		this.SellingPrice = sellingPrice
-		this.UpgradePrice = upgradePrice
+		this.SellingPriceBase = sellingPriceBase
+		this.SellingPrice = this.SellingPriceBase * this.Level
 		this.FruitId = fruitId
+		this.UpgradePriceBase = upgradePriceBase
+
+		this.UpgradePrice = this.UpgradePriceBase * (1.1 ** this.Level)
 	}
 
 	GetSpawnTimer()
@@ -118,16 +125,26 @@ export default class FruitSpawner
 
 		gameManager.StatisticsManager.GlobalStats.TotalFruitsUpgrades += 1
 
-		this.UpgradePrice += 1
-		this.SellingPrice += 2
 		this.Level += 1
-		this.MaxSpawnCooldown -= 0.01
+		this.UpgradePrice = this.UpgradePriceBase * (1.1 ** this.Level)
+		this.SellingPrice = this.SellingPriceBase * this.Level
+		this.MaxSpawnCooldown = this.CooldownBase * (0.98 ** this.Level)
 
 		if(this.Level == 15)
 			gameManager.fruitManager.FruitsSpawners.push(GetNextFruit(this.FruitId, this.context, this.canvas))
 
 		if(this.Level == 25)
 			this.AvailableBranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
+	}
+
+	GetNextSpawnCooldown()
+	{
+		return this.CooldownBase * (0.98 ** (this.Level+ 1))
+	}
+
+	GetNextSellingPrice()
+	{
+		return this.SellingPriceBase * (this.Level+ 1)
 	}
 
 	UpdateBranchUpgrade(id)

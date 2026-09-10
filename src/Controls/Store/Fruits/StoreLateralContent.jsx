@@ -27,7 +27,7 @@ export default function StoreFruitLateralContent(props) {
 						   fruitId={props.fruitId}
 						   SelectedFruitStatesDTO={props.SelectedFruitStatesDTO}/>
 	
-			<UpgradeTable SellingPrice={props.SellingPrice} SpawnTimer={props.SpawnTimer}/>
+			<UpgradeTable SellingPrice={props.SellingPrice} SpawnTimer={props.SpawnTimer} NextSelectedSpawnTimer={props.NextSelectedSpawnTimer} NextSelectedUpgradePrice={props.NextSelectedUpgradePrice}/>
 			<div>
 				<div onClick={upgradeFruit} className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>{props.UpgradePrice}</div>
 			</div>
