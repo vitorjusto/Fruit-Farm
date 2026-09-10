@@ -14,6 +14,7 @@ export default function FlowersStoreBaseContainer()
 	var [selectedLevel, setSelectedLevel] = useState("")
 	var [selectedDescription, setSelectedDescription] = useState("")
 	var [selectedMoneyPerSecond, setSelectedMoneyPerSecond] = useState("")
+	var [nextMoneyPerSecond, setNextMoneyPerSecond] = useState("")
 	var [selectedSellingPrice, setSelectedSellingPrice] = useState("")
 	var [selectedUpgradePrice, setSelectedUpgradePrice] = useState("")
 	var [selectedFlowerId, setSelectedFlowerId] = useState("")
@@ -50,6 +51,7 @@ export default function FlowersStoreBaseContainer()
 		setSelectedLevel(flower.Level)
 		setSelectedDescription(flower.Description)
 		setSelectedMoneyPerSecond(ConvertMoneyNumber(flower.GetMoneyPerSecond()))
+		setNextMoneyPerSecond(ConvertMoneyNumber(flower.GetNextMoneyPerSecond()))
 		setSelectedSellingPrice(ConvertMoneyNumber(flower.SellingPrice))
 		setSelectedUpgradePrice(ConvertMoneyNumber(flower.UpgradePrice))
 		setAvaliableBranchUpgrade(flower.AvailableBranchUpgrade)
@@ -117,6 +119,7 @@ export default function FlowersStoreBaseContainer()
 										AvaliableBranchUpgrade={avaliableBranchUpgrade}
 										FlowerId={selectedFlowerId}
 										onBranchUpgrade={onFlowerSelected}
+										NextMoneyPerSecond={nextMoneyPerSecond}
 										/>
 
 				<NewFlowerStoreLateralContent 

@@ -5,7 +5,7 @@ import SeedManager from "./Script/Managers/SeedManager"
 
 function App() {
 
-	var [money, setMoney] = useState(0);
+	var [money, setMoney] = useState(10000);
 
 	var [greenSeed, setGreenSeed] = useState(0);
 	var [orangeSeed, setOrangeSeed] = useState(0);

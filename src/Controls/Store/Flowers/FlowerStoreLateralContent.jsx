@@ -16,7 +16,7 @@ export default function FlowerStoreLateralContent(props)
 					   FlowerId={props.FlowerId}
 					   onBranchUpgrade={props.onBranchUpgrade}/>
 
-		<FlowerUpgradeTable MoneyPerSecond={props.MoneyPerSecond}/>
+		<FlowerUpgradeTable MoneyPerSecond={props.MoneyPerSecond} NextMoneyPerSecond={props.NextMoneyPerSecond}/>
 		<div onClick={props.onUpgrade}>
 			<div className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>Upgrade: ${props.UpgradePrice}</div>
 		</div>

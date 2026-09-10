@@ -17,7 +17,7 @@ export default class FlowerManager
 		this.TotalMoneyPerSecond = 0
 
 		this.AvailableFlowers = []
-		this.AvailableFlowers.push(new NewFlowerAvailable("Daisy", 20))
+		this.AvailableFlowers.push(new NewFlowerAvailable("Daisy", 20, 20, 0.5))
 	}
 
 	Update(deltaTime)
@@ -39,7 +39,7 @@ export default class FlowerManager
 
 		gameManager.AddMoney(-newFlowerInfo.Value)
 
-		var newFlower = new Flower(this.Context, this.Flowers.length + 1)
+		var newFlower = new Flower(this.Context, this.Flowers.length + 1, newFlowerInfo.BaseUpgradePrice, newFlowerInfo.BaseMoneyPerSeconds)
 		this.Flowers.push(newFlower)
 
 		gameManager.StatisticsManager.GlobalStats.FlowersPurshased += 1

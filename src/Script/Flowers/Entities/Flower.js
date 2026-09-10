@@ -10,15 +10,22 @@ export default class Flower
 	BranchUpgradeId = 1
 	AvailableBranchUpgrade = null;
 
-	constructor(context, id)
+	constructor(context, id, baseUpgradePrice, baseMoneyPerSeconds)
 	{
 		this.context = context;
 		this.Id = id
 		this.FlowerName = "Daisy"
 		this.Description = "Daisy, Daisy, give me your answer, dooo"
 		this.Level = 1
-		this.SellingPrice = 10
-		this.UpgradePrice = 3
+
+		
+		this.BaseUpgradePrice = baseUpgradePrice
+		this.UpgradePrice = this.BaseUpgradePrice * (1.11 ** this.Level)
+		
+		this.BaseMoneyPerSeconds = baseMoneyPerSeconds
+		this.MoneyPerSecond = this.BaseMoneyPerSeconds * this.Level
+
+		this.SellingPrice = this.BaseUpgradePrice * (0.6 ** this.Level)
 
 		this.ChangeImage(this.Level)
 
@@ -91,6 +98,11 @@ export default class Flower
     	this.context.drawImage(this.image, sx, sy, 32, 32, this.X, this.Y, 64, 64);
 	}
 	
+	GetNextMoneyPerSecond()
+	{
+		return this.BaseMoneyPerSeconds * (this.Level + 1)
+	}
+
 	UpgradeFlower()
 	{
 		if(gameManager.money < this.UpgradePrice)
@@ -98,11 +110,11 @@ export default class Flower
 
 		gameManager.setMoney(gameManager.money - this.UpgradePrice)
 		gameManager.StatisticsManager.GlobalStats.TotalFlowersUpgrades += 1
-
-		this.UpgradePrice += 1
-		this.SellingPrice += 2
+		
 		this.Level += 1
-		this.MoneyPerSecond += 0.01
+		this.SellingPrice = this.BaseUpgradePrice * (1.01 ** this.Level)
+		this.UpgradePrice = this.BaseUpgradePrice * (1.11 ** this.Level)
+		this.MoneyPerSecond = this.BaseMoneyPerSeconds * this.Level
 
 		if(this.Level % 10 == 0)
 			this.ChangeImage(this.Level)

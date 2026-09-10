@@ -13,7 +13,7 @@ export default function FlowerUpgradeTable(props)
 				<tr>
 					<th className={'StoreContentStatusTableContent'}><b>Money Per Second</b></th>
 					<td className={'StoreContentStatusTableContent'}>{props.MoneyPerSecond}s</td>
-					<td className={'StoreContentStatusTableContent'}>0,00 (+0.02)</td>
+					<td className={'StoreContentStatusTableContent'}>{props.NextMoneyPerSecond}s</td>
 				</tr>
 			</tbody>
 		</table>
