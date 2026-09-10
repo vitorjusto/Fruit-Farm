@@ -35,7 +35,7 @@ export default class Flower
 			this.Y = 480;
 		}else if(this.Id == 2)
 		{
-			this.X = 850;
+			this.X = 480;
 			this.Y = 480;
 		}
 	}
