@@ -33,6 +33,6 @@ export default class FruitManager
 	Reset()
 	{
 		this.FruitsSpawners = []
-		this.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple', 1, 'Simple fruit, simple price', 3000, 1, 1))
+		this.FruitsSpawners.push(new FruitSpawner(this.context, this.canvas, 'Apple', 1, 'Simple fruit, simple price', 1, 2, 2, 1))
 	}
 }

@@ -40,7 +40,7 @@ export default function PrestigeBaseContent({visible}) {
 			return
 		gameManager.PrestigeManager.SetUpdateAction = OnUpdate
 		OnUpdate()
-
+		ChangeValues(fruitValue, flowerValue, bees, treeSpawnTimer)
 	}, []);
 
 	function ChangeValues(pFruitValue, pFlowerValue, pBees, pTreeSpawnTimer)
@@ -87,6 +87,7 @@ export default function PrestigeBaseContent({visible}) {
 				  }).then((result) => {
   					if (result.isConfirmed) 
 						gameManager.PrestigeManager.ResetGame(fruitValueDiamonts, flowerValueDiamonts, beesDiamonts, treeSpawnTimerDiamonts)
+						OnUpdate()
 					});
 	}
 	
