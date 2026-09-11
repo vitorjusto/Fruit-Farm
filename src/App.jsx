@@ -2,10 +2,11 @@ import { useState, useEffect, useRef } from 'react'
 import Hud from './Controls/Hud/Hud'
 import GameManager from "./Script/Managers/GameManager"
 import SeedManager from "./Script/Managers/SeedManager"
+import { ConvertMoneyNumber } from './Script/Shareds/Functions/NumberConverter'
 
 function App() {
 
-	var [money, setMoney] = useState(10000);
+	var [money, setMoney] = useState(0);
 
 	var [greenSeed, setGreenSeed] = useState(0);
 	var [orangeSeed, setOrangeSeed] = useState(0);

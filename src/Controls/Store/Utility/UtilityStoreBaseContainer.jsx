@@ -43,11 +43,11 @@ export default function UtilityStoreBaseContainer()
 		
 		setSelectedUpgradeText1("Size")
 		setSelectedUpgradeValue1(gameManager.treeManager.Size)
-		setSelectedUpgradeNextValue1(1)
+		setSelectedUpgradeNextValue1(gameManager.treeManager.Size + 1)
 
 		setSelectedUpgradeText2("Fruit Spawn Timer Modifier")
 		setSelectedUpgradeValue2(ConvertMoneyNumber(gameManager.treeManager.GetFruitSpawnModifier()))
-		setSelectedUpgradeNextValue2(0.01)
+		setSelectedUpgradeNextValue2(ConvertMoneyNumber(gameManager.treeManager.GetNextFruitSpawnModifier()))
 
 		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.treeManager.UpgradePrice))
 		setSelectUpgradeAction(() => onTreeUpgrade)
@@ -59,18 +59,8 @@ export default function UtilityStoreBaseContainer()
 	function onTreeUpgrade()
 	{
 		gameManager.treeManager.Upgrade()
-		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.treeManager.UpgradePrice))
-		setSelectedUpgradeValue1(gameManager.treeManager.Size)
-		setSelectedLevel(gameManager.treeManager.Level)
-		setSelectedUpgradeValue2(gameManager.treeManager.GetFruitSpawnModifier())
+		onTreeSelected()
 		
-		setSelectedBranchUpgrade(gameManager.treeManager.BranchUpgrade)
-		setSelectedBranchUpgradeAction(() => (id) => {
-
-			gameManager.StatisticsManager.GlobalStats.TotalTreeBranchUpgrades += 1
-			ChangeTreeBranchUpgrade(gameManager.treeManager, id)
-			onTreeSelected()
-		})
 	}
 
 
@@ -82,11 +72,11 @@ export default function UtilityStoreBaseContainer()
 		
 		setSelectedUpgradeText1("Money per click")
 		setSelectedUpgradeValue1(ConvertMoneyNumber(gameManager.DogManager.ClickValue))
-		setSelectedUpgradeNextValue1(1)
+		setSelectedUpgradeNextValue1(ConvertMoneyNumber(gameManager.DogManager.ClickValue + 1))
 
-		setSelectedUpgradeText2("Cooldown")
-		setSelectedUpgradeValue2(gameManager.DogManager.MaxCooldown)
-		setSelectedUpgradeNextValue2(0.01)
+		setSelectedUpgradeText2("Max Click Amount")
+		setSelectedUpgradeValue2(ConvertMoneyNumber(gameManager.DogManager.MaxClickAmount))
+		setSelectedUpgradeNextValue2(ConvertMoneyNumber(gameManager.DogManager.MaxClickAmount + 1))
 
 		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.DogManager.UpgradePrice))
 		setSelectUpgradeAction(() => onDogUpgrade)
@@ -98,18 +88,7 @@ export default function UtilityStoreBaseContainer()
 	function onDogUpgrade()
 	{
 		gameManager.DogManager.Upgrade()
-		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.DogManager.UpgradePrice))
-		setSelectedUpgradeValue1(ConvertMoneyNumber(gameManager.DogManager.ClickValue))
-		setSelectedLevel(gameManager.DogManager.Level)
-		setSelectedUpgradeValue2(gameManager.DogManager.MaxCooldown)
-		
-		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
-		setSelectedBranchUpgradeAction(() => (id) => {
-
-			gameManager.StatisticsManager.GlobalStats.TotalDogBranchUpgrades += 1
-			ChangeDogBranchUpgrade(gameManager.DogManager, id)
-			onDogSelected()
-		})
+		onDogSelected()
 		
 	}
 
@@ -120,12 +99,12 @@ export default function UtilityStoreBaseContainer()
 		setSelectedDescription("Helps you collect fruits and flowers when you go away.")
 		
 		setSelectedUpgradeText1("Fruits Collect Coowldown")
-		setSelectedUpgradeValue1(gameManager.BeeManager.MaxCooldown)
-		setSelectedUpgradeNextValue1(1)
+		setSelectedUpgradeValue1(ConvertMoneyNumber(gameManager.BeeManager.MaxCooldown) + "s")
+		setSelectedUpgradeNextValue1(ConvertMoneyNumber(gameManager.BeeManager.MaxCooldown - 0.01) + "s")
 
-		setSelectedUpgradeText2("Cooldown")
-		setSelectedUpgradeValue2(gameManager.BeeManager.MaxCooldown)
-		setSelectedUpgradeNextValue2(0.01)
+		setSelectedUpgradeText2("-")
+		setSelectedUpgradeValue2("")
+		setSelectedUpgradeNextValue2("")
 
 		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BeeManager.UpgradePrice))
 		setSelectUpgradeAction(() => onBeeUpgrade)
@@ -137,18 +116,7 @@ export default function UtilityStoreBaseContainer()
 	function onBeeUpgrade()
 	{
 		gameManager.BeeManager.Upgrade()
-		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BeeManager.UpgradePrice))
-		setSelectedUpgradeValue1(gameManager.BeeManager.MaxCooldown)
-		setSelectedLevel(gameManager.BeeManager.Level)
-		setSelectedUpgradeValue2(gameManager.BeeManager.MaxCooldown)
-		
-		setSelectedBranchUpgrade(gameManager.BeeManager.BranchUpgrade)
-		setSelectedBranchUpgradeAction(() => (id) => {
-
-			gameManager.StatisticsManager.GlobalStats.TotalBeesBranchUpgrades += 1
-			ChangeBeeBranchUpgrade(gameManager.BeeManager, id)
-			onBeesSelected()
-		})
+		onBeesSelected()
 		
 	}
 
@@ -159,12 +127,12 @@ export default function UtilityStoreBaseContainer()
 		setSelectedDescription("Gives seed when you kill them.")
 		
 		setSelectedUpgradeText1("Seeds amount")
-		setSelectedUpgradeValue1(gameManager.BirdManager.SeedsAmount)
-		setSelectedUpgradeNextValue1(1)
+		setSelectedUpgradeValue1(ConvertMoneyNumber(gameManager.BirdManager.SeedsAmount))
+		setSelectedUpgradeNextValue1(ConvertMoneyNumber(gameManager.BirdManager.SeedsAmount + 1))
 
 		setSelectedUpgradeText2("Cooldown")
-		setSelectedUpgradeValue2(gameManager.BirdManager.maxCooldown)
-		setSelectedUpgradeNextValue2(0.01)
+		setSelectedUpgradeValue2(ConvertMoneyNumber(gameManager.BirdManager.maxCooldown) + "s")
+		setSelectedUpgradeNextValue2(ConvertMoneyNumber(gameManager.BirdManager.maxCooldown - 1) + "s")
 
 		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BirdManager.UpgradePrice))
 		setSelectUpgradeAction(() => onBirdUpgrade)
@@ -177,18 +145,7 @@ export default function UtilityStoreBaseContainer()
 	function onBirdUpgrade()
 	{
 		gameManager.BirdManager.Upgrade()
-		setSelectedUpgradePrice(ConvertMoneyNumber(gameManager.BirdManager.UpgradePrice))
-		setSelectedUpgradeValue1(gameManager.BirdManager.SeedsAmount)
-		setSelectedLevel(gameManager.BirdManager.Level)
-		setSelectedUpgradeValue2(gameManager.BirdManager.maxCooldown)
-		
-		setSelectedBranchUpgrade(gameManager.BirdManager.BranchUpgrade)
-		setSelectedBranchUpgradeAction(() => (id) => {
-			
-			gameManager.StatisticsManager.GlobalStats.TotalBirdsBranchUpgrades += 1
-			ChangeBirdBranchUpgrade(gameManager.BirdManager, id)
-			onBirdSelected()
-		})
+		onBirdSelected()
 		
 	}
 	return(<div className={'ControlContent'}>

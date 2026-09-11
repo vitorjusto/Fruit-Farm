@@ -57,12 +57,12 @@ function UpgradeTable(props)
 				<tr>
 					<th className={'StoreContentStatusTableContent'}><b>{props.UpgradeText1}</b></th>
 					<td className={'StoreContentStatusTableContent'}>{props.UpgradeValue1}</td>
-					<td className={'StoreContentStatusTableContent'}>{props.UpgradeValue1 + props.UpgradeNextValue1} (+{props.UpgradeNextValue1})</td>
+					<td className={'StoreContentStatusTableContent'}>{props.UpgradeNextValue1}</td>
 				</tr>
 				<tr>
 					<th className={'StoreContentStatusTableContent'}><b>{props.UpgradeText2}</b></th>
 					<td className={'StoreContentStatusTableContent'}>{props.UpgradeValue2}</td>
-					<td className={'StoreContentStatusTableContent'}>{props.UpgradeValue2 + props.UpgradeNextValue2} (+{props.UpgradeNextValue2})</td>
+					<td className={'StoreContentStatusTableContent'}>{props.UpgradeNextValue2}</td>
 				</tr>
 			</tbody>
 		</table>

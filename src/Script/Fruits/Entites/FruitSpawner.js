@@ -59,6 +59,8 @@ export default class FruitSpawner
 
 	Update(deltaTime)
 	{
+		if(this.Level == 0)
+			return;
 
 		this.SpawnCooldown -= deltaTime
 		if(this.SpawnCooldown <= 0)
@@ -130,7 +132,7 @@ export default class FruitSpawner
 		this.SellingPrice = this.SellingPriceBase * this.Level
 		this.MaxSpawnCooldown = this.CooldownBase * (0.98 ** this.Level)
 
-		if(this.Level == 15)
+		if(this.Level == 10)
 			gameManager.fruitManager.FruitsSpawners.push(GetNextFruit(this.FruitId, this.context, this.canvas))
 
 		if(this.Level == 25)

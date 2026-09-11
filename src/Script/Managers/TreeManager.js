@@ -68,6 +68,11 @@ export default class TreeManager
 		return this.FruitSpawnModifier * gameManager.PrestigeManager.GetTreeSpawnTimerPrestigeModifier()
 	}
 
+	GetNextFruitSpawnModifier()
+	{
+		return this.FruitSpawnModifier + 0.01
+	}
+	
 	Reset()
 	{
 		
