@@ -39,7 +39,7 @@ export default function StoreItemButton(props) {
 		<div className="crop-box">
   			<img src={`/assets/Fruits/${props.fruitSpawner.FruitName}.png`} style={{ imageRendering: 'pixelated', position: 'absolute', top: sy, left: sx}} />
 	</div>
-		<div style={{textAlign:'center', fontSize:'xx-large'}}>{props.fruitSpawner.FruitName}</div>
+		<div style={{textAlign:'center', fontSize:'x-large'}}>{props.fruitSpawner.FruitName}</div>
 		<div>Price: ${ConvertMoneyNumber(sellingPrice)}</div>
 		<div>Spawn: {maxSpawnCooldown.toFixed(2)}s</div>
 	</div>
