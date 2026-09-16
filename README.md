@@ -10,6 +10,7 @@ Target audience: fans of idle games and management games.
 
 ## Design pillars
 - **Upgrades**: every fruit or object has an upgrade price; leveling up increases the profit it generates.
-- **Prestige**: selling fruits earns diamonds; diamonds unlock permanent upgrades that help the farm grow faster on the next run.
-- **Seasons**, **time of day**, and **special fruits**: every prestige advances the season (Summer → Fall → Winter → Spring) and the time of day (Day → Afternoon → Night). Seasonal fruits only appear (or get nerfed) outside the right condition, and must be unlocked via seeds.
+- **Prestige**: selling fruits earns diamonds; with diamonts you can add modifiers to the next run, like Fruit Value, Flower Value, Bees efficiency and Spawn timer.
+- **Seasons**, **time of day**, and **special fruits**: every prestige advances the season (Summer → Fall → Winter → Spring) and the time of day (Day → Afternoon → Night). Seasonal fruits only appear in the right condition, and must be unlocked and upgrated by seeds.
+- **Seeds**: Rarer type of currency, they come in 6 types: Green, Orange, Blue, Pink, Gold and Rare (red). This seed can be spend in seasonal fruits and the shop. And can be get by birds or minigames.
 - **Branch upgrade**: at levels 25/50/100 of each fruit, flowers, etc, the player chooses between exclusive upgrade paths. The choice **is individual per fruit** (each fruit runs its own instance of the same system, not a globally shared tree) and resets on every prestige. **v1 scope**: 2 initial branches, with more planned for post-launch.
