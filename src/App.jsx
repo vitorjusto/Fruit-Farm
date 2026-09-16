@@ -6,7 +6,7 @@ import { ConvertMoneyNumber } from './Script/Shareds/Functions/NumberConverter'
 
 function App() {
 
-	var [money, setMoney] = useState(0);
+	var [money, setMoney] = useState(100000);
 
 	var [greenSeed, setGreenSeed] = useState(0);
 	var [orangeSeed, setOrangeSeed] = useState(0);

@@ -40,7 +40,7 @@ export default function StoreItemButton(props) {
   			<img src={`/assets/Fruits/${props.fruitSpawner.FruitName}.png`} style={{ imageRendering: 'pixelated', position: 'absolute', top: sy, left: sx}} />
 	</div>
 		<div style={{textAlign:'center', fontSize:'x-large'}}>{props.fruitSpawner.FruitName}</div>
-		<div>Price: ${ConvertMoneyNumber(sellingPrice)}</div>
+		<div>Price: ${sellingPrice}</div>
 		<div>Spawn: {maxSpawnCooldown.toFixed(2)}s</div>
 	</div>
   )
