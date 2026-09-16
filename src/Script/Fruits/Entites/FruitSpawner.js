@@ -128,15 +128,20 @@ export default class FruitSpawner
 		gameManager.StatisticsManager.GlobalStats.TotalFruitsUpgrades += 1
 
 		this.Level += 1
-		this.UpgradePrice = this.UpgradePriceBase * (1.1 ** this.Level)
-		this.SellingPrice = this.SellingPriceBase * this.Level
-		this.MaxSpawnCooldown = this.CooldownBase * (0.98 ** this.Level)
-
+		this.UpdateFruitsStats()
+		
 		if(this.Level == 10)
 			gameManager.fruitManager.FruitsSpawners.push(GetNextFruit(this.FruitId, this.context, this.canvas))
 
 		if(this.Level == 25)
 			this.AvailableBranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
+	}
+
+	UpdateFruitsStats()
+	{
+		this.UpgradePrice = this.UpgradePriceBase * (1.1 ** this.Level)
+		this.SellingPrice = this.SellingPriceBase * this.Level
+		this.MaxSpawnCooldown = this.CooldownBase * (0.98 ** this.Level)
 	}
 
 	GetNextSpawnCooldown()
