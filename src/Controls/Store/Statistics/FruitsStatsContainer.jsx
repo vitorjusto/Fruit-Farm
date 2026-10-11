@@ -1,27 +1,77 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import './Styles/Statistics.css'
-import FruitSpawner from '../../../Script/Fruits/Entites/FruitSpawner'
 import { gameManager } from '../../../App'
-import StoreItemButton from '../Fruits/StoreItemButton'
-import FruitsStatisticsLateralContainer	from './FruitsStatisticsLateralContainer'
+import Swal from 'sweetalert2';
 
-export default function FruitsStatsContainer() 
+export default function GaleryContainer() 
 {
-	var [selectedfruitSpawner, setselectedfruitSpawner] = useState(null)
-
-	var [fruitStoreButtons, setFruitStoreButton] = useState(null)
-
-	useEffect(() => {
-
-		if(!gameManager)
-			return;
-
-	}, []);
-
-	return(<div className={'ControlContent'}>
-				<div className={'StoreButtonsBase'}>
+	return(<div>
+				<div className={'GaleryStoreButtonsBase'}>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
+					<GaleryButtonContainer/>
 				</div>
-				<FruitsStatisticsLateralContainer/>
 			</div>
 	)
+}
+
+export function GaleryButtonContainer()
+{
+	function onClick()
+	{
+		Swal.fire({
+					title: 'Do you wanna prestige?',
+					icon: "info",
+					html: '<div class="PopupSubContainer">All upgrades, branch upgrade, flowers and fruits you have currently will be gone, but you are gonna have the buffs given in the prestige</div>',
+					confirmButtonText: 'Ok',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+				  });
+	}
+
+	return(<div onClick={onClick} className={'GalleryButton'}>
+				<div className="crop-box">
+  					<img src={`/assets/Fruits/Apple.png`} style={{ imageRendering: 'pixelated', position: 'absolute', top: -64, left: -160}} />
+				</div>
+			</div>
+	)
+
 }

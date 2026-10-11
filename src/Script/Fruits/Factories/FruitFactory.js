@@ -54,3 +54,61 @@ export function GetNextFruit(currentFruitId, context, canvas)
 			return new FruitSpawner(context, canvas, 'Pumpkin', 0, "While been called that, this fruit don't pumps your kins", 3,1, 2, 25)
 	}
 }
+
+export function GetFruitNameById(currentFruitId)
+{
+	
+	switch (currentFruitId) 
+	{
+		case 1:
+			return "Apple"
+		case 2:
+			return 'Banana'
+		case 3:
+			return 'Orange'
+		case 4:
+			return 'Cherry'
+		case 5:
+			return 'Lemmon'
+		case 6:
+			return 'Pear'
+		case 7:
+			return 'Strawberry'
+		case 8:
+			return 'Peach'
+		case 9:
+			return "Pineapple"
+		case 10:
+			return "Grape"
+		case 11:
+			return "Berry"
+		case 12:
+			return "Watermellon"
+		case 13:
+			return "Coconut"
+		case 14:
+			return "Mango"
+		case 15:
+			return "Acorn"
+		case 16:
+			return "Custard Apple"
+		case 17:
+			return "Star Fruit"
+		case 18:
+			return "Lychee"
+		case 19:
+			return "Water Apple"
+		case 20:
+			return "Tamarind"
+		case 21:
+			return "Jackfruit"
+		case 22:
+			return "Broccoli"
+		case 23:
+			return "Lettuce"
+		case 24:
+			return "Green Pepper"
+		case 25:
+			return "Pumpkin"
+	}
+}

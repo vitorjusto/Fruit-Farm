@@ -58,3 +58,33 @@
 	overflow-y: auto;
 	height: 75vh;
 }
+
+.GalleryButton
+{
+	border: 5px solid rgba(0, 0, 0, 0);
+	background-color: var(--sub-container2);
+	width: 64px;
+	height: 64px;
+	margin: 10px auto;
+    transition: 0.3s;
+	border-radius: 15px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: false;
+}
+
+.GalleryButton:hover
+{
+	border: 5px solid white;
+	
+}
+
+.GaleryStoreButtonsBase
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+	overflow-y: auto;
+}
