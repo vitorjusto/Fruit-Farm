@@ -1,4 +1,5 @@
 import { gameManager } from "../../App";
+import { EPeriod, ESeason } from "../Fruits/Enums/FruitsEnums";
 
 export default class PrestigeManager
 {
@@ -85,19 +86,4 @@ export default class PrestigeManager
 
 		gameManager.Reset()
 	}
-}
-
-export const ESeason =
-{
-	Summer: 0,
-	Fall: 1,
-	Winter: 2,
-	Spring: 3
-}
-
-export const EPeriod =
-{
-	Morning: 0,
-	Afternoon: 1,
-	Night: 2
 }

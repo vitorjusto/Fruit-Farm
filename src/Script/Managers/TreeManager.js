@@ -1,5 +1,5 @@
 import { gameManager } from '../../App'
-import { ESeason } from './PrestigeManager'
+import { ESeason } from '../Fruits/Enums/FruitsEnums'
 import { GetBranchUpgradeCollection } from '../../Script/BranchUpgrade/Functions/TreeBranchUpgrade'
 
 export default class TreeManager

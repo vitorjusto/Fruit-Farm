@@ -6,6 +6,7 @@ import {ChangeFruitBranchUpgrade, GetBranchUpgradeCollection} from '../../Branch
 import {GetNextFruit} from '../Factories/FruitFactory'
 import MissionAction from '../../Missions/Entities/MissionAction'
 import { EMissionType } from '../../Missions/Enums/EMissionType'
+import { EPeriod, ESeason } from '../Enums/FruitsEnums'
 
 export default class FruitSpawner
 {
@@ -29,6 +30,9 @@ export default class FruitSpawner
 	FruitId = 0
 	BranchUpgradeId = 1
 	Size = 1
+	
+	Period = -1
+	Season = -1
 
 	onBranchUpdatedEvent = () => {}
 
@@ -54,7 +58,19 @@ export default class FruitSpawner
 
 	GetSpawnTimer()
 	{
-		return this.MaxSpawnCooldown / gameManager.treeManager.GetFruitSpawnModifier()
+		var result = this.MaxSpawnCooldown / gameManager.treeManager.GetFruitSpawnModifier()
+		if(this.Period == -1 && this.Season == -1)//No good condition
+			return result
+
+		if(this.Period != -1 && this.Period != gameManager.PrestigeManager.CurrentPeriod )//bad period
+			result *= 4
+		if(this.Season != -1 && this.Season != gameManager.PrestigeManager.CurrentSeason )//bad season
+			result *= 4
+
+		if(this.Period == gameManager.PrestigeManager.CurrentPeriod && this.Season == gameManager.PrestigeManager.CurrentSeason)//Double good condition
+			result /= 2
+
+		return result
 	}
 
 	Update(deltaTime)
@@ -69,9 +85,9 @@ export default class FruitSpawner
 
 			if((gameManager.treeManager.Size / this.Size) > this.FruitsSpawned.length)
 				this.FruitsSpawned.push(new Fruit(this.context, 
-											  this.MinSpawnPosition.X + (Math.random() * this.TreeSize.X), 
-											  this.MinSpawnPosition.Y + (Math.random() * this.TreeSize.Y),
-												this.FruitName))
+										  this.MinSpawnPosition.X + (Math.random() * this.TreeSize.X), 
+										  this.MinSpawnPosition.Y + (Math.random() * this.TreeSize.Y),
+											this.FruitName))
 		}
 
 		this.FruitsSpawned.forEach(element => {

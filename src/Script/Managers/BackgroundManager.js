@@ -1,5 +1,5 @@
 
-import { EPeriod } from './PrestigeManager'
+import { EPeriod } from '../Fruits/Enums/FruitsEnums'
 import { gameManager } from '../../App'
 
 export default class BackgroundManager
