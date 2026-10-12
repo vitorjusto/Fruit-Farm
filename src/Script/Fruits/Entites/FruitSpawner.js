@@ -36,7 +36,7 @@ export default class FruitSpawner
 
 	onBranchUpdatedEvent = () => {}
 
-	constructor(context, canvas, fruitName, level, description, sellingPriceBase, upgradePriceBase, cooldownBase, fruitId)
+	constructor(context, canvas, fruitName, level, description, sellingPriceBase, upgradePriceBase, cooldownBase, fruitId, period, season)
 	{
 		this.context = context
 		this.canvas = canvas
@@ -54,6 +54,9 @@ export default class FruitSpawner
 		this.UpgradePriceBase = upgradePriceBase
 
 		this.UpgradePrice = this.UpgradePriceBase * (1.1 ** this.Level)
+
+		this.Period = period
+		this.Season = season
 	}
 
 	GetSpawnTimer()
