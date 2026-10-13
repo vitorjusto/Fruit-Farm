@@ -62,7 +62,7 @@ export default class FruitSpawner
 	GetSpawnTimer()
 	{
 		var result = this.MaxSpawnCooldown / gameManager.treeManager.GetFruitSpawnModifier()
-		if(this.Period == -1 && this.Season == -1)//No good condition
+		if(this.IsRegularFruit())//No good condition
 			return result
 
 		if(this.Period != -1 && this.Period != gameManager.PrestigeManager.CurrentPeriod )//bad period
@@ -74,6 +74,11 @@ export default class FruitSpawner
 			result /= 2
 
 		return result
+	}
+
+	IsRegularFruit()
+	{
+		return this.Period == -1 && this.Season == -1
 	}
 
 	Update(deltaTime)

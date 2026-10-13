@@ -3,6 +3,7 @@ import { gameManager } from "../../../App"
 import StoreFruitLateralContent from "./StoreLateralContent"
 import FruitSpawner from "../../../Script/Fruits/Entites/FruitSpawner"
 import '../Styles/StoreBaseContent.css'
+import './Styles/FruitStoreBase.css'
 import StoreItemButton from './StoreItemButton';
 import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
 
@@ -21,6 +22,7 @@ export default function FruitsStoreContainer()
 	var [nextSelectedUpgradePrice, setNextSelectedUpgradePrice] = useState(0)
 
 	var [fruitStoreButtons, setFruitStoreButton] = useState(null)
+	var [seasonalFruitStoreButtons, setSeasonalFruitStoreButton] = useState([])
 	var [selectedFruitStatesDTO, setSelectedFruitStatesDTO] = useState(null)
 
 	function onClick(fruitSpawner, fruitStatesDTO)
@@ -41,7 +43,8 @@ export default function FruitsStoreContainer()
 
 		setSelectedFruitStatesDTO(fruitStatesDTO)
 
-		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} fruitId={x.FruitId} key={x.FruitId}/>)))
+		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.filter(p => p.IsRegularFruit()).map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} fruitId={x.FruitId} key={x.FruitId}/>)))
+		setSeasonalFruitStoreButton(gameManager.fruitManager.FruitsSpawners.filter(p => !p.IsRegularFruit()).map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} fruitId={x.FruitId} key={x.FruitId}/>)))
 	}
 	
 	useEffect(() => {
@@ -49,13 +52,21 @@ export default function FruitsStoreContainer()
 		if(!gameManager)
 			return;
 
-		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} fruitId={x.FruitId} key={x.FruitId}/>)))
+		setFruitStoreButton(gameManager.fruitManager.FruitsSpawners.filter(p => p.IsRegularFruit()).map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} fruitId={x.FruitId} key={x.FruitId}/>)))
+
+		setSeasonalFruitStoreButton(gameManager.fruitManager.FruitsSpawners.filter(p => !p.IsRegularFruit()).map((x, i) => (<StoreItemButton onSelectedChanged={onClick} fruitSpawner={x} fruitId={x.FruitId} key={x.FruitId}/>)))
 
 	}, []);
 
 	return(<div className={'ControlContent'}>
-				<div className={'StoreButtonsBase'}>
-					{fruitStoreButtons}
+				<div className={'FruitStoreButtonsContainer'}>
+					<div className={'FruitStoreButtonsBase'}>
+						{fruitStoreButtons}
+					</div>
+					<div className={'SeasonalFruitDivider'} style={{display: (seasonalFruitStoreButtons.length > 0? 'block': 'none')}}>Seasonal Fruits</div>
+					<div className={'FruitStoreButtonsBase'}>
+						{seasonalFruitStoreButtons}
+					</div>
 				</div>
 				<StoreFruitLateralContent 
 						onUpdate={onClick}

@@ -16,6 +16,16 @@
 
   --bg-blueContainer: lightblue;
 
+  --Store-Button-Color: lightgray;
+  
+  --Store-Button-Color-Summer: yellowgreen;
+  --Store-Button-Color-Fall: OrangeRed;
+  --Store-Button-Color-Winter: Aqua;
+  --Store-Button-Color-Spring: DeepPink;
+
+  --Store-Button-Color-Day: DeepSkyBlue;
+  --Store-Button-Color-Afternoon: Orange;
+  --Store-Button-Color-Night: MidnightBlue;
   user-select: none;
 }
 

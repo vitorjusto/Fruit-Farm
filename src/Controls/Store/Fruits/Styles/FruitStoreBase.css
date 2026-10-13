@@ -1,0 +1,21 @@
+
+.FruitStoreButtonsBase
+{
+	display: grid;
+	grid-template-columns: auto auto auto auto auto;
+}
+
+
+.FruitStoreButtonsContainer
+{
+	overflow-y: auto;
+}
+
+.SeasonalFruitDivider
+{
+	border-Bottom: 2px solid white;
+	width: 95%;
+	margin: auto;
+	color: var(--text-white);
+	font-size: larger;
+}
