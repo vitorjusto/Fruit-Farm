@@ -108,8 +108,64 @@ export function GetFruitNameById(currentFruitId)
 			return "Lettuce"
 		case 24:
 			return "Green Pepper"
-		case 25:
-			return "Pumpkin"
+		case 26:
+			return 'Onion'
+		case 27:
+			return 'Tomato'
+		case 28:
+			return 'Corn'
+		case 29:
+			return 'Garlic'
+		case 30:
+			return 'Chilli Peper'
+		case 31:
+			return 'Carrot'
+		case 32:
+			return 'Eggplant'
+		case 33:
+			return 'Sweet Potato'
+		case 34:
+			return 'Avocado'
+		case 35:
+			return "Jack o' Lantern"
+		case 36:
+			return 'Papaya'
+		case 37:
+			return 'Kiwi'
+		case 38:
+			return 'Ice Fruit'
+		case 39:
+			return 'Persimmon'
+		case 40:
+			return 'Cloud Berry'
+		case 41:
+			return 'Turnip'
+		case 42:
+			return 'Potato'
+		case 43:
+			return 'Cucumber'
+		case 44:
+			return 'Cabbage'
+		case 45:
+			return 'Grape Juice'
+		case 46:
+			return 'Dragon Fruit'
+		case 47:
+			return 'Popcorn'
+		case 48:
+			return 'Sun Fruit'
+		case 49:
+			return 'Marian Mango'
+		case 50:
+			return 'Blackberry'
+		case 51:
+			return 'Strawberry Popsicle'
+		case 52:
+			return 'Guarana'
+		case 53:
+			return 'Cocoa'
+		case 54:
+			return 'Moon Fruit'
 	}
 }
 

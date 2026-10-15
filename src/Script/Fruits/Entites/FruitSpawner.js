@@ -117,6 +117,7 @@ export default class FruitSpawner
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.CollectEspecificFruit, this.FruitId, this.FruitsSpawned.length))
 
 		gameManager.StatisticsManager.GlobalStats.FruitSold(total, this.FruitsSpawned.length)
+		gameManager.StatisticsManager.FruitsStats.AddFruitCollected(this.FruitName, this.BranchUpgradeId, total, this.FruitsSpawned.length)
 
 		this.FruitsSpawned = []
 
@@ -133,6 +134,7 @@ export default class FruitSpawner
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.FruitCollectedByBees, 0, 1))
 
 		gameManager.StatisticsManager.GlobalStats.FruitSold(this.GetSellingPrice(), 1)
+		gameManager.StatisticsManager.FruitsStats.AddFruitCollected(this.FruitName, this.BranchUpgradeId, this.GetSellingPrice(), 1)
 
 		this.FruitsSpawned.shift()
 		gameManager.AddMoney(this.GetSellingPrice())
