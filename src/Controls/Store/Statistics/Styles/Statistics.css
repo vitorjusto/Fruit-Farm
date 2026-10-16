@@ -88,3 +88,33 @@
 	grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
 	overflow-y: auto;
 }
+
+
+.StoreContentStatusTable
+{
+	margin: auto;
+  	width: 100%;
+	border-collapse: collapse;
+	border: 3px solid black;
+}
+
+.StoreContentStatusTableContent
+{
+	text-align: left;
+	border: 1px solid black;
+    color: var(--text-white);
+	height: 30px;
+}
+
+th.StoreContentStatusTableContent
+{
+ 	text-align: center;
+	background-color: var(--sub-container2);
+}
+
+td.StoreContentStatusTableContent
+{
+  	text-align: left;
+	background: var(--sub-container);
+	padding-left: 5px;
+}

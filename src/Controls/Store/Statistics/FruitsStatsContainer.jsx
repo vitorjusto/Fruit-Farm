@@ -4,18 +4,11 @@ import { gameManager } from '../../../App'
 import Swal from 'sweetalert2';
 import { GetFruitNameById } from '../../../Script/Fruits/Factories/FruitFactory';
 import { GetBranchUpgradePath } from '../../../Script/Statistics/Entities/FruitsStats';
+import { SingularFruitStat } from '../../../Script/Statistics/Entities/FruitsStats';
+import { ConvertMoneyNumber } from '../../../Script/Shareds/Functions/NumberConverter';
 
 var maxFruitId = 54;
 var maxBranchID = 40
-
-class dto
-{
-	constructor(name, branchId)
-	{
-		this.Name = name;
-		this.BranchId = branchId
-	}
-}
 
 export default function GaleryContainer() 
 {
@@ -34,13 +27,13 @@ export default function GaleryContainer()
 				var fruit = fruitStats.FindFruit(GetFruitNameById(fruitId), branchId)
 
 				if(fruit)
-					controls.push(new dto(fruit.FruitName, fruit.BranchUpgradeId))
+					controls.push(fruit)
 				else
-					controls.push(new dto("UnknownFruit", 1))
+					controls.push(new SingularFruitStat("UnknownFruit", "",1))
 			}
 		}
 
-		setContents(controls.map((fruit, i) => <GaleryButtonContainer key={i} fruitName={fruit.Name} branchUpgradeId={fruit.BranchId}/>))
+		setContents(controls.map((fruit, i) => <GaleryButtonContainer key={i} fruitStat={fruit}/>))
 		
 	}, []);
 
@@ -56,21 +49,50 @@ export function GaleryButtonContainer(props)
 {
 	function onClick()
 	{
-		Swal.fire({
-					title: 'Do you wanna prestige?',
-					icon: "info",
-					html: '<div class="PopupSubContainer">All upgrades, branch upgrade, flowers and fruits you have currently will be gone, but you are gonna have the buffs given in the prestige</div>',
-					confirmButtonText: 'Ok',
-					background:'var(--container)',
-					color: 'var(--text-white)',
-					confirmButtonColor: 'var(--button-background-color)',
-				  });
+		if(props.fruitStat.FruitName == "UnknownFruit")
+		{
+			Swal.fire({
+						title: 'Unknown Fruit',
+						html: '<div class="PopupSubContainer">???</div>',
+						confirmButtonText: 'Ok',
+						background:'var(--container)',
+						color: 'var(--text-white)',
+						confirmButtonColor: 'var(--button-background-color)',
+					  });
+
+		}else
+		{
+			Swal.fire({
+						title: props.fruitStat.FruitName,
+						html: `<table class="StoreContentStatusTable">
+									<thead>
+										<tr>
+											<th class="StoreContentStatusTableContent">Total Fruit Collected</th>
+											<th class="StoreContentStatusTableContent">Total Money Collected</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="StoreContentStatusTableContent">${ConvertMoneyNumber(props.fruitStat.FruitCollected)}</td>
+											<td class="StoreContentStatusTableContent">${ConvertMoneyNumber(props.fruitStat.MoneyMade)}</td>
+										</tr>
+									</tbody>
+								</table>
+								<br/>
+								<div class="PopupSubContainer">${props.fruitStat.BranchUpgradePath}</div>`,
+						confirmButtonText: 'Ok',
+						background:'var(--container)',
+						color: 'var(--text-white)',
+						confirmButtonColor: 'var(--button-background-color)',
+					  });
+
+		}
 	}
 
-	var sx = Math.floor((props.branchUpgradeId - 1)% 6) * -32
-	var sy = Math.floor((props.branchUpgradeId - 1)/ 6) * -32
+	var sx = Math.floor((props.fruitStat.BranchUpgradeId - 1)% 6) * -32
+	var sy = Math.floor((props.fruitStat.BranchUpgradeId - 1)/ 6) * -32
 
-	var fruitName = `/assets/Fruits/${props.fruitName}.png`
+	var fruitName = `/assets/Fruits/${props.fruitStat.FruitName}.png`
 	
 	var style = { 
 					imageRendering: 'pixelated', 
