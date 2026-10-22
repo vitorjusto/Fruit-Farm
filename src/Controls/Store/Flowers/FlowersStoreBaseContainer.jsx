@@ -24,6 +24,7 @@ export default function FlowersStoreBaseContainer()
 	var [upgradeFlowerVisible, setupgradeFlowerVisible] = useState(false)
 
 	var [flowerContents, setFlowerContents] = useState(null)
+	var [newFlowerButton, setNewFlowerButton] = useState(null)
 
 	function AddFlower(newFlowerContent)
 	{
@@ -34,12 +35,14 @@ export default function FlowersStoreBaseContainer()
 		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
 
 		onFlowerSelected(newId)
+		UpdateNewFlowerButton()
 	}
 
 	function onNewFlowerClick()
 	{
 		setNewFlowerVisible(true)
 		setupgradeFlowerVisible(false)
+		UpdateNewFlowerButton()
 	}
 
 	function onFlowerSelected(flowerId)
@@ -73,6 +76,7 @@ export default function FlowersStoreBaseContainer()
 	{
 		gameManager.flowerManager.SellFlower(selectedFlowerId)
 		ClearSelectedFlower()
+		UpdateNewFlowerButton()
 
 	}
 
@@ -93,18 +97,32 @@ export default function FlowersStoreBaseContainer()
 		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
 	}
 
+	function UpdateNewFlowerButton()
+	{
+		if(gameManager.flowerManager.Flowers.length == gameManager.flowerManager.MaxFlowers)
+		{
+			setNewFlowerButton(<></>)
+		}else
+		{
+			setNewFlowerButton(<NewFlowerButton onClick={onNewFlowerClick}/>)
+				
+		}
+	}
+
 	useEffect(() => {
 
 		if(!gameManager)
 			return;
 
 		setFlowerContents(gameManager.flowerManager.Flowers.map((v, i) =>  (<FlowerUpgradeButton flower={v} onClick={onFlowerSelected} key={i}/>)))
+		UpdateNewFlowerButton()
+
 	}, []);
 
 	return(<div className="ControlContent">
 				<div className="StoreButtonsBase">
 					{flowerContents}
-					<NewFlowerButton onClick={onNewFlowerClick}/>
+					{newFlowerButton}
 				</div>
 				<FlowerStoreLateralContent
 										onUpgrade={onUpgrade}
@@ -121,7 +139,6 @@ export default function FlowersStoreBaseContainer()
 										onBranchUpgrade={onFlowerSelected}
 										NextMoneyPerSecond={nextMoneyPerSecond}
 										/>
-
 				<NewFlowerStoreLateralContent 
 										visible={newFlowerVisible}
 										AddFlower={AddFlower}/>

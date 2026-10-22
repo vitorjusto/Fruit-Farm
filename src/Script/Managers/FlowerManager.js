@@ -8,6 +8,7 @@ export default class FlowerManager
 	Context;
 	Canvas;
 	Flowers = [];
+	MaxFlowers = 4;
 
 	constructor(context, canvas)
 	{
@@ -80,5 +81,6 @@ export default class FlowerManager
 	Reset()
 	{
 		this.Flowers = [];
+		this.MaxFlowers = 4;
 	}
 }

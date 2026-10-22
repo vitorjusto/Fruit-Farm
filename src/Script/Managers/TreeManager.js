@@ -16,8 +16,8 @@ export default class TreeManager
 
 		this.Reset();
 
-		this.SellingPriceModifier *= 1
-		this.UpgradePriceModifier *= 1
+		this.SellingPriceModifier = 1
+		this.UpgradePriceModifier = 1
 	}
 
 	Update(deltaTime)

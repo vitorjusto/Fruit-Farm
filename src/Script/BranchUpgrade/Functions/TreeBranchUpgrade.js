@@ -1,6 +1,6 @@
 import BranchUpgradeCollection from '../Entities/BranchUpgradeCollection'
 import BranchUpgrade from '../Entities/BranchUpgrade'
-
+import { gameManager } from '../../../App';
 export function ChangeTreeBranchUpgrade(treeManager, id)
 {
 	treeManager.BranchUpgradeId = id
@@ -14,11 +14,10 @@ export function ChangeTreeBranchUpgrade(treeManager, id)
 	{
 		treeManager.SellingPriceModifier *= 1.5
 		treeManager.UpgradePriceModifier *= 1.5
-	}else if(id == 4)//More Genetic
+	}else if(id == 4)//More Colorful
 	{
-		fruitSpawner.MaxSpawnCooldown /= 1.5
-		fruitSpawner.MaxSize *= 2
-		fruitSpawner.SellingPrice /= 1.5
+		gameManager.flowerManager.MaxFlowers += 2
+		treeManager.FruitSpawnModifier += 10
 	}
 }
 
