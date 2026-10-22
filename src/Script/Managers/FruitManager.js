@@ -6,43 +6,13 @@ import { EFruit, EPeriod, ESeason } from '../Fruits/Enums/FruitsEnums';
 export default class FruitManager
 {
 	FruitsSpawners = []
-	AvailableSeasonalFruits = [
-  		EFruit.ONION,
-  		EFruit.TOMATO,
-  		EFruit.CORN,
-  		EFruit.GARLIC,
-  		EFruit.CHILLI_PEPER,
-  		EFruit.CARROT,
-  		EFruit.EGGPLANT,
-  		EFruit.SWEET_POTATO,
-  		EFruit.AVOCADO,
-  		EFruit.JACK_O_LANTERN,
-  		EFruit.PAPAYA,
-  		EFruit.KIWI,
-  		EFruit.ICE_FRUIT,
-  		EFruit.PERSIMMON,
-  		EFruit.CLOUD_BERRY,
-  		EFruit.TURNIP,
-  		EFruit.POTATO,
-  		EFruit.CUCUMBER,
-  		EFruit.CABBAGE,
-  		EFruit.GRAPE_JUICE,
-  		EFruit.DRAGON_FRUIT,
-  		EFruit.POPCORN,
-  		EFruit.SUN_FRUIT,
-  		EFruit.MARIAN_MANGO,
-  		EFruit.BLACKBERRY,
-  		EFruit.STRAWBERRY_ICESCREAM,
-  		EFruit.GUARANA,
-  		EFruit.COCOA,
-  		EFruit.MOON_FRUIT
-	]
+	AvailableSeasonalFruits = [	]
 
 	constructor(context, canvas)
 	{
 		this.context = context;
 		this.canvas = canvas;
-		this.FruitsSpawners.push(new FruitSpawner(context, canvas, 'Apple', 1, 'Simple fruit, simple price', 1, 2, 2, 1, EPeriod.None, ESeason.None))
+		this.FruitsSpawners.push(new FruitSpawner(context, canvas, 'Apple', 1, 'Simple fruit, simple price', 1000000, 2, 2, 1, EPeriod.None, ESeason.None))
 		this.FruitsSpawners.push(...GetAllSeasonalFruit(this.AvailableSeasonalFruits, context, canvas))
 	}
 

@@ -33,7 +33,7 @@ export default function FruitsStoreContainer()
 
 		setSelectedSellingPrice(ConvertMoneyNumber(fruitSpawner.GetSellingPrice()))
 		setSelectedSpawnTimer(fruitSpawner.MaxSpawnCooldown)
-		setSelectedUpgradePrice(ConvertMoneyNumber(fruitSpawner.UpgradePrice))
+		setSelectedUpgradePrice(ConvertMoneyNumber(fruitSpawner.GetUpgradePrice()))
 
 		setSelectedFruitId(fruitSpawner.FruitId)
 		setSelectedAvaliableBranchUpgrade(fruitSpawner.AvailableBranchUpgrade)

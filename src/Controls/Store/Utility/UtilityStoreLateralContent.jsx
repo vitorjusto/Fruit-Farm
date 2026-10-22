@@ -1,4 +1,5 @@
 import './Styles/StoreLateralContent.css'
+import { useState } from 'react'
 
 export default function UtilityStoreLateralContent(props) {
 
@@ -29,13 +30,14 @@ export default function UtilityStoreLateralContent(props) {
 
 export function BranchUpgrade(props) 
 {
+	const [description, setDescription] = useState('')
 	return <div>
 		<div className={'StoreContentBranchUpgrade'} style={{ height: '100%', display: props.BranchUpgrade?'inline':'none'}}>
-			<div className={'StoreContentUpgradeDescription'}>Description</div>
+			<div className={'StoreContentUpgradeDescription'}>{description}</div>
 			<div className={'StoreContentUpgradeButtonContainer'}>
-				<div onClick={() => props.BranchUpgradeAction(props.BranchUpgrade.Upgrade1.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.BranchUpgrade? props.BranchUpgrade.Upgrade1.Name : ""}</div>
-				<div onClick={() => props.BranchUpgradeAction(props.BranchUpgrade.Upgrade2.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.BranchUpgrade? props.BranchUpgrade.Upgrade2.Name : ""}</div>
-				<div onClick={() => props.BranchUpgradeAction(props.BranchUpgrade.Upgrade3.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.BranchUpgrade? props.BranchUpgrade.Upgrade3.Name : ""}</div>
+				<div onMouseLeave={() => setDescription('')} onMouseEnter={() => setDescription(props.BranchUpgrade.Upgrade1.Description)} onClick={() => props.BranchUpgradeAction(props.BranchUpgrade.Upgrade1.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.BranchUpgrade? props.BranchUpgrade.Upgrade1.Name : ""}</div>
+				<div onMouseLeave={() => setDescription('')} onMouseEnter={() => setDescription(props.BranchUpgrade.Upgrade2.Description)} onClick={() => props.BranchUpgradeAction(props.BranchUpgrade.Upgrade2.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.BranchUpgrade? props.BranchUpgrade.Upgrade2.Name : ""}</div>
+				<div onMouseLeave={() => setDescription('')} onMouseEnter={() => setDescription(props.BranchUpgrade.Upgrade3.Description)} onClick={() => props.BranchUpgradeAction(props.BranchUpgrade.Upgrade3.BranchUpgradeId)} className={'StoreUpgradeButton BranchUpgradeButton'}>{props.BranchUpgrade? props.BranchUpgrade.Upgrade3.Name : ""}</div>
 			</div>
 		</div>
 

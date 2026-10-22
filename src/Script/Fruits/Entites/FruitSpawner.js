@@ -73,7 +73,7 @@ export default class FruitSpawner
 		if(this.Period == gameManager.PrestigeManager.CurrentPeriod && this.Season == gameManager.PrestigeManager.CurrentSeason)//Double good condition
 			result /= 2
 
-		return result
+		return gameManager.treeManager.NerfSeasonalFruits? result * 3: result;
 	}
 
 	IsRegularFruit()
@@ -105,7 +105,12 @@ export default class FruitSpawner
 
 	GetSellingPrice()
 	{
-		return this.SellingPrice * gameManager.PrestigeManager.GetFruitValuePrestigeModifier()
+		return this.SellingPrice * gameManager.PrestigeManager.GetFruitValuePrestigeModifier() * gameManager.treeManager.SellingPriceModifier
+	}
+
+	GetUpgradePrice()
+	{
+		return this.UpgradePrice * gameManager.treeManager.UpgradePriceModifier
 	}
 
 	HarvestFruits()
@@ -143,10 +148,10 @@ export default class FruitSpawner
 
 	UpgradeFruit()
 	{
-		if(gameManager.money < this.UpgradePrice)
+		if(gameManager.money < GetUpgradePrice())
 			return;
 
-		gameManager.AddMoney(-this.UpgradePrice)
+		gameManager.AddMoney(-GetUpgradePrice())
 
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeAllFruit, 0, 1))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeFruit, this.FruitId, 1))
@@ -177,7 +182,7 @@ export default class FruitSpawner
 
 	GetNextSellingPrice()
 	{
-		return this.SellingPriceBase * (this.Level+ 1)
+		return (this.SellingPriceBase * (this.Level+ 1)) * gameManager.treeManager.SellingPriceModifier
 	}
 
 	UpdateBranchUpgrade(id)

@@ -53,7 +53,11 @@ export default function UtilityStoreBaseContainer()
 		setSelectUpgradeAction(() => onTreeUpgrade)
 
 		setSelectedBranchUpgrade(gameManager.treeManager.BranchUpgrade)
-		setSelectedBranchUpgradeAction(() => (id) => ChangeTreeBranchUpgrade(gameManager.treeManager, id))
+		setSelectedBranchUpgradeAction(() => (id) => 
+			{
+				ChangeTreeBranchUpgrade(gameManager.treeManager, id)
+				onTreeSelected()
+			})
 	}
 
 	function onTreeUpgrade()

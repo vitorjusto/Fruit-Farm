@@ -18,6 +18,7 @@ export default function StoreBaseContent({visible}) {
 				<div className={'TabButton'} onClick={() => setStoreContainer(<FlowersStoreBaseContainer/>)}>Flowers</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<UtilityStoreBaseContainer/>)}>Utility</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<StatisticsStoreBaseContainer/>)}>Statistics</div>
+				<div className={'TabButton'} onClick={() => setStoreContainer(<PrestigeBaseContent/>)}>Shop</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<PrestigeBaseContent/>)}>Prestigie</div>
 			</div>
 			{storeContainer}

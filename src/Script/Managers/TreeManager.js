@@ -7,6 +7,7 @@ export default class TreeManager
 	BranchUpgrade = null
 	Size = 100
 	FruitSpawnModifier = 1
+	NerfSeasonalFruits = false
 
 	constructor(context, canvas)
 	{
@@ -14,6 +15,9 @@ export default class TreeManager
 		this.canvas = canvas
 
 		this.Reset();
+
+		this.SellingPriceModifier *= 1
+		this.UpgradePriceModifier *= 1
 	}
 
 	Update(deltaTime)
@@ -75,7 +79,6 @@ export default class TreeManager
 	
 	Reset()
 	{
-		
 		this.Level = 1
 		this.UpgradePrice = 1
 		this.Size = 100
@@ -83,5 +86,7 @@ export default class TreeManager
 		this.BranchUpgradeId = 1
 		this.BranchUpgrade = null
 		this.FruitSpawnModifier = 1
+
+		this.NerfSeasonalFruits = false
 	}
 }
