@@ -1,0 +1,33 @@
+.StoreFruitButton
+{
+	border: 5px solid rgba(0, 0, 0, 0);
+	
+	width: 120px;
+	height: 120px;
+	margin: 10px auto;
+	border-radius: 15px;
+	padding: 10px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	user-select: false;
+}
+
+.StoreFruitButton:hover
+{
+	border: 5px solid white;
+    transition: 0.3s;
+	
+}
+
+.ShopDivider
+{
+	border-bottom: 2px solid white
+}
+
+.GridContainer
+{
+	display: Grid;
+	grid-template-columns: auto auto auto auto auto;
+}

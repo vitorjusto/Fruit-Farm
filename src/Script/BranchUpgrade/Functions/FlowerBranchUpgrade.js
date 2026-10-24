@@ -28,8 +28,8 @@ export function GetBranchUpgradeCollection(id)
 {
 	if(id == 1)
 		return new BranchUpgradeCollection(
-								new BranchUpgrade(2, "More BIG", "a fruta possui mais espaço e o preço de venda fica bem maior (comparado com More delicius), com o tempo de aparência bem maior também"),
-								new BranchUpgrade(3, "More Delicius", "as frutas dão mais valor de venda com o preço de upgrade aumenta um pouco"),
-								new BranchUpgrade(4, "More Genetic", "as frutas tem menos espaço e menos tempo de coowldown e menos preço de venda"),
+								new BranchUpgrade(2, "More Color", "Gives more money"),
+								new BranchUpgrade(3, "More beatiful", "eventualmente algumas borboletas podem aparecer e aumentar a quatidade de dinheiro que ele pode dar"),
+								new BranchUpgrade(4, "More Safe", "o preço de venda da flor aumenta"),
 							)
 }

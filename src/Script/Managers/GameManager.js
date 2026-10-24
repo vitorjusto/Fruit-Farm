@@ -19,6 +19,7 @@ export default class GameManager
 	skyManager;
 	fruitManager;
 	seedManager;
+	ItemManager;
 
 	money;
 	setMoney;

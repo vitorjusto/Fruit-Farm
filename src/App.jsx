@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import Hud from './Controls/Hud/Hud'
 import GameManager from "./Script/Managers/GameManager"
 import SeedManager from "./Script/Managers/SeedManager"
+import ItemManager from './Script/Managers/ItemManager'
 import { ConvertMoneyNumber } from './Script/Shareds/Functions/NumberConverter'
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
 												  setPinkSeed,
 												  setGoldSeed,
 												  setRareSeed);
+
+		gameManager.ItemManager = new ItemManager(gameManager);
 		gameRef.current = gameManager;
 		gameManager.start();
 

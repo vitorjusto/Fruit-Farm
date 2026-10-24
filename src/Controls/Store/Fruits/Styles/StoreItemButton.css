@@ -1,7 +1,7 @@
-.StoreFruitButton
+.ShopItemButton
 {
 	border: 5px solid rgba(0, 0, 0, 0);
-	
+	background-color: greenyellow;
 	width: 120px;
 	height: 120px;
 	margin: 10px auto;
@@ -14,7 +14,7 @@
 	user-select: false;
 }
 
-.StoreFruitButton:hover
+.ShopItemButton:hover
 {
 	border: 5px solid white;
     transition: 0.3s;

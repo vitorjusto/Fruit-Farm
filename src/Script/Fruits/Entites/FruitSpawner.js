@@ -148,10 +148,10 @@ export default class FruitSpawner
 
 	UpgradeFruit()
 	{
-		if(gameManager.money < GetUpgradePrice())
+		if(gameManager.money < this.GetUpgradePrice())
 			return;
 
-		gameManager.AddMoney(-GetUpgradePrice())
+		gameManager.AddMoney(-this.GetUpgradePrice())
 
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeAllFruit, 0, 1))
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.UpgradeFruit, this.FruitId, 1))

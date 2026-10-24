@@ -5,6 +5,7 @@ import StatisticsStoreBaseContainer from './Statistics/StatisticsStoreBaseContai
 import PrestigeBaseContent from './Prestiges/PrestigeBaseContent'
 import './Styles/StoreBaseContent.css'
 import FlowersStoreBaseContainer from './Flowers/FlowersStoreBaseContainer'
+import ShopContainerBase from './Shop/ShopContainer'
 
 export default function StoreBaseContent({visible}) {
 
@@ -18,7 +19,7 @@ export default function StoreBaseContent({visible}) {
 				<div className={'TabButton'} onClick={() => setStoreContainer(<FlowersStoreBaseContainer/>)}>Flowers</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<UtilityStoreBaseContainer/>)}>Utility</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<StatisticsStoreBaseContainer/>)}>Statistics</div>
-				<div className={'TabButton'} onClick={() => setStoreContainer(<PrestigeBaseContent/>)}>Shop</div>
+				<div className={'TabButton'} onClick={() => setStoreContainer(<ShopContainerBase/>)}>Shop</div>
 				<div className={'TabButton'} onClick={() => setStoreContainer(<PrestigeBaseContent/>)}>Prestigie</div>
 			</div>
 			{storeContainer}
