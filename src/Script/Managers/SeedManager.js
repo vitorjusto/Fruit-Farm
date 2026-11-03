@@ -10,7 +10,7 @@ export default class SeedManager
 				setGoldSeed,
 				setRareSeed)
 	{
-		this.greenSeed = 0;
+		this.greenSeed = 10;
 		this.orangeSeed = 0;
 		this.blueSeed = 0;
 		this.pinkSeed = 0;

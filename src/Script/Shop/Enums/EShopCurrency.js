@@ -2,9 +2,9 @@
 export const EShopCurrency =
 {
 	greenSeed: 0,
-	orangeSeed: 0,
-	blueSeed: 0,
-	pinkSeed: 0,
-	goldSeed: 0,
-	rareSeed: 0,
+	orangeSeed: 1,
+	blueSeed: 2,
+	pinkSeed: 3,
+	goldSeed: 4,
+	rareSeed: 5,
 }

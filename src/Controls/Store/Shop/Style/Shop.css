@@ -31,3 +31,30 @@
 	display: Grid;
 	grid-template-columns: auto auto auto auto auto;
 }
+
+.QuantiyContainer
+{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	width: 80%;
+	justify-content: space-between;
+	margin: auto
+}
+
+.QuantityButton
+{
+	background-color: azure;
+	font-size: xx-large;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 32px;
+}
+
+.QuantityRange
+{
+	width: 60%;
+}

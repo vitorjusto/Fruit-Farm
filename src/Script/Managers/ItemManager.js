@@ -10,7 +10,7 @@ export default class ItemManager
 	{
 		this.SeedSwap = [new ShopOption(EShopCurrency.greenSeed, 
 										2, 
-										"Swap Green Seed to Orange Seed", 
+										"Green to Orange", 
 										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
 										'/assets/Store/SeedSwap.png',
 									(qtde) => {
@@ -20,7 +20,7 @@ export default class ItemManager
 
 						new ShopOption(EShopCurrency.orangeSeed, 
 										2, 
-										"Swap Orange Seed to Blue Seed", 
+										"Orange to Blue", 
 										"Trade Offer: 2 Orange Seeds to 1 Blue Seed",
 										'/assets/Store/SeedSwap.png',
 									(qtde) => {
@@ -30,7 +30,7 @@ export default class ItemManager
 
 						new ShopOption(EShopCurrency.blueSeed, 
 										2, 
-										"Swap Blue Seed to Pink Seed", 
+										"Blue to Pink", 
 										"Trade Offer: 2 Blue Seeds to 1 Pink Seed",
 										'/assets/Store/SeedSwap.png',
 									(qtde) => {
@@ -38,9 +38,9 @@ export default class ItemManager
 											gameManager.seedManager.AddPinkSeed(1* qtde)
 										}),
 
-						new ShopOption(EShopCurrency.pink, 
+						new ShopOption(EShopCurrency.pinkSeed, 
 										2, 
-										"Swap Pink Seed to Green Seed", 
+										"Pink to Green", 
 										"Trade Offer: 2 Pink Seeds to 1 Green Seed",
 										'/assets/Store/SeedSwap.png',
 									(qtde) => {
