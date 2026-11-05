@@ -125,10 +125,10 @@ export function ShopContainer(props)
 	var [SelectedQuantity, setSelectedQuantity] = useState(1)
 
 	return (
-		<div className={'StoreLateralContents'}>
+		<div className={'ShopLateralContents'}>
 			<div className={'StoreContentName'}>{props.SelectedName}</div>
 			<div className={'StoreContentDescritpion'}>{props.SelectedDescription}</div>
-			{SelectedQuantity}
+			<div className={'StoreSelectedQuantity'}>{SelectedQuantity}</div>
 			<div className={'QuantiyContainer'}>
 				<div className={'QuantityButton'} onClick={() => setSelectedQuantity((SelectedQuantity - 1) == 0?1:(SelectedQuantity - 1))}>-</div>
 				<input type={'range'} value={SelectedQuantity} onInput={(e) => {
@@ -137,7 +137,10 @@ export function ShopContainer(props)
 				<div onClick={() => setSelectedQuantity((SelectedQuantity + 1) == 100?99:(SelectedQuantity + 1))} className={'QuantityButton'}>+</div>
 			</div>
 			<div>
-				<div onClick={() => props.onButtonClick(SelectedQuantity)} className={'StoreUpgradeButton'} style={{margin: '20px auto'}}>{props.SelectedPrice * SelectedQuantity}</div>
+				<div onClick={() => props.onButtonClick(SelectedQuantity)} className={'ShopBuyButton'} style={{margin: '20px auto'}}>
+					<div><img src={'/assets/Seeds/BlueSeed.png'} style={{ imageRendering: 'pixelated', position: 'absolute', scale: '2'}} /></div>
+					<div>{props.SelectedPrice * SelectedQuantity}</div>
+				</div>
 			</div>
 		</div>
 	)
