@@ -18,6 +18,7 @@ export default class TreeManager
 
 		this.SellingPriceModifier = 1
 		this.UpgradePriceModifier = 1
+		this.ManureCooldown = 0;
 	}
 
 	Update(deltaTime)
@@ -35,6 +36,9 @@ export default class TreeManager
 
 		//Draw ground
     	this.context.fillRect(0, (this.canvas.height) - 60, this.canvas.width, 280);
+
+		if(this.IsManureActive())
+			this.ManureCooldown -= deltaTime
 	}
 
 	SetCurrentSeasonColor()
@@ -69,7 +73,7 @@ export default class TreeManager
 
 	GetFruitSpawnModifier()
 	{
-		return this.FruitSpawnModifier * gameManager.PrestigeManager.GetTreeSpawnTimerPrestigeModifier()
+		return this.FruitSpawnModifier * gameManager.PrestigeManager.GetTreeSpawnTimerPrestigeModifier() * (this.IsManureActive()?3:1)
 	}
 
 	GetNextFruitSpawnModifier()
@@ -88,5 +92,15 @@ export default class TreeManager
 		this.FruitSpawnModifier = 1
 
 		this.NerfSeasonalFruits = false
+	}
+
+	ActivateManure()
+	{
+		this.ManureCooldown = 14400;//4 hours
+	}
+
+	IsManureActive()
+	{
+		return this.ManureCooldown > 0;
 	}
 }

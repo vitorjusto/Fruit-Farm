@@ -61,6 +61,53 @@ export default function UtilityStoreBaseContainer()
 				ChangeTreeBranchUpgrade(gameManager.treeManager, id)
 				onTreeSelected()
 			})
+
+		setSelectedOnItemUsed(() => () =>  {
+			if(gameManager.treeManager.IsManureActive())
+			{
+				Swal.fire({
+					title: "You aready using this item.",
+					icon: "info",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+			else if(gameManager.ItemManager.ManureCount > 0)
+			{
+				Swal.fire({
+					title: 'Do you wanna use manure?',
+					icon: "question",
+					html: '',
+					confirmButtonText: 'Yes',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					cancelButtonText: 'No',
+					showCancelButton: true,
+				  }).then((result) => {
+					if (result.isConfirmed) 
+					{
+						gameManager.ItemManager.ManureCount -= 1
+						gameManager.treeManager.ActivateManure()
+					}
+					});
+			
+			}else
+			{
+				Swal.fire({
+					title: "You Don't have manure, you can buy more in the shop.",
+					icon: "error",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+		})
 	}
 
 	function onTreeUpgrade()

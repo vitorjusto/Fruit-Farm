@@ -78,7 +78,7 @@ export default class GameManager
 	{
 		this.skyManager.update()
 		this.BeeManager.Update(deltaTime)
-		this.treeManager.Update()
+		this.treeManager.Update(deltaTime)
 		this.DogManager.Update(deltaTime)
 		this.fruitManager.Update(deltaTime)
 		this.flowerManager.Update(deltaTime)

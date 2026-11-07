@@ -97,11 +97,14 @@ export default class ItemManager
 										'/assets/Item/Honey.png',
 									(qtde) => {}),	
 						new ShopOption(EShopCurrency.goldSeed, 
-										2, 
+										50, 
 										"Manure", 
 										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
 										'/assets/Item/Manure.png',
-									(qtde) => {}),	
+									(qtde) => {
+										gameManager.seedManager.AddGoldSeed(-50 * qtde)
+										this.ManureCount += qtde;
+									}),	
 						]
 
 		this.SpecialItens = [new ShopOption(EShopCurrency.greenSeed, 
