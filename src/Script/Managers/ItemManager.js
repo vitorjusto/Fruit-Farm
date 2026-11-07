@@ -48,12 +48,16 @@ export default class ItemManager
 											gameManager.seedManager.AddGreenSeed(1* qtde)
 										})]
 
-		this.ItemShop = [new ShopOption(EShopCurrency.greenSeed, 
-										2, 
+		this.ItemShop = [new ShopOption(EShopCurrency.goldSeed, 
+										10, 
 										"Bird Food", 
-										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
+										"Increase bird spawn for 2 hours",
 										'/assets/Item/BirdFood.png',
-									(qtde) => {}),
+									(qtde) => {
+
+										gameManager.seedManager.AddGoldSeed(-10 * qtde)
+										this.BirdFoodCount += qtde;
+									}),
 
 						new ShopOption(EShopCurrency.greenSeed, 
 										2, 
@@ -119,5 +123,13 @@ export default class ItemManager
 										'/assets/Item/BirdFood.png',
 									(qtde) => {}),
 						]
+
+		this.BirdFoodCount = 0;
+		this.ButterflyCount = 0;
+		this.CoffeCount = 0;
+		this.DogToyCount = 0;
+		this.FeryilizerCount = 0;
+		this.HoneyCount = 0;
+		this.ManureCount = 0;
 	}
 }

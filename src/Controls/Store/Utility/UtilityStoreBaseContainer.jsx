@@ -9,6 +9,7 @@ import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConver
 import UtilityStoreLateralContent from "./UtilityStoreLateralContent"
 import '../Styles/StoreBaseContent.css'
 import StoreItemButton from './StoreItemButton';
+import Swal from 'sweetalert2'
 
 import dogIcon from '/assets/Dog/DogIcon.png'
 import beeIcon from '/assets/Bees/honeycomb.png'
@@ -34,6 +35,8 @@ export default function UtilityStoreBaseContainer()
 
 	var [selectedBranchUpgrade, setSelectedBranchUpgrade] = useState(() => {})
 	var [selectedBranchUpgradeAction, setSelectedBranchUpgradeAction] = useState(() => {})
+	
+	var [selectedOnItemUsed, setSelectedOnItemUsed] = useState(() => {})
 
 	function onTreeSelected()
 	{
@@ -144,6 +147,53 @@ export default function UtilityStoreBaseContainer()
 		setSelectedBranchUpgrade(gameManager.BirdManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => ChangeBirdBranchUpgrade(gameManager.BirdManager, id))
 
+		setSelectedOnItemUsed(() => () =>  {
+			if(gameManager.BirdManager.IsBirdFoodActiveted())
+			{
+				Swal.fire({
+					title: "You aready using this item.",
+					icon: "info",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+			else if(gameManager.ItemManager.BirdFoodCount > 0)
+			{
+				Swal.fire({
+					title: 'Do you wanna use bird food',
+					icon: "question",
+					html: '',
+					confirmButtonText: 'Yes',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					cancelButtonText: 'No',
+					showCancelButton: true,
+				  }).then((result) => {
+					if (result.isConfirmed) 
+					{
+						gameManager.ItemManager.BirdFoodCount -= 1
+						gameManager.BirdManager.ActivateBirdFood()
+					}
+					});
+			
+			}else
+			{
+				Swal.fire({
+					title: "You Don't have Bird food, you can buy more in the shop.",
+					icon: "error",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+		})
+
 	}
 
 	function onBirdUpgrade()
@@ -176,6 +226,8 @@ export default function UtilityStoreBaseContainer()
 
 					BranchUpgrade={selectedBranchUpgrade}
 					BranchUpgradeAction={selectedBranchUpgradeAction}
+
+					OnItemUsed = {selectedOnItemUsed}
 				/>
 			</div>
 	)

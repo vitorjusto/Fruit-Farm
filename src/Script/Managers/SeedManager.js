@@ -14,7 +14,7 @@ export default class SeedManager
 		this.orangeSeed = 0;
 		this.blueSeed = 0;
 		this.pinkSeed = 0;
-		this.goldSeed = 0;
+		this.goldSeed = 99999;
 		this.rareSeed = 0;
 		
 		this.setUIGreenSeed = setGreenSeed;

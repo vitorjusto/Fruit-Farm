@@ -17,6 +17,16 @@ export default class BirdManager
 		this.UpgradePrice = 10
 		this.Level = 0
 		this.BranchUpgradeId = 1
+
+		this.BirdFoodTimer = 0;//in Seconds
+    	this.image = new Image();
+   		this.image.src = `/assets/Item/BirdFood.png`;
+    	this.image.onload = () => {
+    	  this.ImageLoaded = true
+    	};
+    	this.image.onerror = (e) => {
+    	  console.log(e)
+    	};
 	}
 
 	Update(deltaTime)
@@ -26,18 +36,28 @@ export default class BirdManager
 		});
 
 		this.Birds = this.Birds.filter(n => !n.queueDespawn);
-		this.cooldown -= deltaTime
+		this.cooldown -= deltaTime * (this.IsBirdFoodActiveted()?10:1)
+
+		if(this.IsBirdFoodActiveted())
+		{
+			this.BirdFoodTimer-=deltaTime;
+    		this.context.drawImage(this.image, 1100, 480, 64, 64);
+		}
 
 		if(this.cooldown <= 0)
 		{
-			this.cooldown = this.maxCooldown ;
+			this.cooldown = this.maxCooldown;
 			this.SpawnBird()
 		}
 	}
 
+	IsBirdFoodActiveted()
+	{
+		return this.BirdFoodTimer > 0;
+	}
+
 	SpawnBird()
 	{
-		
 		var xspeed = (150 + (Math.random() * 300)) * (Math.random() > 0.5? 1: -1)
 		var x = xspeed < 0?this.canvas.width + 120:-120
 
@@ -75,5 +95,10 @@ export default class BirdManager
 
 		if(this.Level == 25)
 			this.BranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
+	}
+
+	ActivateBirdFood()
+	{
+		this.BirdFoodTimer = 99999;
 	}
 }

@@ -5,6 +5,7 @@ export default function UtilityStoreLateralContent(props) {
 
   return (
 	<div className={'StoreLateralContents'}>
+		<div onClick={() => props.OnItemUsed()} className={'ItemButton'}></div>
 		<div className={'StoreContentName'}>{props.Name}</div>
 		<div className={'StoreContentLevel'}>Level: {props.Level}</div>
 		<div className={'StoreContentDescritpion'}>{props.Description}</div>
