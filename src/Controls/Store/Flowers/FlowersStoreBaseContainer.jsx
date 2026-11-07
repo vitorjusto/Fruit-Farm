@@ -7,6 +7,7 @@ import '../Styles/StoreBaseContent.css'
 import {gameManager} from '../../../App'
 import {useState, useEffect} from 'react'
 import {ConvertMoneyNumber} from '../../../Script/Shareds/Functions/NumberConverter'
+import Swal from 'sweetalert2'
 
 export default function FlowersStoreBaseContainer()
 {
@@ -61,6 +62,56 @@ export default function FlowersStoreBaseContainer()
 		
 		setNewFlowerVisible(false)
 		setupgradeFlowerVisible(true)
+	}
+
+	function OnItemUsed()
+	{
+		var flower = gameManager.flowerManager.Flowers.find((x) => x.Id == selectedFlowerId);
+
+		if(flower.IsButterflyActive())
+		{
+			Swal.fire({
+				title: "You aready using this item.",
+				icon: "info",
+				confirmButtonText: 'OK',
+				background:'var(--container)',
+				color: 'var(--text-white)',
+				confirmButtonColor: 'var(--button-background-color)',
+				showCancelButton: false,
+			  })
+		}
+		else if(gameManager.ItemManager.ButterflyCount > 0)
+		{
+			Swal.fire({
+				title: 'Do you wanna use butterfly?',
+				icon: "question",
+				html: '',
+				confirmButtonText: 'Yes',
+				background:'var(--container)',
+				color: 'var(--text-white)',
+				confirmButtonColor: 'var(--button-background-color)',
+				cancelButtonText: 'No',
+				showCancelButton: true,
+			  }).then((result) => {
+				if (result.isConfirmed) 
+				{
+					gameManager.ItemManager.ButterflyCount -= 1
+					flower.ActivateButterfly()
+				}
+				});
+		
+		}else
+		{
+			Swal.fire({
+				title: "You Don't have butterfly, you can buy more in the shop.",
+				icon: "error",
+				confirmButtonText: 'OK',
+				background:'var(--container)',
+				color: 'var(--text-white)',
+				confirmButtonColor: 'var(--button-background-color)',
+				showCancelButton: false,
+			  })
+		}
 	}
 
 	function onUpgrade()
@@ -138,6 +189,7 @@ export default function FlowersStoreBaseContainer()
 										FlowerId={selectedFlowerId}
 										onBranchUpgrade={onFlowerSelected}
 										NextMoneyPerSecond={nextMoneyPerSecond}
+										OnItemUsed={() =>  OnItemUsed()}
 										/>
 				<NewFlowerStoreLateralContent 
 										visible={newFlowerVisible}

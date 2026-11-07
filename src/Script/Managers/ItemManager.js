@@ -60,11 +60,14 @@ export default class ItemManager
 									}),
 
 						new ShopOption(EShopCurrency.goldSeed, 
-										2, 
+										20, 
 										"Butterfly", 
 										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
 										'/assets/Item/Butterfly.png',
-									(qtde) => {}),	
+									(qtde) => {
+										gameManager.seedManager.AddGoldSeed(-20 * qtde)
+										this.ButterflyCount += qtde;
+									}),	
 						new ShopOption(EShopCurrency.goldSeed, 
 										20, 
 										"Coffe", 

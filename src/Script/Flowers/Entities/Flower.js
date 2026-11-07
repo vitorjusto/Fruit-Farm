@@ -17,7 +17,7 @@ export default class Flower
 		this.FlowerName = "Daisy"
 		this.Description = "Daisy, Daisy, give me your answer, dooo"
 		this.Level = 1
-
+		this.ButterflyCooldown = 0;
 		
 		this.BaseUpgradePrice = baseUpgradePrice
 		this.UpgradePrice = this.BaseUpgradePrice * (1.11 ** this.Level)
@@ -38,6 +38,14 @@ export default class Flower
 			this.X = 480;
 			this.Y = 480;
 		}
+
+    	this.butterflyImage = new Image();
+   		this.butterflyImage.src = `/assets/Item/Butterfly.png`;
+    	this.butterflyImage.onerror = (e) => {
+    	  console.log(e)
+    	};
+
+		this.ButterflyCooldown = 0;
 	}
 
 	ChangeImage(level)
@@ -77,7 +85,7 @@ export default class Flower
 
 	GetMoneyPerSecond()
 	{
-		return this.MoneyPerSecond * gameManager.PrestigeManager.GetflowerValuePrestigeModifier()
+		return this.MoneyPerSecond * gameManager.PrestigeManager.GetflowerValuePrestigeModifier() * (this.IsButterflyActive()? 2: 1)
 	}
 
 	Update(deltaTime)
@@ -96,6 +104,12 @@ export default class Flower
 		var sy = Math.floor((this.BranchUpgradeId - 1)/ 6) * 32
 
     	this.context.drawImage(this.image, sx, sy, 32, 32, this.X, this.Y, 64, 64);
+
+		if(this.IsButterflyActive())
+		{
+    		this.context.drawImage(this.butterflyImage, this.X + 22, this.Y + 16);
+			this.ButterflyCooldown -= deltaTime;
+		}
 	}
 	
 	GetNextMoneyPerSecond()
@@ -127,5 +141,15 @@ export default class Flower
 	{
 		gameManager.StatisticsManager.GlobalStats.TotalFlowersBranchUpgrades += 1
 		ChangeFlowerBranchUpgrade(this, id)
+	}
+
+	ActivateButterfly()
+	{
+		this.ButterflyCooldown = 7200;//4 hours
+	}
+
+	IsButterflyActive()
+	{
+		return this.ButterflyCooldown > 0;
 	}
 }

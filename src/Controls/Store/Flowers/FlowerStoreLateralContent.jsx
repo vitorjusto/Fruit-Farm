@@ -7,6 +7,7 @@ export default function FlowerStoreLateralContent(props)
 
   return (
 	<div className={'FlowerStoreLateralContents'} style={{display:(props.visible?'grid':'none')}}>
+		<div onClick={() => props.OnItemUsed()} className={'ItemButton'}></div>
 		<div className={'StoreContentName'}>{props.FlowerName}</div>
 		<div className={'StoreContentLevel'}>Level: {props.Level}</div>
 		<div className={'StoreContentDescritpion'}>{props.Description}</div>
