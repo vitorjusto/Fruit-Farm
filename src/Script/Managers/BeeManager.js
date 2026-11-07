@@ -22,6 +22,13 @@ export default class BeeManager
     	this.image.onerror = (e) => {
     	  console.log(e)
     	};
+
+		this.CoffeCooldown = 0;
+	}
+
+	IsCoffeActivated()
+	{
+		return this.CoffeCooldown > 0;
 	}
 
 	Update(deltaTime)
@@ -34,7 +41,7 @@ export default class BeeManager
 
     	this.context.drawImage(this.image, 480, 340, 128, 128);
 
-		this.Cooldown -= deltaTime
+		this.Cooldown -= deltaTime * (this.IsCoffeActivated()?2:1)
 
 		if(this.Cooldown <= 0)
 			this.CollectFruit()
@@ -77,5 +84,10 @@ export default class BeeManager
 
 		this.Cooldown = 0
 		this.MaxCooldown = 2
+	}
+
+	ActivateCoffe()
+	{
+		this.CoffeCooldown = 7200;
 	}
 }

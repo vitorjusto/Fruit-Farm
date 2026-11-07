@@ -99,6 +99,6 @@ export default class BirdManager
 
 	ActivateBirdFood()
 	{
-		this.BirdFoodTimer = 99999;
+		this.BirdFoodTimer = 7200;//7200 seconds = 2 hours
 	}
 }

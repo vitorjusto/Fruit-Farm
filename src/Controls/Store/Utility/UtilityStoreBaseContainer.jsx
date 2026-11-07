@@ -118,6 +118,53 @@ export default function UtilityStoreBaseContainer()
 
 		setSelectedBranchUpgrade(gameManager.BeeManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => ChangeBeeBranchUpgrade(gameManager.BeeManager, id))
+
+		setSelectedOnItemUsed(() => () =>  {
+			if(gameManager.BeeManager.IsCoffeActivated())
+			{
+				Swal.fire({
+					title: "You aready using this item.",
+					icon: "info",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+			else if(gameManager.ItemManager.CoffeCount > 0)
+			{
+				Swal.fire({
+					title: 'Do you wanna use coffe?',
+					icon: "question",
+					html: '',
+					confirmButtonText: 'Yes',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					cancelButtonText: 'No',
+					showCancelButton: true,
+				  }).then((result) => {
+					if (result.isConfirmed) 
+					{
+						gameManager.ItemManager.CoffeCount -= 1
+						gameManager.BeeManager.ActivateCoffe()
+					}
+					});
+			
+			}else
+			{
+				Swal.fire({
+					title: "You Don't have Coffe, you can buy more in the shop.",
+					icon: "error",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+		})
 	}
 
 	function onBeeUpgrade()
@@ -163,7 +210,7 @@ export default function UtilityStoreBaseContainer()
 			else if(gameManager.ItemManager.BirdFoodCount > 0)
 			{
 				Swal.fire({
-					title: 'Do you wanna use bird food',
+					title: 'Do you wanna use bird food?',
 					icon: "question",
 					html: '',
 					confirmButtonText: 'Yes',
