@@ -43,6 +43,9 @@ export default class BeeManager
 
 		this.Cooldown -= deltaTime * (this.IsCoffeActivated()?2:1)
 
+		if(this.IsCoffeActivated())
+			this.CoffeCooldown -= deltaTime;
+
 		if(this.Cooldown <= 0)
 			this.CollectFruit()
 	}

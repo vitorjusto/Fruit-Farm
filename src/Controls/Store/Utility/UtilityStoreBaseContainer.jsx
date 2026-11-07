@@ -90,6 +90,53 @@ export default function UtilityStoreBaseContainer()
 
 		setSelectedBranchUpgrade(gameManager.DogManager.BranchUpgrade)
 		setSelectedBranchUpgradeAction(() => (id) => ChangeDogBranchUpgrade(gameManager.DogManager, id))
+
+		setSelectedOnItemUsed(() => () =>  {
+			if(gameManager.DogManager.IsDogToyActivated())
+			{
+				Swal.fire({
+					title: "You aready using this item.",
+					icon: "info",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+			else if(gameManager.ItemManager.DogToyCount > 0)
+			{
+				Swal.fire({
+					title: 'Do you wanna use dog toy?',
+					icon: "question",
+					html: '',
+					confirmButtonText: 'Yes',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					cancelButtonText: 'No',
+					showCancelButton: true,
+				  }).then((result) => {
+					if (result.isConfirmed) 
+					{
+						gameManager.ItemManager.DogToyCount -= 1
+						gameManager.DogManager.ActivateDogToy()
+					}
+					});
+			
+			}else
+			{
+				Swal.fire({
+					title: "You Don't have Dog Toy, you can buy more in the shop.",
+					icon: "error",
+					confirmButtonText: 'OK',
+					background:'var(--container)',
+					color: 'var(--text-white)',
+					confirmButtonColor: 'var(--button-background-color)',
+					showCancelButton: false,
+				  })
+			}
+		})
 	}
 
 	function onDogUpgrade()

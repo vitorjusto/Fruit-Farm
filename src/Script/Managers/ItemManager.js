@@ -76,11 +76,14 @@ export default class ItemManager
 										this.CoffeCount += qtde;
 									}),	
 						new ShopOption(EShopCurrency.goldSeed, 
-										2, 
+										10, 
 										"Dog Toy", 
-										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
+										"Dog will give more money with less time",
 										'/assets/Item/DogToy.png',
-									(qtde) => {}),		
+									(qtde) => {
+										gameManager.seedManager.AddGoldSeed(-10 * qtde)
+										this.DogToyCount += qtde;
+									}),		
 						new ShopOption(EShopCurrency.goldSeed, 
 										2, 
 										"Fertilizer", 

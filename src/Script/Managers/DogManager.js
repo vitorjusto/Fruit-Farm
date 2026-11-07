@@ -26,26 +26,42 @@ export default class DogManager
     	  console.log(e)
     	};
 
+    	this.toyImage = new Image();
+   		this.toyImage.src = `/assets/Item/DogToy.png`;
+    	this.toyImage.onload = () => {
+    	  this.ImageLoaded = true
+    	};
+    	this.toyImage.onerror = (e) => {
+    	  console.log(e)
+    	};
+
 		this.X = 20
 		this.Y = 490
+		this.DogToyCoolDown  = 0;
 	}
 
 	Update(deltaTime)
 	{
+		if(this.IsDogToyActivated())
+		{
+			this.DogToyCoolDown -= deltaTime;
+			this.context.drawImage(this.toyImage, 70, 530, 32, 32);
+		}
+
 		if(this.Level == 0)
 			return;
 		if(!this.ImageLoaded)
 			return;
+		
 
 		if(this.Cooldown > 0)
 		{
-			this.Cooldown -= deltaTime
+			this.Cooldown -= deltaTime * (this.IsDogToyActivated()?3:1)
     		this.context.drawImage(this.image, 0, 32, 32, 32, this.X, this.Y, 64, 64);
 
 		}else
 		{
     		this.context.drawImage(this.image, 0, 0, 32, 32, this.X, this.Y, 64, 64);
-
 		}
 
 	}
@@ -77,7 +93,7 @@ export default class DogManager
 
 		gameManager.MissionManager.MissionAction(new MissionAction(EMissionType.PetDog, 0, 1))
 		gameManager.StatisticsManager.GlobalStats.AmountofTimeDogWasPet += 1
-		gameManager.StatisticsManager.GlobalStats.MoneyGetByDog += this.ClickValue
+		gameManager.StatisticsManager.GlobalStats.MoneyGetByDog += this.ClickValue * (this.IsDogToyActivated()?5:1)
 		
 		this.ClickAmount -= 1
 
@@ -103,5 +119,15 @@ export default class DogManager
 		this.MaxClickAmount = 10
 		this.Cooldown = 0
 		this.MaxCooldown = 10
+	}
+
+	ActivateDogToy()
+	{
+		this.DogToyCoolDown += 7200;
+	}
+
+	IsDogToyActivated()
+	{
+		return this.DogToyCoolDown > 0;
 	}
 }
