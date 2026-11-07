@@ -58,4 +58,14 @@
 	margin-top: 10px;
 	background-color: blue;
 }
+
+.ItemButton2
+{
+	position: fixed;
+	width: 30px;
+	height: 30px;
+	right: 50px;
+	margin-top: 10px;
+	background-color: yellow;
+}
 /*StoreFruitButtonContent*/

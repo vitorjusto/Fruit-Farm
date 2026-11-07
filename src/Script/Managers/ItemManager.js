@@ -88,17 +88,24 @@ export default class ItemManager
 										this.DogToyCount += qtde;
 									}),		
 						new ShopOption(EShopCurrency.goldSeed, 
-										2, 
+										30, 
 										"Fertilizer", 
 										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
 										'/assets/Item/fertilizer.png',
-									(qtde) => {}),	
+									(qtde) => {
+										gameManager.seedManager.AddGoldSeed(-30 * qtde)
+										this.FertilizerCount += qtde;
+
+									}),	
 						new ShopOption(EShopCurrency.goldSeed, 
-										2, 
+										30, 
 										"Honey", 
 										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
 										'/assets/Item/Honey.png',
-									(qtde) => {}),	
+									(qtde) => {
+										gameManager.seedManager.AddGoldSeed(-30 * qtde)
+										this.HoneyCount += qtde;
+									}),	
 						new ShopOption(EShopCurrency.goldSeed, 
 										50, 
 										"Manure", 
@@ -141,7 +148,7 @@ export default class ItemManager
 		this.ButterflyCount = 0;
 		this.CoffeCount = 0;
 		this.DogToyCount = 0;
-		this.FeryilizerCount = 0;
+		this.FertilizerCount = 0;
 		this.HoneyCount = 0;
 		this.ManureCount = 0;
 	}

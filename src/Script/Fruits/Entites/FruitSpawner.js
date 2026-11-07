@@ -57,6 +57,9 @@ export default class FruitSpawner
 
 		this.Period = period
 		this.Season = season
+
+		this.FertilizerCooldown = 0;
+		this.HoneyCooldown = 0;
 	}
 
 	GetSpawnTimer()
@@ -86,7 +89,8 @@ export default class FruitSpawner
 		if(this.Level == 0)
 			return;
 
-		this.SpawnCooldown -= deltaTime
+		this.SpawnCooldown -= deltaTime * (this.FertilizerCooldown > 0? 3: 1);
+
 		if(this.SpawnCooldown <= 0)
 		{
 			this.SpawnCooldown += this.GetSpawnTimer();
@@ -101,11 +105,17 @@ export default class FruitSpawner
 		this.FruitsSpawned.forEach(element => {
 			element.DrawFruit(this.BranchUpgradeId)
 		});
+
+		if(this.IsFertilizerActive())
+			this.FertilizerCooldown -= deltaTime;
+
+		if(this.IsHoneyActive())
+			this.HoneyCooldown -= deltaTime;
 	}
 
 	GetSellingPrice()
 	{
-		return this.SellingPrice * gameManager.PrestigeManager.GetFruitValuePrestigeModifier() * gameManager.treeManager.SellingPriceModifier
+		return this.SellingPrice * gameManager.PrestigeManager.GetFruitValuePrestigeModifier() * gameManager.treeManager.SellingPriceModifier  * (this.HoneyCooldown > 0? 3: 1);
 	}
 
 	GetUpgradePrice()
@@ -190,5 +200,25 @@ export default class FruitSpawner
 		gameManager.StatisticsManager.GlobalStats.TotalFruitsBranchUpgrades += 1
 		ChangeFruitBranchUpgrade(this, id)
 		this.onBranchUpdatedEvent()
+	}
+
+	ActivateFertilizer()
+	{
+		this.FertilizerCooldown = 14400//4 hours
+	}
+
+	IsFertilizerActive()
+	{
+		return this.FertilizerCooldown > 0;
+	}
+
+	ActivateHoney()
+	{
+		this.HoneyCooldown = 10800;//3 hours
+	}
+
+	IsHoneyActive()
+	{
+		return this.HoneyCooldown > 0;
 	}
 }
