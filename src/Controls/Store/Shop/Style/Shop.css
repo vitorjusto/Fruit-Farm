@@ -43,7 +43,8 @@
 
 .ShopDivider
 {
-	border-bottom: 2px solid white
+	border-bottom: 2px solid white;
+	color: var(--text-white)
 }
 
 .GridContainer
@@ -64,7 +65,7 @@
 
 .QuantityButton
 {
-	background-color: azure;
+	background-color: lightblue;
 	font-size: xx-large;
 	width: 40px;
 	height: 40px;
@@ -72,6 +73,14 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 32px;
+	cursor:pointer;
+    transition: 0.3s;
+}
+
+.QuantityButton:Hover
+{
+	background-color: azure;
+	
 }
 
 .QuantityRange
@@ -98,4 +107,28 @@
 {
 	background-color: var(--button-background-color-hover);
     color: var(--text-black);
+}
+
+.ShopItemButton
+{
+	border: 5px solid rgba(0, 0, 0, 0);
+	background-color: var(--Store-Button-Color);
+	width: 110px;
+	height: 110px;
+	margin: 10px auto;
+	border-radius: 15px;
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	user-select: false;
+}
+
+.ShopItemButton:hover
+{
+	border: 5px solid white;
+    transition: 0.3s;
+	
 }

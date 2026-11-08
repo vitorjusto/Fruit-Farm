@@ -12,7 +12,7 @@ export default class ItemManager
 										2, 
 										"Green to Orange", 
 										"Trade Offer: 2 Green Seeds to 1 Orange Seed",
-										'/assets/Store/SeedSwap.png',
+										'/assets/Store/SeedSwapGreenToOrange.png',
 									(qtde) => {
 											gameManager.seedManager.AddGreenSeed(-2 * qtde)
 											gameManager.seedManager.AddOrangeSeed(1* qtde)
@@ -22,7 +22,7 @@ export default class ItemManager
 										2, 
 										"Orange to Blue", 
 										"Trade Offer: 2 Orange Seeds to 1 Blue Seed",
-										'/assets/Store/SeedSwap.png',
+										'/assets/Store/SeedSwapOrangeToBlue.png',
 									(qtde) => {
 											gameManager.seedManager.AddOrangeSeed(-2* qtde)
 											gameManager.seedManager.AddBlueSeed(1* qtde)
@@ -32,7 +32,7 @@ export default class ItemManager
 										2, 
 										"Blue to Pink", 
 										"Trade Offer: 2 Blue Seeds to 1 Pink Seed",
-										'/assets/Store/SeedSwap.png',
+										'/assets/Store/SeedSwapBlueToPink.png',
 									(qtde) => {
 											gameManager.seedManager.AddBlueSeed(-2* qtde)
 											gameManager.seedManager.AddPinkSeed(1* qtde)
@@ -42,7 +42,7 @@ export default class ItemManager
 										2, 
 										"Pink to Green", 
 										"Trade Offer: 2 Pink Seeds to 1 Green Seed",
-										'/assets/Store/SeedSwap.png',
+										'/assets/Store/SeedSwapPinkToGreen.png',
 									(qtde) => {
 											gameManager.seedManager.AddPinkSeed(-2* qtde)
 											gameManager.seedManager.AddGreenSeed(1* qtde)

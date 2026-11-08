@@ -13,6 +13,8 @@ export default function ShopContainerBase()
 	var [SelectedName, setSelectedName] = useState('')
 	var [SelectedDescription, setSelectedDescription] = useState('')
 	var [SelectedPrice, setSelectedPrice] = useState('')
+	var [SelectedCurrency, setSelectedCurrency] = useState('')
+
 	var [ItemSelected, setItemSelected] = useState(null)
 	
 	function onButtonSelected(x)
@@ -21,6 +23,20 @@ export default function ShopContainerBase()
 		setSelectedDescription(x.Description)
 		setSelectedPrice(x.Price)
 		setItemSelected(x)
+
+		
+		if(x.Currency == EShopCurrency.greenSeed)
+			setSelectedCurrency('GreenSeed')
+		if(x.Currency == EShopCurrency.blueSeed)
+			setSelectedCurrency('BlueSeed')
+		if(x.Currency == EShopCurrency.orangeSeed)
+			setSelectedCurrency('OrangeSeed')
+		if(x.Currency == EShopCurrency.pinkSeed)
+			setSelectedCurrency('PinkSeed')
+		if(x.Currency == EShopCurrency.goldSeed)
+			setSelectedCurrency('GoldSeed')
+		if(x.Currency == EShopCurrency.rareSeed)
+			setSelectedCurrency('RareSeed')
 
 	}
 
@@ -61,8 +77,6 @@ export default function ShopContainerBase()
 
 	function VerifyPrice(qtde)
 	{
-		console.log(qtde)
-		console.log(ItemSelected.Currency)
 		if(ItemSelected.Currency == EShopCurrency.greenSeed)
 			return gameManager.seedManager.greenSeed >= (ItemSelected.Price * qtde);
 		if(ItemSelected.Currency == EShopCurrency.blueSeed)
@@ -93,17 +107,17 @@ export default function ShopContainerBase()
 
 	return(<div className={'ControlContent'}>
 				<div className={'FruitStoreButtonsContainer'}>
-					<Divider/>
+					<Divider Text="Seed Swap"/>
 					<div className={"GridContainer"}>
 						{seedSwapButtons}
 
 					</div>
-					<Divider/>
+					<Divider Text="Items"/>
 					<div className={"GridContainer"}>
 						{ItensButtons}
 
 					</div>
-					<Divider/>
+					<Divider Text="Special Fruits"/>
 					<div className={"GridContainer"}>
 						{SpecialItensButtons}
 
@@ -113,6 +127,7 @@ export default function ShopContainerBase()
 					SelectedName={SelectedName}
 					SelectedDescription={SelectedDescription}
 					SelectedPrice={SelectedPrice}
+					SelectedCurrency={SelectedCurrency}
 					onButtonClick={(qtde) => onBuy(qtde)}
 				/>
 			</div>
@@ -123,6 +138,7 @@ export default function ShopContainerBase()
 export function ShopContainer(props) 
 {
 	var [SelectedQuantity, setSelectedQuantity] = useState(1)
+
 
 	return (
 		<div className={'ShopLateralContents'}>
@@ -138,7 +154,7 @@ export function ShopContainer(props)
 			</div>
 			<div>
 				<div onClick={() => props.onButtonClick(SelectedQuantity)} className={'ShopBuyButton'} style={{margin: '20px auto'}}>
-					<div><img src={'/assets/Seeds/BlueSeed.png'} style={{ imageRendering: 'pixelated', position: 'absolute', scale: '2'}} /></div>
+					<div><img src={`/assets/Seeds/${props.SelectedCurrency}.png`} style={{ imageRendering: 'pixelated', position: 'absolute', scale: '2'}} /></div>
 					<div>{props.SelectedPrice * SelectedQuantity}</div>
 				</div>
 			</div>
@@ -148,8 +164,6 @@ export function ShopContainer(props)
 
 export function ShopButton(props) 
 {
-
-
 	return (
 	<div onClick={() => props.onClick()} className={'ShopItemButton'}>
 		<div className="crop-box">
@@ -160,11 +174,10 @@ export function ShopButton(props)
 	)
 }
 
-export function Divider()
+export function Divider(props)
 {
-	
 	return(<div className={'ShopDivider'}>
-				Teste
+				{props.Text}
 			</div>
 	)
 }
