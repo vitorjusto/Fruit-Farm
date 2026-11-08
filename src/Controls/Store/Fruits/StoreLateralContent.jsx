@@ -122,8 +122,12 @@ export default function StoreFruitLateralContent(props) {
   	return (
 		<div className={'StoreLateralContents'}>
 			
-			<div onClick={() => OnFertilizerClick()} className={'ItemButton'}></div>
-			<div onClick={() => OnHoneyClick()} className={'ItemButton2'}></div>
+			<div onClick={() => OnFertilizerClick()} className={'ItemButton'}>
+				<img src={"/assets/Store/ItemUseArrow.png"} style={{ imageRendering: 'pixelated', position: 'absolute'}} />
+			</div>
+			<div onClick={() => OnHoneyClick()} className={'ItemButton2'}>
+				<img src={"/assets/Store/ItemUseArrowValueUp.png"} style={{ imageRendering: 'pixelated', position: 'absolute'}} />
+				</div>
 			<div className={'StoreContentName'}>{props.Text}</div>
 			<div className={'StoreContentLevel'}>Level: {props.Level}</div>
 			<div className={'StoreContentDescritpion'}>{props.Description}</div>

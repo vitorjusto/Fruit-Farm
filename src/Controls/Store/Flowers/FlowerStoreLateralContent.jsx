@@ -7,7 +7,9 @@ export default function FlowerStoreLateralContent(props)
 
   return (
 	<div className={'FlowerStoreLateralContents'} style={{display:(props.visible?'grid':'none')}}>
-		<div onClick={() => props.OnItemUsed()} className={'ItemButton'}></div>
+		<div onClick={() => props.OnItemUsed()} className={'ItemButton'}>
+			<img src={"/assets/Store/ItemUseArrow.png"} style={{ imageRendering: 'pixelated', position: 'absolute'}} />
+		</div>
 		<div className={'StoreContentName'}>{props.FlowerName}</div>
 		<div className={'StoreContentLevel'}>Level: {props.Level}</div>
 		<div className={'StoreContentDescritpion'}>{props.Description}</div>

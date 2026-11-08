@@ -5,7 +5,9 @@ export default function UtilityStoreLateralContent(props) {
 
   return (
 	<div className={'StoreLateralContents'}>
-		<div onClick={() => props.OnItemUsed()} className={'ItemButton'}></div>
+		<div onClick={() => props.OnItemUsed()} className={'ItemButton'}>
+			<img src={"/assets/Store/ItemUseArrow.png"} style={{ imageRendering: 'pixelated', position: 'absolute'}} />
+		</div>
 		<div className={'StoreContentName'}>{props.Name}</div>
 		<div className={'StoreContentLevel'}>Level: {props.Level}</div>
 		<div className={'StoreContentDescritpion'}>{props.Description}</div>
