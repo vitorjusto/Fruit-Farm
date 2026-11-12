@@ -1,3 +1,17 @@
+/*Bubblegum Sans*/
+/*Patrick Hand*/
+/*Indie Flower*/
+/*Gochi Hand*/
+/*Caveat Brush*/
+
+/*Pixelify Sans*/
+/*VT323*/
+/*DOTO*/
+/*Press Start 2P*/
+/*Bitcount Prop Single*/
+/*Sixtyfour*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:wght@100..900&family=Bubblegum+Sans&family=Caveat+Brush&family=Doto:wght@100..900&family=Gochi+Hand&family=Indie+Flower&family=Patrick+Hand&family=Pixelify+Sans:wght@400..700&family=Press+Start+2P&family=Sixtyfour&family=VT323&display=swap');
 :root {
   --text-black: black;
   --text-white: white;
@@ -27,7 +41,9 @@
   --Store-Button-Color-Afternoon: Orange;
   --Store-Button-Color-Night: MidnightBlue;
   user-select: none;
+  font-family: "Caveat Brush", Times, serif;
 }
+
 
 body
 {
