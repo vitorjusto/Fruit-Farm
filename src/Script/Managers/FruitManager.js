@@ -6,7 +6,7 @@ import { EFruit, EPeriod, ESeason } from '../Fruits/Enums/FruitsEnums';
 export default class FruitManager
 {
 	FruitsSpawners = []
-	AvailableSeasonalFruits = [	EFruit.CHILLI_PEPER]
+	AvailableSeasonalFruits = [	EFruit.CHILLI_PEPER, EFruit.CARROT, EFruit.CLOUD_BERRY, EFruit.TURNIP, EFruit.POPCORN, EFruit.MARIAN_MANGO, EFruit.GUARANA]
 
 	constructor(context, canvas)
 	{

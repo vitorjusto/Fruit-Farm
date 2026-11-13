@@ -21,6 +21,7 @@ export default class BackgroundManager
     	this.imgSun.onerror = (e) => {
     	  console.log(e)
     	};
+
 	}
 
 	update()

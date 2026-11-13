@@ -41,6 +41,8 @@ export default class PrestigeManager
 	{
 		this.CurrentSeason = ESeason.Summer
 		this.CurrentPeriod = EPeriod.Morning
+
+  		// document.documentElement.setAttribute('data-theme', "Summer")
 	}
 
 	AddFruitSellCount(amount)
@@ -85,5 +87,14 @@ export default class PrestigeManager
 		gameManager.treeManager.Reset()
 
 		gameManager.Reset()
+
+		if(this.CurrentSeason == ESeason.Summer)
+  			document.documentElement.setAttribute('data-theme', "Summer")
+		else if(this.CurrentSeason == ESeason.Fall)
+  			document.documentElement.setAttribute('data-theme', "Fall")
+		else if(this.CurrentSeason == ESeason.Winter)
+  			document.documentElement.setAttribute('data-theme', "Winter")
+		else if(this.CurrentSeason == ESeason.Spring)
+  			document.documentElement.setAttribute('data-theme', "Spring")
 	}
 }

@@ -16,34 +16,86 @@
   --text-black: black;
   --text-white: white;
 
-  --base-control: rgba(32, 32, 32,0.5);
 
-  --button-background-color: rgba(32, 32, 32,0.5);
   --button-background-color-hover: white;
-
-  --tab-color: rgb(32, 100, 32);
-
-  --container: green;
-  --sub-container: rgb(32, 100, 32);
-  --sub-container2: yellowgreen;
-  --sub-container3: rgb(32, 128, 32);
 
   --bg-blueContainer: lightblue;
 
-  --Store-Button-Color: lightgray;
-  
-  --Store-Button-Color-Summer: yellowgreen;
-  --Store-Button-Color-Fall: OrangeRed;
-  --Store-Button-Color-Winter: Aqua;
-  --Store-Button-Color-Spring: DeepPink;
+  --Store-Button-Color-Summer: #26E600;
+  --Store-Button-Color-Fall: #FF6619;
+  --Store-Button-Color-Winter: #00FFFF;
+  --Store-Button-Color-Spring: #FF6680;
 
   --Store-Button-Color-Day: DeepSkyBlue;
   --Store-Button-Color-Afternoon: Orange;
-  --Store-Button-Color-Night: MidnightBlue;
+  --Store-Button-Color-Night: #2e2ee6;
   user-select: none;
   font-family: "Caveat Brush", Times, serif;
 }
 
+:root[data-theme="Summer"]
+{
+  --button-background-color: #0C4700;
+
+  --tab-color: #137000;
+
+  --container: #199900;
+  --sub-container: #137000;
+  --sub-container2: #20C200;
+  --sub-container3: #199900;
+  --base-control: rgba(12, 71, 0 ,0.5);
+
+
+  --Store-Button-Color: #d2e6cf;
+}
+
+:root[data-theme="Fall"]
+{
+  --button-background-color: #61270A;
+
+  --tab-color: #8A370E;
+
+  --container: #B34712;
+  --sub-container: #8A370E;
+  --sub-container2: #DB5816;
+  --sub-container3: #B34712;
+
+
+  --Store-Button-Color: #ffeee6;
+  --base-control: rgba(97, 32, 0 ,0.5);
+}
+
+:root[data-theme="Winter"]
+{
+  --button-background-color: #006161;
+
+  --tab-color: #008A8A;
+
+  --container: #00B3B3;
+  --sub-container: #008A8A;
+  --sub-container2: #00DBDB;
+  --sub-container3: #00B3B3;
+
+
+  --Store-Button-Color: #e6ffff;
+  --base-control: rgba(0, 97, 97 ,0.5);
+}
+
+:root[data-theme="Spring"]
+{
+  --button-background-color: #611D28;
+
+  --tab-color: #8A2939;
+
+  --container: #B3364A;
+  --sub-container: #8A2939;
+  --sub-container2: #DB425B;
+  --sub-container3: #B3364A;
+
+
+  --Store-Button-Color: #ffe6ea;
+  --base-control: rgba(97, 29, 40 ,0.5);
+}
 
 body
 {
