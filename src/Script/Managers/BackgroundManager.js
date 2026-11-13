@@ -29,9 +29,9 @@ export default class BackgroundManager
 		if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Morning)
 			this.DrawDay()
 		else if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Afternoon)
-			this.context.fillStyle = "#ff9811"
+			this.DrawAfternoon()
 		else if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Night)
-			this.context.fillStyle = "#060038"
+			this.DrawNight()
 
   	}
 
@@ -40,6 +40,24 @@ export default class BackgroundManager
 
 
 		this.context.fillStyle = "#1199ff"
+    	this.context.fillRect(0, 0, 100000, 1000000);
+
+		// this.context.drawImage(this.imgSun, 1070, 140, 62, 62);
+	}
+	DrawAfternoon()
+	{
+
+
+		this.context.fillStyle = "#ff9811"
+    	this.context.fillRect(0, 0, 100000, 1000000);
+
+		// this.context.drawImage(this.imgSun, 1070, 140, 62, 62);
+	}
+	DrawNight()
+	{
+
+
+		this.context.fillStyle = "#060038"
     	this.context.fillRect(0, 0, 100000, 1000000);
 
 		// this.context.drawImage(this.imgSun, 1070, 140, 62, 62);
