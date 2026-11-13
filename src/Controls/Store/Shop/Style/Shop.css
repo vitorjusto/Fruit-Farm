@@ -43,8 +43,11 @@
 
 .ShopDivider
 {
-	border-bottom: 2px solid white;
-	color: var(--text-white)
+	border-bottom: 4px dashed white;
+	color: var(--text-white);
+	width: 95%;
+	margin: auto;
+	font-size: 25px;
 }
 
 .GridContainer

@@ -90,3 +90,26 @@ body
 	color: var(--text-black);
 
 }
+
+/* Largura da barra */
+*::-webkit-scrollbar {
+  width: 15px;   /* barra vertical */
+}
+
+/* Trilha (fundo) */
+*::-webkit-scrollbar-track {
+  background: var(--base-control);
+  border-radius: 10px;
+}
+
+/* Thumb (parte que você arrasta) */
+*::-webkit-scrollbar-thumb {
+  background: var(--base-control);
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+/* Hover no thumb */
+*::-webkit-scrollbar-thumb:hover {
+  background: white;
+}
