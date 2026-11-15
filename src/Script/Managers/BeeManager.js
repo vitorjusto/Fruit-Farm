@@ -75,6 +75,8 @@ export default class BeeManager
 
 		if(this.Level == 25)
 			this.BranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
+		else if(this.Level == 50)
+			this.BranchUpgrade = GetBranchUpgradeCollection(this.BranchUpgradeId)
 	}
 
 	Reset()

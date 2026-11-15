@@ -27,8 +27,27 @@ export function GetBranchUpgradeCollection(id)
 {
 	if(id == 1)
 		return new BranchUpgradeCollection(
-								new BranchUpgrade(2, "More Dog", "Aumenta o espaço das frutas, porem os nerfs de fruta por aparição de climas são aumentados"),
-								new BranchUpgrade(3, "More Dog", "Aumenta o preço de upgrades por frutas e o preço de venda de todas as frutas aumenta"),
-								new BranchUpgrade(4, "Yeah", "Aumenta os espaços disponiveis das flores, aumenta levemente o tempo de aparição por frutas"),
+								new BranchUpgrade(2, "More Bees", "Triples the number of bees but doubles the price Upgrade."),
+								new BranchUpgrade(3, "More Eficient", "Bees collect fewer fruits, but the time spent obtaining flowers while out increases."),
+								new BranchUpgrade(4, "More Workaholic", "the bees' cooldown is reduced, but the time spent harvesting flowers while you are away is also slightly reduced."),
 							)
+	if(id == 2)
+		return new BranchUpgradeCollection(
+								new BranchUpgrade(5, "More TeamWork", "The time available to collect flowers while away is increased, with a 1.5x bonus."),
+								new BranchUpgrade(6, "More Beeses", "Triples the number of bees but doubles the upgrade price"),
+								new BranchUpgrade(7, "More Layoff", "Slightly reduces the number of bees, but the upgrade price is halved by 4."),
+							)
+	if(id == 3)
+		return new BranchUpgradeCollection(
+								new BranchUpgrade(8, "More Friendly", "Automatically pets the dog, but the cooldown for obtaining fruits is reduced."),
+								new BranchUpgrade(9, "More Aggressive", "Knocks down birds, but the cooldown for obtaining fruits is reduced."),
+								new BranchUpgrade(10, "More Happier", "Bees collect more fruit"),
+							)
+	if(id == 4)
+		return new BranchUpgradeCollection(
+								new BranchUpgrade(11, "More Locked In", "The selling price of other flowers increases. The cooldown decreases drastically, but flowers are not collected while you are away."),
+								new BranchUpgrade(12, "More Patriot", "Fruits collected by bees have a higher selling price."),
+								new BranchUpgrade(13, "More Responsible", "The time it takes to collect flowers while you are away increases slightly, and the money collected by flowers while away receives a 1.5x bonus."),
+							)
+			
 }

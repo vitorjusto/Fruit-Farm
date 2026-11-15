@@ -62,7 +62,7 @@
 .GalleryButton
 {
 	border: 5px solid rgba(0, 0, 0, 0);
-	background-color: var(--sub-container2);
+	background-color: var(--Store-Button-Color);
 	width: 64px;
 	height: 64px;
 	margin: 10px auto;
