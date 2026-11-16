@@ -38,7 +38,7 @@
 .StoreButtonsBase
 {
 	display: grid;
-	grid-template-columns: auto auto auto auto auto auto;
+	grid-template-columns: 20% 20% 20% 20% 20%;
 	overflow-y: auto;
 }
 
@@ -74,4 +74,53 @@
 	right: 50px;
 	margin-top: 10px;
 	background-color: var(--button-background-color);
+}
+
+.StoreButton
+{
+	background: var(--Store-Button-Color);
+	
+	width: 110px;
+	height: 110px;
+	margin: 10px auto;
+	border-radius: 15px;
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	user-select: false;
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreButton:hover
+{
+	background: var(--Store-Button-Color-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.3);
+}
+
+.WideStoreButton
+{
+	border: 5px solid rgba(0, 0, 0, 0);
+	background-color: var(--Store-Button-Color);
+	width: 235px;
+	height: 115px;
+	border-radius: 15px;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	margin: 10px auto;
+	transition: 0.3s;
+
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.WideStoreButton:hover
+{
+	background-color: var(--Store-Button-Color-Hover);
+	cursor: pointer;
+
+	box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.3);
 }

@@ -1,18 +1,3 @@
-.StoreFruitButton
-{
-	border: 5px solid rgba(0, 0, 0, 0);
-	
-	width: 120px;
-	height: 120px;
-	margin: 10px auto;
-	border-radius: 15px;
-	padding: 10px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	user-select: false;
-}
 
 .ShopLateralContents
 {
@@ -34,13 +19,6 @@
 	font-size: xx-large;
 }
 
-.StoreFruitButton:hover
-{
-	border: 5px solid white;
-    transition: 0.3s;
-	
-}
-
 .ShopDivider
 {
 	border-bottom: 4px dashed white;
@@ -53,7 +31,7 @@
 .GridContainer
 {
 	display: Grid;
-	grid-template-columns: auto auto auto auto auto;
+	grid-template-columns: 20% 20% 20% 20% 20%;
 }
 
 .QuantiyContainer
@@ -68,7 +46,7 @@
 
 .QuantityButton
 {
-	background-color: lightblue;
+	background-color: var(--Store-Button-Color);
 	font-size: xx-large;
 	width: 40px;
 	height: 40px;
@@ -82,7 +60,7 @@
 
 .QuantityButton:Hover
 {
-	background-color: azure;
+	background-color: white;
 	
 }
 
@@ -110,28 +88,4 @@
 {
 	background-color: var(--button-background-color-hover);
     color: var(--text-black);
-}
-
-.ShopItemButton
-{
-	border: 5px solid rgba(0, 0, 0, 0);
-	background-color: var(--Store-Button-Color);
-	width: 110px;
-	height: 110px;
-	margin: 10px auto;
-	border-radius: 15px;
-	padding: 20px;
-
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	user-select: false;
-}
-
-.ShopItemButton:hover
-{
-	border: 5px solid white;
-    transition: 0.3s;
-	
 }

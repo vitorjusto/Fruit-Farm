@@ -21,7 +21,6 @@
 
 .StatisticsTabButton:hover
 {
-
 	color: var(--text-black);
 	background-color: var(--button-background-color-hover);
 }
@@ -61,10 +60,9 @@
 
 .GalleryButton
 {
-	border: 5px solid rgba(0, 0, 0, 0);
 	background-color: var(--Store-Button-Color);
-	width: 64px;
-	height: 64px;
+	width: 69px;
+	height: 69px;
 	margin: 10px auto;
     transition: 0.3s;
 	border-radius: 15px;
@@ -74,18 +72,20 @@
 	justify-content: center;
 	align-items: center;
 	user-select: false;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
 }
 
 .GalleryButton:hover
 {
-	border: 5px solid white;
-	
+	background-color: var(--Store-Button-Color-Hover);
+	box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.3);
+	cursor: pointer;
 }
 
 .GaleryStoreButtonsBase
 {
 	display: grid;
-	grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+	grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10% 10% 10%;
 	overflow-y: auto;
 }
 

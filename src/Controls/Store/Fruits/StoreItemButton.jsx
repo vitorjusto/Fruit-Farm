@@ -44,7 +44,7 @@ export default function StoreItemButton(props) {
 		if(fruitSpawner.Period == EPeriod.Night)
 			return 'var(--Store-Button-Color-Night)'
 
-		return 'var(--Store-Button-Color)'
+		return ''
 	}
 
 	useEffect(() => {
@@ -62,7 +62,7 @@ export default function StoreItemButton(props) {
 	}
 
   return (
-	<div onClick={onClick} className={'StoreFruitButton'} style={{backgroundColor: bgColor}}>
+	<div onClick={onClick} className={'StoreButton'} style={{backgroundColor: bgColor}}>
 		<div className="crop-box">
   			<img src={`/assets/Fruits/${props.fruitSpawner.FruitName}.png`} style={{ imageRendering: 'pixelated', position: 'absolute', top: sy, left: sx}} />
 	</div>

@@ -107,17 +107,17 @@ export default function ShopContainerBase()
 
 	return(<div className={'ControlContent'}>
 				<div className={'FruitStoreButtonsContainer'}>
-					<Divider Text="Seed Swap"/>
+					<Divider Text="Seed Swap" Visible={true}/>
 					<div className={"GridContainer"}>
 						{seedSwapButtons}
 
 					</div>
-					<Divider Text="Items"/>
+					<Divider Text="Items" Visible={true}/>
 					<div className={"GridContainer"}>
 						{ItensButtons}
 
 					</div>
-					<Divider Text="Special Fruits"/>
+					<Divider Text="Special Fruits" Visible={gameManager.ItemManager.SpecialItens.length > 0}/>
 					<div className={"GridContainer"}>
 						{SpecialItensButtons}
 
@@ -165,7 +165,7 @@ export function ShopContainer(props)
 export function ShopButton(props) 
 {
 	return (
-	<div onClick={() => props.onClick()} className={'ShopItemButton'}>
+	<div onClick={() => props.onClick()} className={'StoreButton'}>
 		<div className="crop-box">
   			<img src={props.Item.ShopImagePath} style={{ imageRendering: 'pixelated', position: 'absolute'}} />
 		</div>
@@ -176,7 +176,7 @@ export function ShopButton(props)
 
 export function Divider(props)
 {
-	return(<div className={'ShopDivider'}>
+	return(<div className={'ShopDivider'} style={{display:(props.Visible? '': 'none')}}>
 				{props.Text}
 			</div>
 	)

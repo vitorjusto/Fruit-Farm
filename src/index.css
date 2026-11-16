@@ -21,8 +21,8 @@
 
   --bg-blueContainer: lightblue;
 
-  --Store-Button-Color-Summer: #26E600;
-  --Store-Button-Color-Fall: #FF6619;
+  --Store-Button-Color-Summer: #28F000;
+  --Store-Button-Color-Fall: #ff6619;
   --Store-Button-Color-Winter: #00FFFF;
   --Store-Button-Color-Spring: #FF6680;
 
@@ -46,7 +46,8 @@
   --base-control: rgba(12, 71, 0 ,0.5);
 
 
-  --Store-Button-Color: #d2e6cf;
+  --Store-Button-Color: #aae6a1;
+  --Store-Button-Color-Hover: #d2e6cf;
 }
 
 :root[data-theme="Fall"]
@@ -61,8 +62,10 @@
   --sub-container3: #B34712;
 
 
-  --Store-Button-Color: #ffeee6;
   --base-control: rgba(97, 32, 0 ,0.5);
+
+  --Store-Button-Color: #ffcbb3;
+  --Store-Button-Color-Hover: #ffeee6;
 }
 
 :root[data-theme="Winter"]
@@ -76,9 +79,10 @@
   --sub-container2: #00DBDB;
   --sub-container3: #00B3B3;
 
-
-  --Store-Button-Color: #e6ffff;
   --base-control: rgba(0, 97, 97 ,0.5);
+
+  --Store-Button-Color: #b3ffff;
+  --Store-Button-Color-Hover: #e6ffff;
 }
 
 :root[data-theme="Spring"]
@@ -92,9 +96,10 @@
   --sub-container2: #DB425B;
   --sub-container3: #B3364A;
 
-
-  --Store-Button-Color: #ffe6ea;
   --base-control: rgba(97, 29, 40 ,0.5);
+
+  --Store-Button-Color: #ffb3be;
+  --Store-Button-Color-Hover: #ffe6ea;
 }
 
 body
