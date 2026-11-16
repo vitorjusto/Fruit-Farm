@@ -74,6 +74,13 @@
 	right: 50px;
 	margin-top: 10px;
 	background-color: var(--button-background-color);
+	transition: 0.3s;
+}
+
+.ItemButton2:hover
+{
+	background-color: var(--button-background-color-hover);
+	cursor: pointer;
 }
 
 .StoreButton

@@ -108,7 +108,6 @@
 
 	background-color: lightblue;
 	border-radius: 100px;
-	height: 500px;
 	box-shadow: 15px 15px 15px 0px rgba(0, 0, 0, 0.4);
 }
 
@@ -180,7 +179,7 @@
 }
 
 input[type="range"] {
-  -webkit-appearance: none; /* remove estilo padrão no Chrome/Safari */
+  -webkit-appearance: none;
   appearance: none;
   background: rgb(30, 30, 50);
   border-radius: 20px;
