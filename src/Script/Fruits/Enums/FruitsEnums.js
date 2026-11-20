@@ -10,7 +10,7 @@ export const ESeason =
 export const EPeriod =
 {
 	None: -1,
-	Morning: 0,
+	Day: 0,
 	Afternoon: 1,
 	Night: 2
 }

@@ -26,7 +26,7 @@ export default class BackgroundManager
 
 	update()
 	{
-		if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Morning)
+		if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Day)
 			this.DrawDay()
 		else if(gameManager.PrestigeManager.CurrentPeriod == EPeriod.Afternoon)
 			this.DrawAfternoon()

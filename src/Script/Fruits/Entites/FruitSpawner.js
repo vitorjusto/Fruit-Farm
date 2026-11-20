@@ -66,7 +66,7 @@ export default class FruitSpawner
 	{
 		var result = this.MaxSpawnCooldown / gameManager.treeManager.GetFruitSpawnModifier()
 		if(this.IsRegularFruit())//No good condition
-			return result
+		return result
 
 		if(this.Period != -1 && this.Period != gameManager.PrestigeManager.CurrentPeriod )//bad period
 			result *= 4

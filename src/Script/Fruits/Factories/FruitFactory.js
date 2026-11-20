@@ -186,9 +186,9 @@ export function GetSeasonalFruit(id, context, canvas)
 	switch (id) 
 	{
 		case 26:
-			return new FruitSpawner(context, canvas, 'Onion', 0, "Can make you cry", 5, 10, 6, 26, EPeriod.None, ESeason.Summer)
+			return new FruitSpawner(context, canvas, 'Onion', 0, "Can make you cry", 3,1, 2, 26, EPeriod.None, ESeason.Summer)
 		case 27:
-			return new FruitSpawner(context, canvas, 'Tomato', 0, "Yes, this is a fruit", 10, 20, 7, 27, EPeriod.None, ESeason.Summer)
+			return new FruitSpawner(context, canvas, 'Tomato', 0, "Yes, this is a fruit", 3,1, 2, 27, EPeriod.None, ESeason.Summer)
 		case 28:
 			return new FruitSpawner(context, canvas, 'Corn', 0, "You can make a lot of food with this", 35, 25, 10, 28, EPeriod.None, ESeason.Summer)
 		case 29:
@@ -232,7 +232,7 @@ export function GetSeasonalFruit(id, context, canvas)
 		case 48:
 			return new FruitSpawner(context, canvas, 'Sun Fruit', 0, "From the same creators of star fruit", 3,1, 2, 48, EPeriod.Day, ESeason.None)
 		case 49:
-			return new FruitSpawner(context, canvas, 'Marian Mango', 0, "Fun Fact: even the leaf of this fruit is edible", 3,1, 2, 49, EPeriod.Afternoon, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Marian Plum', 0, "Fun Fact: even the leaf of this fruit is edible", 3,1, 2, 49, EPeriod.Afternoon, ESeason.None)
 		case 50:
 			return new FruitSpawner(context, canvas, 'Blackberry', 0, "If there are blackberries, then there are whiteberries somewhere.", 3,1, 2, 50, EPeriod.Afternoon, ESeason.None)
 		case 51:

@@ -40,7 +40,7 @@ export default class PrestigeManager
 	constructor()
 	{
 		this.CurrentSeason = ESeason.Summer
-		this.CurrentPeriod = EPeriod.Morning
+		this.CurrentPeriod = EPeriod.Day
 
   		// document.documentElement.setAttribute('data-theme', "Summer")
 	}

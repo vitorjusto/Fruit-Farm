@@ -43,9 +43,9 @@ export default class GameManager
 		this.fruitManager = new FruitManager(this.context, this.canvas)
 		this.flowerManager = new FlowerManager(this.context, this.canvas)
 
-		this.money = money
+		this.money = money 
 		this.setMoney = setMoney
-		
+		this.AddMoney(1000)
 		this.StatisticsManager = new StatisticsManager()
 	}
 

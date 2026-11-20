@@ -78,7 +78,7 @@ export default function UtilityStoreBaseContainer()
 			else if(gameManager.ItemManager.ManureCount > 0)
 			{
 				Swal.fire({
-					title: 'Do you wanna use manure?',
+					title: 'Do you wanna use compost?',
 					icon: "question",
 					html: '',
 					confirmButtonText: 'Yes',
@@ -98,7 +98,7 @@ export default function UtilityStoreBaseContainer()
 			}else
 			{
 				Swal.fire({
-					title: "You Don't have manure, you can buy more in the shop.",
+					title: "You Don't have compost, you can buy more in the shop.",
 					icon: "error",
 					confirmButtonText: 'OK',
 					background:'var(--container)',
