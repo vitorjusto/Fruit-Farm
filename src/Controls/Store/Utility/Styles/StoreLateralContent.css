@@ -101,6 +101,7 @@ td.StoreContentStatusTableContent
     color: var(--text-white);
     transition: 0.3s;
 	user-select: none;
+	cursor: pointer;
 }
 
 .StoreUpgradeButton:hover

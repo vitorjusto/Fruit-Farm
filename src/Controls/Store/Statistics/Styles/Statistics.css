@@ -17,6 +17,7 @@
 	color: var(--text-white);
 
     transition: 0.3s;
+	cursor: pointer;
 }
 
 .StatisticsTabButton:hover
