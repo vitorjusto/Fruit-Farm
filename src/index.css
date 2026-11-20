@@ -22,13 +22,24 @@
   --bg-blueContainer: lightblue;
 
   --Store-Button-Color-Summer: #28F000;
-  --Store-Button-Color-Fall: #ff6619;
+  --Store-Button-Color-Fall: #ff9933;
   --Store-Button-Color-Winter: #00FFFF;
   --Store-Button-Color-Spring: #FF6680;
 
   --Store-Button-Color-Day: DeepSkyBlue;
   --Store-Button-Color-Afternoon: Orange;
   --Store-Button-Color-Night: #2e2ee6;
+
+  
+  --Store-Button-Color-Summer-Hover: #78f060;
+  --Store-Button-Color-Fall-Hover: #ffb366;
+  --Store-Button-Color-Winter-Hover: #88ffff;
+  --Store-Button-Color-Spring-Hover: #ff99aa;
+
+  --Store-Button-Color-Day-Hover: #66d9ff;
+  --Store-Button-Color-Afternoon-Hover: #ffb833;
+  --Store-Button-Color-Night-Hover: #5c5ce6;
+
   user-select: none;
   font-family: "Caveat Brush", Times, serif;
 }

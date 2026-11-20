@@ -6,3 +6,142 @@
     position: relative;
 	scale: 2;
 }
+
+.StoreFruitButton
+{
+
+}
+
+
+.StoreFruitButton
+{
+	width: 110px;
+	height: 110px;
+	margin: 10px auto;
+	border-radius: 15px;
+	padding: 20px;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	user-select: false;
+}
+
+
+.StoreRegularFruitButtonColor
+{
+	background: var(--Store-Button-Color);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreRegularFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(50, 50, 50, 0.3);
+}
+
+.StoreSummerFruitButtonColor
+{
+	background: var(--Store-Button-Color-Summer);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreSummerFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Summer-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(40, 240, 0, 0.3);
+}
+
+.StoreFallFruitButtonColor
+{
+	background: var(--Store-Button-Color-Fall);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreFallFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Fall-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(255, 204, 153, 0.3);
+}
+
+.StoreWinterFruitButtonColor
+{
+	background: var(--Store-Button-Color-Winter);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreWinterFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Winter-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(82, 204, 204, 0.3);
+}
+
+.StoreSpringFruitButtonColor
+{
+	background: var(--Store-Button-Color-Spring);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreSpringFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Spring-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(255, 204, 213, 0.3);
+}
+
+.StoreDayFruitButtonColor
+{
+	background: var(--Store-Button-Color-Day);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreDayFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Day-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(153, 230, 255, 0.3);
+}
+.StoreAfternoonFruitButtonColor
+{
+	background: var(--Store-Button-Color-Afternoon);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreAfternoonFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Afternoon-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(255, 219, 153, 0.3);
+}
+.StoreNightFruitButtonColor
+{
+	background: var(--Store-Button-Color-Night);
+	
+    transition: 0.3s;
+	box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+.StoreNightFruitButtonColor:hover
+{
+	background: var(--Store-Button-Color-Night-Hover);
+	cursor: pointer;
+	box-shadow: 5px 5px 10px 0px rgba(138, 138, 230, 0.3);
+}
