@@ -55,7 +55,7 @@
 {
 	background: var(--Store-Button-Color-Summer-Hover);
 	cursor: pointer;
-	box-shadow: 5px 5px 10px 0px rgba(40, 240, 0, 0.3);
+	box-shadow: 0px 0px 15px 0px rgba(40, 240, 0, 1);
 }
 
 .StoreFallFruitButtonColor
@@ -70,7 +70,7 @@
 {
 	background: var(--Store-Button-Color-Fall-Hover);
 	cursor: pointer;
-	box-shadow: 5px 5px 10px 0px rgba(255, 204, 153, 0.3);
+	box-shadow: 0px 0px 15px 0px rgba(255, 204, 153, 1);
 }
 
 .StoreWinterFruitButtonColor
@@ -85,7 +85,7 @@
 {
 	background: var(--Store-Button-Color-Winter-Hover);
 	cursor: pointer;
-	box-shadow: 5px 5px 10px 0px rgba(82, 204, 204, 0.3);
+	box-shadow: 0px 0px 15px 0px rgba(82, 204, 204, 1);
 }
 
 .StoreSpringFruitButtonColor
@@ -100,7 +100,7 @@
 {
 	background: var(--Store-Button-Color-Spring-Hover);
 	cursor: pointer;
-	box-shadow: 5px 5px 10px 0px rgba(255, 204, 213, 0.3);
+	box-shadow: 0px 0px 15px 0px rgba(255, 204, 213, 1);
 }
 
 .StoreDayFruitButtonColor
@@ -115,7 +115,7 @@
 {
 	background: var(--Store-Button-Color-Day-Hover);
 	cursor: pointer;
-	box-shadow: 5px 5px 10px 0px rgba(153, 230, 255, 0.3);
+	box-shadow: 0px 0px 15px 0px rgba(153, 230, 255, 1);
 }
 .StoreAfternoonFruitButtonColor
 {
@@ -129,7 +129,7 @@
 {
 	background: var(--Store-Button-Color-Afternoon-Hover);
 	cursor: pointer;
-	box-shadow: 5px 5px 10px 0px rgba(255, 219, 153, 0.3);
+	box-shadow: 0px 0px 15px 0px rgba(255, 219, 153, 1);
 }
 .StoreNightFruitButtonColor
 {
@@ -143,5 +143,5 @@
 {
 	background: var(--Store-Button-Color-Night-Hover);
 	cursor: pointer;
-	box-shadow: 5px 5px 10px 0px rgba(138, 138, 230, 0.3);
+	box-shadow: 0px 0px 15px 0px rgba(138, 138, 230, 1);
 }

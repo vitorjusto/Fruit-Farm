@@ -46,7 +46,7 @@
 {
 	display: grid;
 	grid-template-columns: 75% 25%;
-	height: 90%;
+	height: 85vh;
 }
 
 .ItemButton

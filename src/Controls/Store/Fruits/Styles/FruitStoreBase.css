@@ -9,6 +9,7 @@
 .FruitStoreButtonsContainer
 {
 	overflow-y: auto;
+	padding-bottom: 30px;
 }
 
 .SeasonalFruitDivider

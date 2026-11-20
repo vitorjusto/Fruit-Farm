@@ -186,63 +186,63 @@ export function GetSeasonalFruit(id, context, canvas)
 	switch (id) 
 	{
 		case 26:
-			return new FruitSpawner(context, canvas, 'Onion', 0, "s", 5, 10, 6, 26, EPeriod.None, ESeason.Summer)
+			return new FruitSpawner(context, canvas, 'Onion', 0, "Can make you cry", 5, 10, 6, 26, EPeriod.None, ESeason.Summer)
 		case 27:
-			return new FruitSpawner(context, canvas, 'Tomato', 0, "s", 10, 20, 7, 27, EPeriod.None, ESeason.Summer)
+			return new FruitSpawner(context, canvas, 'Tomato', 0, "Yes, this is a fruit", 10, 20, 7, 27, EPeriod.None, ESeason.Summer)
 		case 28:
-			return new FruitSpawner(context, canvas, 'Corn', 0, "s", 35, 25, 10, 28, EPeriod.None, ESeason.Summer)
+			return new FruitSpawner(context, canvas, 'Corn', 0, "You can make a lot of food with this", 35, 25, 10, 28, EPeriod.None, ESeason.Summer)
 		case 29:
-			return new FruitSpawner(context, canvas, 'Garlic', 0, "s", 3,1, 2, 29, EPeriod.None, ESeason.Summer)
+			return new FruitSpawner(context, canvas, 'Garlic', 0, "Drakula's worst enemy", 3,1, 2, 29, EPeriod.None, ESeason.Summer)
 		case 30:
-			return new FruitSpawner(context, canvas, 'Chilli Peper', 0, "s", 3,1, 2, 30, EPeriod.None, ESeason.Summer)
+			return new FruitSpawner(context, canvas, 'Chilli Pepper', 0, "The spiciest fruit", 3,1, 2, 30, EPeriod.None, ESeason.Summer)
 		case 31:
-			return new FruitSpawner(context, canvas, 'Carrot', 0, "s", 3,1, 2, 31, EPeriod.None, ESeason.Fall)
+			return new FruitSpawner(context, canvas, 'Carrot', 0, "Popular for bunnies, according to the media", 3,1, 2, 31, EPeriod.None, ESeason.Fall)
 		case 32:
-			return new FruitSpawner(context, canvas, 'Eggplant', 0, "s", 3,1, 2, 32, EPeriod.None, ESeason.Fall)
+			return new FruitSpawner(context, canvas, 'Eggplant', 0, "Despite its name, it is not egg-shaped.", 3,1, 2, 32, EPeriod.None, ESeason.Fall)
 		case 33:
-			return new FruitSpawner(context, canvas, 'Sweet Potato', 0, "s", 3,1, 2, 33, EPeriod.None, ESeason.Fall)
+			return new FruitSpawner(context, canvas, 'Sweet Potato', 0, "The worst potato", 3,1, 2, 33, EPeriod.None, ESeason.Fall)
 		case 34:
-			return new FruitSpawner(context, canvas, 'Avocado', 0, "s", 3,1, 2, 34, EPeriod.None, ESeason.Fall)
+			return new FruitSpawner(context, canvas, 'Avocado', 0, "Avocado, a cod ova", 3,1, 2, 34, EPeriod.None, ESeason.Fall)
 		case 35:
-			return new FruitSpawner(context, canvas, "Jack o' Lantern", 0, "s", 3,1, 2, 35, EPeriod.Night, ESeason.Fall)
+			return new FruitSpawner(context, canvas, "Jack o' Lantern", 0, "Spawn more in autumn nights, just to set the scary ambience", 3,1, 2, 35, EPeriod.Night, ESeason.Fall)
 		case 36:
-			return new FruitSpawner(context, canvas, 'Papaya', 0, "s", 3,1, 2, 36, EPeriod.None, ESeason.Winter)
+			return new FruitSpawner(context, canvas, 'Papaya', 0, "Papaya here (this joke works better in portuguese)", 3,1, 2, 36, EPeriod.None, ESeason.Winter)
 		case 37:
-			return new FruitSpawner(context, canvas, 'Kiwi', 0, "s", 3,1, 2, 37, EPeriod.None, ESeason.Winter)
+			return new FruitSpawner(context, canvas, 'Kiwi', 0, "No, not the bird", 3,1, 2, 37, EPeriod.None, ESeason.Winter)
 		case 38:
-			return new FruitSpawner(context, canvas, 'Ice Fruit', 0, "s", 3,1, 2, 38, EPeriod.None, ESeason.Winter)
+			return new FruitSpawner(context, canvas, 'Ice Fruit', 0, "popular in sodas", 3,1, 2, 38, EPeriod.None, ESeason.Winter)
 		case 39:
-			return new FruitSpawner(context, canvas, 'Persimmon', 0, "s", 3,1, 2, 39, EPeriod.None, ESeason.Winter)
+			return new FruitSpawner(context, canvas, 'Persimmon', 0, "[Insert description here]", 3,1, 2, 39, EPeriod.None, ESeason.Winter)
 		case 40:
-			return new FruitSpawner(context, canvas, 'Cloud Berry', 0, "s", 3,1, 2, 40, EPeriod.None, ESeason.Winter)
+			return new FruitSpawner(context, canvas, 'Cloud Berry', 0, "Do you expected an cloud shaped fruit?", 3,1, 2, 40, EPeriod.None, ESeason.Winter)
 		case 41:
-			return new FruitSpawner(context, canvas, 'Turnip', 0, "s", 3,1, 2, 41, EPeriod.None, ESeason.Spring)
+			return new FruitSpawner(context, canvas, 'Turnip', 0, "The stalk market is low, buy now!", 3,1, 2, 41, EPeriod.None, ESeason.Spring)
 		case 42:
-			return new FruitSpawner(context, canvas, 'Potato', 0, "s", 3,1, 2, 42, EPeriod.None, ESeason.Spring)
+			return new FruitSpawner(context, canvas, 'Potato', 0, "This in fried form is the best", 3,1, 2, 42, EPeriod.None, ESeason.Spring)
 		case 43:
-			return new FruitSpawner(context, canvas, 'Cucumber', 0, "s", 3,1, 2, 43, EPeriod.None, ESeason.Spring)
+			return new FruitSpawner(context, canvas, 'Cucumber', 0, "Keep theses away from cats", 3,1, 2, 43, EPeriod.None, ESeason.Spring)
 		case 44:
-			return new FruitSpawner(context, canvas, 'Cabbage', 0, "s", 3,1, 2, 44, EPeriod.None, ESeason.Spring)
+			return new FruitSpawner(context, canvas, 'Cabbage', 0, "Cabbage? more like garbage", 3,1, 2, 44, EPeriod.None, ESeason.Spring)
 		case 45:
-			return new FruitSpawner(context, canvas, 'Grape Juice', 0, "s", 3,1, 2, 45, EPeriod.None, ESeason.Spring)
+			return new FruitSpawner(context, canvas, 'Grape Juice', 0, "Better and more fresh than regular grape", 3,1, 2, 45, EPeriod.None, ESeason.Spring)
 		case 46:
-			return new FruitSpawner(context, canvas, 'Dragon Fruit', 0, "s", 3,1, 2, 46, EPeriod.Day, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Dragon Fruit', 0, "Coolest name for a fruit", 3,1, 2, 46, EPeriod.Day, ESeason.None)
 		case 47:
-			return new FruitSpawner(context, canvas, 'Popcorn', 0, "s", 3,1, 2, 47, EPeriod.Day, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Popcorn', 0, "Its corn, but stayed in the sun for a long time", 3,1, 2, 47, EPeriod.Day, ESeason.None)
 		case 48:
-			return new FruitSpawner(context, canvas, 'Sun Fruit', 0, "s", 3,1, 2, 48, EPeriod.Day, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Sun Fruit', 0, "From the same creators of star fruit", 3,1, 2, 48, EPeriod.Day, ESeason.None)
 		case 49:
-			return new FruitSpawner(context, canvas, 'Marian Mango', 0, "W", 3,1, 2, 49, EPeriod.Afternoon, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Marian Mango', 0, "Fun Fact: even the leaf of this fruit is edible", 3,1, 2, 49, EPeriod.Afternoon, ESeason.None)
 		case 50:
-			return new FruitSpawner(context, canvas, 'Blackberry', 0, "W", 3,1, 2, 50, EPeriod.Afternoon, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Blackberry', 0, "If there are blackberries, then there are whiteberries somewhere.", 3,1, 2, 50, EPeriod.Afternoon, ESeason.None)
 		case 51:
-			return new FruitSpawner(context, canvas, 'Strawberry Popsicle', 0, "W", 3,1, 2, 51, EPeriod.Afternoon, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Strawberry Popsicle', 0, "Helps to cool you down", 3,1, 2, 51, EPeriod.Afternoon, ESeason.None)
 		case 52:
-			return new FruitSpawner(context, canvas, 'Guarana', 0, "W", 3,1, 2, 52, EPeriod.Night, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Guarana', 0, "This fruit is so cursed, its have eyes!", 3,1, 2, 52, EPeriod.Night, ESeason.None)
 		case 53:
-			return new FruitSpawner(context, canvas, 'Cocoa', 0, "W", 3,1, 2, 53, EPeriod.Night, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Cocoa', 0, "This is where chocolates come from", 3,1, 2, 53, EPeriod.Night, ESeason.None)
 		case 54:
-			return new FruitSpawner(context, canvas, 'Moon Fruit', 0, "W", 3,1, 2, 54, EPeriod.Night, ESeason.None)
+			return new FruitSpawner(context, canvas, 'Moon Fruit', 0, "Theses exists when Sun Fruit is not around... Sometimes", 3,1, 2, 54, EPeriod.Night, ESeason.None)
 	}
 
 }
